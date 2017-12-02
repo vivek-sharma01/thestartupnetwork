@@ -4,6 +4,8 @@ chardet==3.0.4
 decorator==4.1.2
 Django==1.11.7
 django-extensions==1.9.7
+django-redis==4.8.0
+djangorestframework==3.7.3
 future==0.16.0
 idna==2.6
 ipdb==0.10.3
@@ -20,6 +22,7 @@ pyexcel-io==0.2.1
 pyexcel-xls==0.2.1
 Pygments==2.2.0
 pytz==2017.3
+redis==2.10.6
 requests==2.18.4
 rets==0.4.2
 simplegeneric==0.8.1
