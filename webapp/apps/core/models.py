@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+class Subscribe(models.Model):
+    """
+    saves email for subscription
+    """
+    email = models.CharField(max_length=254, unique=True)
+
+

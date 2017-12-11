@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.Index.as_view(), name='home-page'),
+    url(r'^subscribe/$', views.Subscribe.as_view(), name='subscribe'),
 
 ]

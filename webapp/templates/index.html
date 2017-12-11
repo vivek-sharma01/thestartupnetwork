@@ -7,10 +7,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
 	<head>
+
         {% load custom_filters %}
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>The Startup Network</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{% custom_static 'assets/js/subscribe.js' %}"></script>
 		<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/style.css' %}">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Mr+Dafoe' rel='stylesheet' type='text/css'>
@@ -24,10 +27,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<p>Be ready, we are launching soon &#33;</p>
 				<div class="form">
-					<form id="contact-form" action="#" method="post">
-						<input placeholder="Please enter your email address" type="email" tabindex="2" required>
-						<input type="submit" name="submit" id="contact-submit" value="Subscribe">
+					<form id="subscribe-form">
+						<input placeholder="Please enter your email address" id="email" type="email" tabindex="2" required>
+						<input type="submit" name="submit" id="contact-submit">
+
 					</form>
+                    <p class="text-success" id="subscribe-success"></p>
+                    <p class="text-danger" id="subscribe-error"></p>
 
 				</div>
 				<div class="footer">

@@ -3,6 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+from . import models
+
 
 class Index(APIView):
     """"""
@@ -14,11 +16,15 @@ class Index(APIView):
         return render(request, template_name=self.template_name, context=context)
 
 
-class Contact(APIView):
+class Subscribe(APIView):
     """"""
     template_name = 'contact.html'
 
-    def get(self, request):
+    def post(self, request):
         """"""
-        context = {}
-        return render(request, template_name=self.template_name, context=context)
+        email = request.data.get('email')
+        try:
+            models.Subscribe.objects.create(**{'email': email})
+            return Response({'message': 'success'}, status=status.HTTP_200_OK)
+        except:
+            return Response({'message': 'error'}, status=status.HTTP_400_BAD_REQUEST)
