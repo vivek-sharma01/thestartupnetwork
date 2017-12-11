@@ -10,4 +10,4 @@ def custom_static(path):
     """
     helps to map js files to static js domain
     """
-    return settings.STATIC_FILES_DOMAIN + path
+    return settings.STATIC_URL + path

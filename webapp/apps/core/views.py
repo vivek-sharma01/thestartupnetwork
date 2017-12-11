@@ -12,3 +12,13 @@ class Index(APIView):
         """"""
         context = {}
         return render(request, template_name=self.template_name, context=context)
+
+
+class Contact(APIView):
+    """"""
+    template_name = 'contact.html'
+
+    def get(self, request):
+        """"""
+        context = {}
+        return render(request, template_name=self.template_name, context=context)
