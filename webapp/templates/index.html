@@ -1,52 +1,87 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html>
-	<head>
+<!DOCTYPE html>
+<html lang="en">
 
-        {% load custom_filters %}
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>The Startup Network</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="{% custom_static 'assets/js/subscribe.js' %}"></script>
-		<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/style.css' %}">
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Mr+Dafoe' rel='stylesheet' type='text/css'>
-	</head>
-	<body>
+<head>
+  {% load custom_filters %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free coming soon template with jQuery countdown">
 
-		<div class="wrap">
-			<div class="content">
-				<div class="logo">
-					<a href="#"><h1>The Startup Network</h1></a>
-				</div>
-				<p>Be ready, we are launching soon &#33;</p>
-				<div class="form">
-					<form id="subscribe-form">
-						<input placeholder="Please enter your email address" id="email" type="email" tabindex="2" required>
-						<input type="submit" name="submit" id="contact-submit">
+  <title>The Startup Network </title>
 
-					</form>
-                    <p class="text-success" id="subscribe-success"></p>
-                    <p class="text-danger" id="subscribe-error"></p>
+  <!-- Bootstrap -->
+  <link href="{% custom_static 'assets/css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% custom_static 'assets/css/bootstrap-theme.css' %}" rel="stylesheet">
+  <link href="{% custom_static 'assets/css/font-awesome.css' %}" rel="stylesheet">
 
-				</div>
-				<div class="footer">
-				<!--<div class="social-icons">-->
-					   <!--<a href="#"><span class="simptip-position-bottom simptip-movable" data-tooltip="Facebook"><img src="{% custom_static 'assets/img/f.png' %}"></span></a>-->
-				       <!--<a href="#"> <span class="simptip-position-bottom simptip-movable" data-tooltip="Rss"><img src="{% custom_static 'assets/img/r.png' %}"></span></a>-->
-				       <!--<a href="#">  <span class="simptip-position-bottom simptip-movable" data-tooltip="Twitter"><img src="{% custom_static 'assets/img/t1.png' %}"></span></a>-->
-					<!--<div class="clear"> </div>-->
-				<!--</div>-->
-				<p class="copy">&#169; 2013 Designed by<a href="http://w3layouts.com" target="_blank">&nbsp;w3layouts</a> </p>
-				</div>
-			</div>
-		</div>
-	</body>
+  <!-- siimple style -->
+  <link href="{% custom_static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: WeBuild
+    Theme URL: https://bootstrapmade.com/free-bootstrap-coming-soon-template-countdwon/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>The Startup Network</h1>
+          <h2 class="subtitle">We're working hard to improve our website and we'll ready to launch after</h2>
+          <div id="countdown"></div>
+          <form class="form-inline signup" id="subscribe-form" role="form">
+            <div class="form-group">
+              <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+            </div>
+            <button type="submit" class="btn btn-theme">Get notified!</button>
+            <h2 class="subtitle" id="subscribe-success"></h2>
+            <h2 class="subtitle" id="subscribe-error"></h2>
+          </form>
+
+          <div class="social">
+            <!--<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
+            <!--<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+            <!--<a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>-->
+            <!--<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>-->
+          </div>
+          <div class="social"></div>
+          <div class="social"></div>
+          <div class="social"></div>
+          <div class="social"></div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <p class="copyright">&copy; WeBuild - All Rights Reserved</p>
+          <div class="credits">
+            <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=WeBuild
+            -->
+            <a href="https://bootstrapmade.com/">Free Bootstrap Themes</a> by BootstrapMade
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="{% custom_static 'assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% custom_static 'assets/js/jquery.countdown.min.js' %}"></script>
+
+
+  <script src="{% custom_static 'assets/js/subscribe.js' %}" ></script>
+
+</body>
+
 </html>
-
