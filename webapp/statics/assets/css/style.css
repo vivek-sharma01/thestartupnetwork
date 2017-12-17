@@ -146,6 +146,11 @@ form.signup input.form-control:focus {
 	letter-spacing: -1px;
 }
 
+#wrapper p {
+	color: #fff;
+
+}
+
 h2.subtitle {
 	color: #fff;
 	font-size: 24px;
