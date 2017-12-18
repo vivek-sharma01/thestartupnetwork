@@ -7,4 +7,5 @@ class Subscribe(models.Model):
     """
     email = models.CharField(max_length=254, unique=True)
 
-
+    def __str__(self):
+        return self.email
