@@ -82,7 +82,11 @@
 
 
   <script src="{% custom_static 'assets/js/subscribe.js' %}" ></script>
-
+  <script type="text/javascript">
+    $('#countdown').countdown('2018/01/28', function(event) {
+      $(this).html(event.strftime('%w weeks %d days <br /> %H:%M:%S'));
+    });
+  </script>
 </body>
 
 </html>
