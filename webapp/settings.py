@@ -42,11 +42,14 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
      'webapp.apps.core',
+     'webapp.apps.coworks'
+
 ]
 
 THIRD_PARTY_APPS = [
     'django_redis',
     'rest_framework',
+    'django_extensions'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
