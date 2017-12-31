@@ -6,7 +6,6 @@ from . import managers
 from webapp.apps import gen_hash, expires
 
 
-
 class ModelBase(models.Model):
     """
         This is a abstract model class to add is_deleted, created_at and modified at fields in any model
@@ -40,10 +39,11 @@ class Cowork(ModelBase):
     slug = models.SlugField(max_length=300, unique=True)
     description = models.TextField(null=True, blank=True)
     address = models.TextField(null=True, blank=True)
-    amenity = models.ManyToManyField('coworks.amenity', blank=True)
-    neighbour_amenity = models.ManyToManyField('coworks.neighbouramenity', blank=True)
-    contact_person = models.ManyToManyField('coworks.contactperson', blank=True)
-    location = models.ForeignKey('coworks.location', null=True, blank=True)
+    amenity = models.ManyToManyField('coworks.amenity', related_name='cowork_amenities', blank=True)
+    neighbour_amenity = models.ManyToManyField('coworks.neighbouramenity', related_name='cowork_neighbouramenities',
+                                               blank=True)
+    contact_person = models.ManyToManyField('coworks.contactperson', related_name='cowork_contactperson', blank=True)
+    location = models.ForeignKey('coworks.location', related_name='location_coworks', null=True, blank=True)
     objects = managers.CoworkManager()
 
     def __str__(self):
@@ -52,6 +52,21 @@ class Cowork(ModelBase):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Cowork, self).save(*args, **kwargs)
+
+    def get_pricing(self):
+        """get pricing related to membership"""
+        memberships = Pricing.objects.filter(cowork_id=self.id).values('membership__name', 'membership__description',
+                                                                       'price')
+        response = []
+        for membership in memberships:
+            obj = {
+                'name': membership['membership__name'],
+                'description': membership['membership__description'],
+                'price': membership['price']
+
+            }
+            response.append(obj)
+        return response
 
 
 class MembershipBenefits(models.Model):
@@ -70,7 +85,7 @@ class Pricing(models.Model):
     price = models.FloatField(null=True, blank=True)
 
     def __str__(self):
-        return self.cowork.name + ": " + self.membership.name + ": " + self.price
+        return self.cowork.name + ": " + self.membership.name + ": " + str(self.price)
 
 
 class Amenity(models.Model):

@@ -52,10 +52,7 @@ def add_amenity(co_amenities_container):
         for amenity in amenity_name_container:
             amenity_name = amenity.text.strip()
             obj, created = Amenity.objects.get_or_create(name=amenity_name, defaults={'name': amenity_name})
-            if created:
-                amenity_obj_list.append(obj)
-            else:
-                continue
+            amenity_obj_list.append(obj)
     return amenity_obj_list
 
 
@@ -73,10 +70,7 @@ def add_neighbour_amenity(neighbourhood_ameneities_container):
             'description': description.text
         }
         obj, created = NeighbourAmenity.objects.get_or_create(name=amenity.text, defaults=data)
-        if created:
-            amenity_obj_list.append(obj)
-        else:
-            continue
+        amenity_obj_list.append(obj)
     return amenity_obj_list
 
 
@@ -85,7 +79,7 @@ def add_contact_person(contact_person_container):
     from webapp.apps.coworks.models import ContactPerson
     name = contact_person_container.find('h6').text
     try:
-        phone = "".join(contact_person_container.findAll('p')[1].text.split(":")[1].strip().split(" "))[1:],
+        phone = "".join(contact_person_container.findAll('p')[1].text.split(":")[1].strip().split(" "))[1:][0],
     except:
         phone = "".join(contact_person_container.findAll('p')[1].text.strip().split(" "))[1:]
     print('phone', phone)
