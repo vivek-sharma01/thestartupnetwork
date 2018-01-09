@@ -19,6 +19,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^coworks/', include('webapp.apps.coworks.urls')),
-    url(r'^', include('webapp.apps.core.urls'))
+    url(r'^', include('webapp.apps.coworks.urls')),
+    url(r'^coming-soon/', include('webapp.apps.core.urls'))
 ]

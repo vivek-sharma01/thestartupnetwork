@@ -18,3 +18,14 @@ class CityCoworks(APIView):
         serializer = serializers.CoworksListSerializer(coworks, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
+class CoworkIndex(APIView):
+    """"""
+    template_name = 'cowork.html'
+
+    def get(self, request):
+        """"""
+        context = {}
+        return render(request, template_name=self.template_name, context=context)
+
+

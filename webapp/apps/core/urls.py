@@ -18,7 +18,8 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.Index.as_view(), name='home-page'),
+    url(r'^enterpreneur$', views.EnterpreneurIndex.as_view(), name='enterpreneur'),
+    url(r'^startup$', views.StartUpIndex.as_view(), name='startup'),
     url(r'^subscribe/$', views.Subscribe.as_view(), name='subscribe'),
 
 ]

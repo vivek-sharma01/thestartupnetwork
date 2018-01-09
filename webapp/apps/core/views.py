@@ -6,13 +6,27 @@ from rest_framework import status
 from . import models
 
 
-class Index(APIView):
+class EnterpreneurIndex(APIView):
     """"""
     template_name = 'index.html'
 
     def get(self, request):
         """"""
-        context = {}
+        context = {
+            'title': 'Enterpreneur'
+        }
+        return render(request, template_name=self.template_name, context=context)
+
+
+class StartUpIndex(APIView):
+    """"""
+    template_name = 'index.html'
+
+    def get(self, request):
+        """"""
+        context = {
+            'title': 'StartUp'
+        }
         return render(request, template_name=self.template_name, context=context)
 
 

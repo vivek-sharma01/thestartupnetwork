@@ -1,0 +1,560 @@
+.navbar-default{
+	background-color: #ffffff;
+}
+
+.navbar-default .navbar-nav .sign-up,.navbar-default .navbar-nav .log-in {
+    color: #00BCD4;
+}
+
+li.active > a:after {
+    content: '';
+    height: 2px;
+    background: #FAAD26; 
+    display:block;
+    margin-top: 2px;
+}
+
+.navbar-default .navbar-nav>.active>a:hover {
+    color: #555;
+    background-color: #e7e7e7;
+    font-weight: 700;
+}
+
+.form-control{
+	background-color: #F6F9FC;
+    border: 1px solid #D8D8D8;
+	color : #C2C2C2;
+}
+
+.glyphicon-user,.glyphicon-log-in{
+	padding-right : 10px;
+}
+
+.container{
+	padding : 20px 0px;
+}
+
+#hero {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background: url(../images/loadImage.jpeg) top center fixed;
+  background-size: cover;
+  margin-top : -20px;
+}
+
+#hero .hero-logo {
+  margin: 20px;
+}
+
+#hero .hero-logo img {
+  max-width: 100%;
+}
+
+#hero h1 {
+  margin: 0px 0 10px 0;
+  line-height:70px;
+  color: #fff;
+}
+
+#hero .hero-container {
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#hero .actions a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+}
+
+#hero .btn-get-started {
+  background: #03C4EB;
+  border: 2px solid #03C4EB;
+  color: #fff;
+}
+
+#hero .btn-get-started:hover {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  font-weight : 700;
+}
+
+#booking .btn-get-started:hover,.lower-card-body .btn-get-started:hover,#add-work .add-btn:hover{
+  background: none;
+  border: 2px solid #03C4EB;
+  color: #03C4EB;
+  font-weight : 700;
+}
+
+/* Sections Common
+--------------------------------*/
+.section-title {
+  font-size: 32px;
+  color: #253238;
+  text-align: center;
+  font-weight: 700;
+  margin-top : 60px;
+}
+
+.card-text{
+	padding: 0px;
+    margin-left: 18px;
+}
+
+.section-description {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title-divider {
+    width: 80px;
+    height: 4px;
+    background: #FAAD25;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.card-title-divider{
+  width: 55px;
+  height: 4px;
+  background: #FAAD25;
+  margin-top: 10px;
+  margin-bottom: 20px;
+	
+}
+
+.footer-title-divider{
+  width: 55px;
+  height: 1px;
+  background: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.card-title a{
+	color: #253238;
+	text-decoration : none;
+}
+
+.navbar-brand {
+	padding : 0px;
+}
+
+.navbar-brand > img {
+    width: 115px;
+    margin-top: -32px;
+}
+/* Services Section
+--------------------------------*/
+#services {
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+  background-size: cover;
+  padding: 20px 0 0px 0;
+}
+
+#services .service-item {
+  margin-bottom: 20px;
+}
+
+#services .service-icon {
+  float: left;
+  padding: 6px;
+  transition: 0.5s;
+}
+
+#services .service-icon img {
+  height : 40px;
+}
+
+#services .service-item:hover .service-icon {
+  background: #fff;
+}
+
+#services .service-item:hover .service-icon i {
+  color: #03C4EB;
+}
+
+#services .service-title {
+  margin-left: 80px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+#services .economicalTitle{
+  color: #00BCD4;
+}
+
+#services .communityTitle{
+  color: #2fb885;
+}
+
+#services .roomTitle{
+  color: #319ca0;
+}
+
+#services .workLocationTitle{
+  color: #ef9e99;
+}
+
+#services .overheadTitle{
+  color: #fbc15d;
+}
+
+#services .productivityTitle{
+  color: #ef6788;
+}
+#services .service-description {
+    margin-left: 80px;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #7B90BC;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.h-100 {
+    height: 100%!important;
+}
+
+.h-600 {
+    height: 610px!important;
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.lower-card-body .actions a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.lower-card-body .btn-get-started {
+  background: #03C4EB;
+  border: 2px solid #03C4EB;
+  color: #fff;
+}
+
+.card-body p{
+	font-size: 16px;
+    color: #4A4A4A;
+	line-height: 22px;
+}
+
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}
+
+.container .cardContent {
+    position: absolute;
+    bottom: 0;
+    background: #4A98C6; /* Black background with transparency */
+	opacity : 0.7;
+    color: #ffffff;
+    width: 100%;
+    padding: 0px 15px;
+    height: 37%;
+}
+
+.container .cardContent img {
+	 padding-right: 6px;
+}
+
+
+.space-container{
+	margin-bottom : 30px;
+}
+
+/* Subscribe Section
+--------------------------------*/
+#subscribe {
+  background: linear-gradient(rgba(102, 194, 255, 0.8), rgba(102, 194, 255, 0.8)), url(../images/subscribe.jpg) fixed center center;
+  background-size: cover;
+  padding: 80px 0;
+  margin-top: 0px;
+  text-align : center;
+}
+
+#subscribe img{
+	height: auto;
+    width: 221px;
+    margin: -75px;
+}
+
+#subscribe .subscribe-title {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+#subscribe .subscribe-text {
+  color: #fff;
+  font-size: 18px;
+}
+
+#subscribe a{
+	text-decoration-color : #fff;
+}
+
+#subscribe .subscribe-link{
+  color: #fff;
+  font-weight: 700;
+  
+}
+
+#subscribe .subscribe-btn-container {
+  text-align: center;
+  padding-top: 20px;
+}
+
+#footerContainer ul li:first-child{
+	margin-top : 30px;
+}
+
+#footerContainer ul li:last-child{
+	margin-bottom : 30px;
+}
+
+.lower-card-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lower-card-body li {
+  padding-left: 1em; 
+  text-indent: -.7em;
+}
+
+.lower-card-body li::before {
+  content: "• ";
+  color: #03C4EB; /* or whatever color you prefer */
+}
+
+.explore-link{
+	text-align : center;
+	color : #03C4EB;
+}
+
+#booking {
+	background : #F6F9FC;
+}
+
+#booking .booking-text{
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+	margin-top : 40px;
+}	
+
+#booking .booking-container{
+	margin-top : 40px;
+}
+
+#booking .booking-container img {
+	display : block;
+	margin : auto;
+	height : 70px;
+}
+
+#booking .booking-description{
+	text-align : center;
+	font-size : 24px;
+}
+
+#booking #browse-booking{
+	font-size : 24px medium;
+	color : #00BCD4;
+}
+
+#booking .actions a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin-top: 16px;
+}
+
+#booking .btn-get-started {
+  background: #03C4EB;
+  border: 2px solid #03C4EB;
+  color: #fff;
+}
+
+#booking .actions {
+	display: table;
+    margin: 0px auto;
+}	
+
+.lower-card-body{
+	background: #F6F9FC;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.bookNowContainer{
+	margin : 40px;
+}
+
+#add-work{
+  background: #F6F9FC;
+  margin-top : 20px;
+  padding: 4px;
+}
+
+#add-work .add-btn-container {
+  text-align: center;
+}
+
+#add-work .add-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+  background: #03C4EB;
+  border: 2px solid #03C4EB;
+  color: #fff;
+}
+
+#footer {
+  background: #253238;
+  padding: 30px 0;
+  color: #fff;
+  border-bottom: 1px solid #9B9B9B;
+}
+
+#footer .copyright {
+  text-align: center;
+}
+
+#footer .credits {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #ccc;
+}
+
+#footerContainer img{
+	height: auto;
+    width: 221px;
+    margin: -75px;
+}
+
+#footer ul li{
+	list-style: none;
+	margin-top : 10px;
+}
+
+#footer ul li a{
+	color: #fff;
+}
+
+.facebook img,.googleplus img,.twitter img,li.linkedin img{
+	height: auto;
+    width: 30px;
+}
+
+.footer-logo img{
+	height: auto;
+    width: 221px;
+    margin: -75px;
+}
+
+.footer-logo{
+	text-align : center;
+}
+
+#social_media {
+    display:inline-block;
+}
+.social-media ul {
+    display: block;
+}
+
+.social-media ul li.facebook,li.linkedin{
+    width: 30px;
+	float : left;
+	margin: 0px 8px;
+}
+
+ .site-search {
+    position: relative;
+    width: 295px;
+}
+
+.site-search input[type="search"] {
+    height: 34px;
+    padding: 10px 20px 10px 20px;
+    font-size: 14px;
+    background-color: #F6F9FC;
+    color: #C2C2C2;
+    border: 1px solid #D8D8D8;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.site-search button {
+    position: absolute;
+    top: 1px;
+    right: 0px;
+    border: 0;
+    background-color: transparent;
+    font-size: 1.7em;
+    padding: 0 15px;
+    color: black;
+    transition: all .28s cubic-bezier(.4,0,.2,1);
+}
+
+.site-search i {
+    color: #C2C2C2;
+    position: absolute;
+    z-index: 2;
+    left: -4px;
+    font-size: 16px;
+    width: 20px;
+    padding: 9px 0px;
+}
