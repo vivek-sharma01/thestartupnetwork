@@ -41,16 +41,12 @@
             <li><a class="log-in" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
 
-          <form class="navbar-form navbar-right" action="/action_page.php">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search by name,place,type" name="search">
-                <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit">
-                    <i class="glyphicon glyphicon-search"></i>
-                  </button>
-                </div>
-              </div>
-          </form>
+          <div class="navbar-form navbar-right" role="search">
+		<form class="site-search" role="search" method="get" action="">
+			<input type="search" name="search" placeholder="Search by name, place, type" value="">
+			<button type="submit" value="Search"><i class="glyphicon glyphicon-search"></i></button>
+		</form>
+	</div>
         </div>
       </div>
     </nav>
@@ -112,4 +108,22 @@
       </div>
 	</div>
   </section>
+<section id="footer">
+	 <div class="container-fluid wow fadeInUp">
+		<div class="row">
+		<div class="container-fluid">
+		  <div class="row">
+			<div class="col-md-12">
+			  <div class="copyright">
+				&copy; Copyright 2017 The Startup Network Pvt.Ltd.All Rights Reserved.
+			  </div>
+			  <div class="credits">
+				Privacy Policy | Terms & Conditions
+			  </div>
+			</div>
+		  </div>
+		</div>
+      </div>
+	 </div>
+ </section>
 </body>

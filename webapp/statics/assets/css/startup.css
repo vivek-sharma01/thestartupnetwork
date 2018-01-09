@@ -389,12 +389,12 @@ li.active > a:after {
 #booking .booking-container img {
 	display : block;
 	margin : auto;
-	height : 70px;
+	height : 60px;
 }
 
 #booking .booking-description{
 	text-align : center;
-	font-size : 24px;
+	font-size : 20px;
 }
 
 #booking #browse-booking{
@@ -557,4 +557,8 @@ li.active > a:after {
     font-size: 16px;
     width: 20px;
     padding: 9px 0px;
+}
+
+h3 {
+    font-size: 20px;
 }
