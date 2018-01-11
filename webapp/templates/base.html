@@ -9,10 +9,13 @@
   <link rel="stylesheet" href="{% custom_static 'assets/css/bootstrap.min.css' %}">
   <link href="{% custom_static 'assets/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
   <link href="{% custom_static 'assets/lib/animate-css/animate.min.css' %}" rel="stylesheet">
-  <link rel="stylesheet" href="{% custom_static 'assets/css/startup.css' %}">
+
   <script src="{% custom_static 'assets/js/jquery-1.10.2.min.js' %}"></script>
   <script src="{% custom_static 'assets/js/bootstrap.min.js' %}"></script>
   <script src="https://www.w3schools.com/lib/w3.js"></script>
+	{% block custom_css %}
+
+	{% endblock %}
 </head>
 
 <body>
@@ -72,7 +75,7 @@
 				<div class="footer-title-divider"></div>
 				<li><a href="#">About Us</a></li>
 				<li><a href="#">Coworks</a></li>
-				<li><a href="#">Contact Us</a></li>
+				<li><a href="/contact-us">Contact Us</a></li>
 			</ul>
 		</div>
 		<div class="col-lg-3 col-sm-6">
@@ -99,9 +102,9 @@
 					<li><h4>Connect with us</h4></li>
 					<div class="footer-title-divider"></div>
 					<!--<li class="googleplus"><a href="#"><img src="{% custom_static 'assets/images/Google Plus.png' %}"/></a></li>-->
-					<li class="facebook"><a href="#"><img src="{% custom_static 'assets/images/fb.png' %}"/></a></li>
+					<li class="facebook"><a target="_blank" href="https://www.facebook.com/thestartupnetwork.in/"><img src="{% custom_static 'assets/images/fb.png' %}"/></a></li>
 					<!--<li class="twitter"><a href="#"><img src="{% custom_static 'assets/images/Linkedin.png' %}"/></a></li>-->
-					<li class="linkedin"><a href="#"><img src="{% custom_static 'assets/images/Linkedin.png' %}"/></a></li>
+					<li class="linkedin"><a target="_blank" href="https://www.linkedin.com/company/13603161/"><img src="{% custom_static 'assets/images/Linkedin.png' %}"/></a></li>
 					<!--<li class="linkedin"><a href="#"><img src="{% custom_static 'assets/images/Linkedin.png' %}"/></a></li>-->
 				</ul>
 		</div>

@@ -1,0 +1,125 @@
+#hero {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background: url(../images/contactus.jpg) top center fixed;
+  background-size: cover;
+  margin-top : -20px;
+}
+
+#hero h1 {
+  font-weight : 600;
+  color: #fff;
+  font-family: "Helvetica Neue";
+  font-size:70px;
+}
+
+#hero h3 {
+  margin: 0px 0 50px 0;
+  line-height:70px;
+  color: #fff;
+  font-family: "Helvetica Neue";
+  font-size:40px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #hero h3 {
+		font-size:25px;
+	}	
+}
+
+#hero .hero-container {
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#contact-us {
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+  background-size: cover;
+  padding: 20px 0 0px 0;
+}
+
+.contact-title {
+  font-size: 34px;
+  color: #253238;
+  font-weight: 600;
+  margin-top : 20px;
+  font-family: "Helvetica Neue";
+}
+
+.contact-sub-title{
+  font-size: 16px;
+  color: #253238;
+  margin-top : 20px;
+  font-family: "Helvetica Neue";
+}
+
+#contact-us .btn-get-started {
+  background: #00BCD4;
+  border: 2px solid #00BCD4;
+  color: #fff;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin-bottom: 20px;
+}
+
+#contact-us .btn-get-started:hover {
+    background: none;
+  border: 2px solid #03C4EB;
+  color: #03C4EB;
+  font-weight : 700;
+}
+
+.connect-title{
+  font-size: 20px;
+  color: #253238;
+  font-weight: 600;
+  margin-top : 20px;
+  font-family: "Helvetica Neue";
+}
+
+.quick-form{
+	width : 80%;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+   .quick-form {
+		width : 100%;
+		padding: 0px 10px;
+	}
+
+	.division-bar{
+		border-bottom : 1px solid #D8D8D8;
+	}
+}
+
+.quick-form ul li{
+	list-style: none;
+}
+
+.quick-form ul li.facebook,li.linkedin{
+    width: 30px;
+	float : left;
+	margin: 0px 8px;
+}
+
+.quick-form {
+    display:inline-block;
+}
+
+.quick-form ul {
+    display: block;
+}
+
+.division-bar{
+	border-right : 1px solid #D8D8D8;
+}

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load custom_filters %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% custom_static 'assets/css/startup.css' %}">
+	<link rel="stylesheet" href="{% custom_static 'assets/css/contactus.css' %}">
+{% endblock %}
+
+  
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+ 
+
+{% block content %}  
+<section id="hero">
+    <div class="hero-container">
+      <div class="wow fadeIn">
+        <h1>Contact Us</h1>
+		<h3>We are here to help.Give us a shout</h3>
+      </div>
+    </div>
+</section>
+
+
+<section id="contact-us">
+	<div class="container wow fadeInUp">
+      <div class="row">
+			<div class="col-lg-6 col-sm-6 division-bar">
+				<div class="quick-form">
+					<h3 class="contact-title">Get in Touch</h3>
+					<h3 class="contact-sub-title">Please fill out the quick form and we will be in touch with you shortly</h3>
+					<form action="" method="post" role="form" class="contactForm">
+						<div class="form-group">
+							<input type="text" name="name" class="form-control" id="name" placeholder="Name" />
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control" name="email" id="email" placeholder="Email"/>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name="phone" id="phone" placeholder="Phone"/>
+						</div>
+						<div class="form-group">
+							<textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+						</div>
+						<div class="text-center"><button class="btn-get-started" type="submit">Submit</button></div>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-6 col-sm-6">
+				<div class="quick-form">
+					<ul>
+						<li><h3 class="connect-title">Connect with us</h3></li>
+						<li><h3 class="contact-sub-title">For support or any questions:<br> Email us at <a href="#">contact@thestartupnetwork.in</a></h3></li>
+					</ul>
+	
+					<ul>
+						<li><h3 class="connect-title">Call us:</h3></li>
+						<li><h3 class="contact-sub-title">+91-9611885628<br>+91-9611885628</h3></li>
+					</ul>
+					
+					<ul>
+						<li><h3 class="connect-title">Follow us</h3></li>
+						<li class="facebook"><a target="_blank" href="https://www.facebook.com/thestartupnetwork.in/"><img src="{% custom_static 'assets/images/fb.png' %}"/></a></li>
+						<li class="linkedin"><a  target="_blank" href=""><img src="{% custom_static 'assets/images/Linkedin.png' %}"/></a></li>
+					</ul>
+				</div>
+			</div>
+      </div>
+    </div>
+</section>
+{% endblock %}
+

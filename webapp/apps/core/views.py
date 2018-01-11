@@ -42,3 +42,15 @@ class Subscribe(APIView):
             return Response({'message': 'success'}, status=status.HTTP_200_OK)
         except:
             return Response({'message': 'error'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ContactUs(APIView):
+    """"""
+    template_name = 'contact-us.html'
+
+    def get(self, request):
+        """"""
+        context = {
+            'title': 'Contact Us'
+        }
+        return render(request, template_name=self.template_name, context=context)
