@@ -7,11 +7,9 @@
 	<link rel="stylesheet" href="{% custom_static 'assets/css/contactus.css' %}">
 {% endblock %}
 
-  
-  <script src="js/jquery-1.10.2.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="https://www.w3schools.com/lib/w3.js"></script>
- 
+{% block custom_js %}
+	<script src="{% custom_static 'assets/js/contact-us.js' %}"></script>
+{% endblock %}
 
 {% block content %}  
 <section id="hero">
@@ -31,7 +29,7 @@
 				<div class="quick-form">
 					<h3 class="contact-title">Get in Touch</h3>
 					<h3 class="contact-sub-title">Please fill out the quick form and we will be in touch with you shortly</h3>
-					<form action="" method="post" role="form" class="contactForm">
+					<form action="" method="post" role="form" id="contact_us" class="contactForm">
 						<div class="form-group">
 							<input type="text" name="name" class="form-control" id="name" placeholder="Name" />
 						</div>
@@ -42,9 +40,11 @@
 							<input type="text" class="form-control" name="phone" id="phone" placeholder="Phone"/>
 						</div>
 						<div class="form-group">
-							<textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+							<textarea class="form-control" name="message" rows="5" id="message" placeholder="Message"></textarea>
 						</div>
 						<div class="text-center"><button class="btn-get-started" type="submit">Submit</button></div>
+						<span class="success" id="success"></span>
+						<span class="error" id="error"></span>
 					</form>
 				</div>
 			</div>
@@ -52,7 +52,8 @@
 				<div class="quick-form">
 					<ul>
 						<li><h3 class="connect-title">Connect with us</h3></li>
-						<li><h3 class="contact-sub-title">For support or any questions:<br> Email us at <a href="#">contact@thestartupnetwork.in</a></h3></li>
+						<li><h3 class="contact-sub-title">For support or any questions:<br>
+							Email us at <a href="mailto:contact@thestartupnetwork.in">contact@thestartupnetwork.in</a></h3></li>
 					</ul>
 	
 					<ul>

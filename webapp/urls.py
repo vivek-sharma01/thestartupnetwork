@@ -22,5 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('webapp.apps.coworks.urls')),
     url(r'^coming-soon/', include('webapp.apps.core.urls')),
+    url(r'^contact-us-form/$', views.ContactUsForm.as_view(), name='contact-us-form'),
     url(r'^contact-us$', views.ContactUs.as_view(), name='contact-us'),
+
 ]
