@@ -8,6 +8,7 @@ import datetime
 from bs4 import BeautifulSoup
 import requests
 
+from slugify import slugify
 
 def add_location(name):
     """
@@ -15,12 +16,14 @@ def add_location(name):
         name: name of location
     Returns: location object
     """
+    slug = slugify(name)
+
     from webapp.apps.coworks.models import Location
     data = {
         'name': name.capitalize(),
-        'slug': name
+        'slug': slug
     }
-    return Location.objects.get_or_create(slug=name, defaults=data)[0]
+    return Location.objects.get_or_create(slug=slug, defaults=data)[0]
 
 
 def add_membership(price_section):
@@ -30,17 +33,17 @@ def add_membership(price_section):
     Returns:
     """
     from webapp.apps.coworks.models import MembershipBenefits
+    from webapp.apps.coworks import constants
 
     benefit_name = price_section.find('h4').text
     benefit_desc = price_section.find('p').text
+    benefit_name = constants.MEMBERSHIPS_DICT[benefit_name]
     benefit_data = {
         'name': benefit_name,
         'description': benefit_desc
     }
     obj, created = MembershipBenefits.objects.get_or_create(name=benefit_name, defaults= benefit_data)
-    if created:
-        return obj
-    return None
+    return obj
 
 
 def add_amenity(co_amenities_container):

@@ -29,10 +29,10 @@ class ContactPersonSerializer(serializers.ModelSerializer):
 
 class MembershipBenefitSerializer(serializers.ModelSerializer):
     """Amenity list serializer"""
-
+    name = serializers.CharField(source='get_name')
     class Meta:
         model = models.MembershipBenefits
-        fields = ('name', 'description')
+        fields = ('name', 'description', 'suitable_for')
 
 
 class PricingSerializer(serializers.ModelSerializer):
@@ -46,12 +46,12 @@ class PricingSerializer(serializers.ModelSerializer):
 
 class CoworksListSerializer(serializers.ModelSerializer):
     """regions list serializer"""
-    amenities = AmenityListSerializer(source='amenity', many=True)
-    neighbour_amenities = NeighbourAmenityListSerializer(source='neighbour_amenity', many=True)
-    contact_person = ContactPersonSerializer(many=True)
-    membership = serializers.ListField(source='get_pricing')
+    # amenities = AmenityListSerializer(source='amenity', many=True)
+    # neighbour_amenities = NeighbourAmenityListSerializer(source='neighbour_amenity', many=True)
+    # contact_person = ContactPersonSerializer(many=True)
+    # membership = serializers.ListField(source='get_pricing')
+    starting_price = serializers.CharField(source='get_minimum_price')
 
     class Meta:
         model = models.Cowork
-        fields = ('name', 'slug', 'description', 'address', 'amenities', 'neighbour_amenities',
-                  'contact_person', 'membership')
+        fields = ('name', 'slug', 'description', 'address', 'starting_price')

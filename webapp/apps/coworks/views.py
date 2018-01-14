@@ -11,10 +11,7 @@ class CityCoworks(APIView):
 
     def get(self, request, city):
         """"""
-        coworks = models.Cowork.objects.get_coworks_list(**{'location__slug': city}).prefetch_related('amenity',
-                                                                                                      'neighbour_amenity',
-                                                                                                      'contact_person',
-                                                                                                      )
+        coworks = models.Cowork.objects.get_coworks_list(**{'location__slug': city})
         serializer = serializers.CoworksListSerializer(coworks, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -25,7 +22,14 @@ class CoworkIndex(APIView):
 
     def get(self, request):
         """"""
-        context = {}
+        space_types = models.MembershipBenefits.objects.all()
+        serializer = serializers.MembershipBenefitSerializer(space_types, many=True)
+        most_popular_coworks = models.Cowork.objects.filter(name__icontains='spring').values('name', 'location__name')
+
+        context = {
+            'space_types': serializer.data,
+            'most_popular_coworks': most_popular_coworks
+        }
         return render(request, template_name=self.template_name, context=context)
 
 

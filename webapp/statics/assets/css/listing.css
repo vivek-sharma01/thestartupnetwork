@@ -1,0 +1,220 @@
+.copyright-image {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 50px;
+}
+.design {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+    text-align: right;
+}
+.design a {
+    color: #fff;
+}
+
+.coworks-location > .container-fluid , .location-filters > .container-fluid,.listing-container>.container-fluid{
+	padding : 20px 0px 20px 20px;
+}
+
+.location-coworks{
+	padding : 0px 0px 10px 20px;
+	margin-top: -20px;
+	border-bottom : 1px solid #C2C2C2;
+}
+
+.coworks-location{
+	border-bottom : 1px solid #C2C2C2;
+	margin-top: -20px;
+}
+
+.location-filters{
+	border-bottom : 1px solid #C2C2C2;
+}
+
+.coworks-location > .container {
+	padding : 0px 0px 20px 0px;
+}
+
+#location-dropdown {
+  padding-bottom: 10px;
+  border-bottom: 2px solid #FAAD28;
+  line-height: 48px;
+  font-size : 24px;
+  color : #253238;
+  font-weight : bold;
+  cursor : pointer;
+}
+
+.btn-default{
+	margin-right : 10px;
+}
+
+.footer-logo-list img{
+	height: auto;
+    width: 150px;
+    margin: -75px;
+}
+
+#list-footer{
+	display : inline-flex;
+}
+
+.card{
+	border : none;
+}
+
+.card-title{
+	font-size : 14px medium;
+	color : #253238;
+}
+
+.card-body p{
+	font-size: 12px;
+    color: #4A4A4A;
+	line-height: 14px;
+}
+
+.price-rating-container{
+	padding: 1.25rem;
+	display: inline-flex;
+}
+
+.price-rating-container p{
+	font-size: 12px light;
+	color: #4A4A4A;
+}
+
+.price-rating-container #amount{
+	font-size : 12px medium;
+	color: #4A4A4A;
+}
+
+.day-Pass .btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-left: 20px;
+	font-size: 10px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    height: 40px;
+}
+
+.more-filters img{
+	width: 18px;
+    padding: 0px;
+}
+
+.more-filters span{
+	 padding-left: 6px;
+}
+   
+.day-Pass .btn-default {
+    color: #FFFFFF;
+    background-color: #008489;
+    border-color: #ccc;
+}
+
+.upper-card-body{
+	border-bottom : 1px solid #C2C2C2;
+}
+
+#list-footer .add-btn-container {
+  text-align: center;
+  padding-left : 10px;
+  margin-top : -4px;
+}
+
+#list-footer .add-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+  background: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  color: #253238;
+}
+
+#footer{
+	padding: 20px 0; 
+}
+
+.pagination.pg-blue .active .page-link {
+    background-color: #008489;
+}
+
+.pagination.pagination-circle .active .page-link {
+    border-radius: 50%;
+}
+
+.pagination.pagination-circle .page-link {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.pagination>li>a, .pagination>li>span{
+	border : none;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+   .design {
+		color: #fff;
+		line-height: 30px;
+		min-height: 30px;
+		padding: 7px 0;
+		text-align: left;
+	}
+	
+	.btn-default{
+		margin-bottom : 10px;
+	}
+	
+	#list-footer .add-btn{
+		font-size: 9px;
+		margin : 0px;
+	}
+}
+
+select{
+	border : none;
+}
+
+#location-dropdown select{
+	cursor:pointer;
+}
+/* #location-dropdown{
+	overflow: hidden;
+    position: relative;
+    padding: 5px 2px;
+}
+#location-dropdown:after{
+  width: 0; 
+  height: 0; 
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #00BCD4;
+  position: absolute;
+  top: 40%;
+  right: 5px;
+  content: "";
+  z-index: 98;
+ } */

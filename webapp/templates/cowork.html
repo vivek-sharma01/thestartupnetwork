@@ -109,67 +109,55 @@
     </div>
   </section>
 
-   <div class="container space-container">
+     <div class="container space-container">
 	<div class="row">
         <div class="col-md-12">
           <h3 class="section-title">Space Types</h3>
           <div class="section-title-divider"></div>
         </div>
-      </div>
-	<div class="row">
+     </div>
+	<div class="row space-types">
+        {% for space_type in space_types %}
         <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="card h-100">
+          <div class="card h-600">
             <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
             <div class="card-body">
 				<div class="upper-card-body">
 					<h4 class="card-title">
-					<a href="#">Hot Desk</a>
+					<a href="#">{{space_type.name}}</a>
 					<div class="card-title-divider"></div>
 				  </h4>
-				  <p>Desk space whenever you need on a first come,first served basis.Get a laptop, pick any of the unoccupied or available seats and start working</p>
+				  <p>{% if space_type.description %}{{space_type.description}} {% else %}
+                      Desk space whenever you need on a first come,
+                      first served basis.Get a laptop, pick any of the unoccupied or available seats and start working
+                      {% endif %}</p>
 				</div>
 			</div>
             <div class="lower-card-body">
 				<h4>Suitable for :</h4>
+            {% if space_type.suitable_for %}
+                <ul class="card-text">
+                    {% for usage in space_type.suitable_for %}
+                        <li>{{usage}}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
 			  <ul class="card-text">
 				<li>Part time workers</li>
 				<li>Meetings</li>
 				<li>Around a week/month</li>
 			  </ul>
+            {% endif %}
 			  <div class="actions">
 				<a href="#about" class="btn-get-started">Get Started</a>
 		    </div>
 			</div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg'%} " alt=""></a>
-             <div class="card-body">
-              <div class="upper-card-body">
-				<h4 class="card-title">
-                <a href="#">Dedicated Desk</a>
-				<div class="card-title-divider"></div>
-              </h4>
-			  <p>Your own dedicated desk in shared space with all the benefits of a full time office.</p><br><br>
-			</div>
-			</div>
-            <div class="lower-card-body">
-				<h4>Suitable for :</h4>
-			  <ul class="card-text">
-				<li>Budding Startups</li>
-				<li>Collaboration</li>
-				<li>Around a week/month</li>
-			  </ul>
-			  <div class="actions">
-				<a href="#about" class="btn-get-started">Get Started</a>
-		    </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4  col-md-4 col-sm-6">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg'%}" alt=""></a>
+        {% endfor %}
+		<!--<!--<div class="col-lg-4  col-md-4 col-sm-6">-->
+          <div class="card h-600">
+            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
             <div class="card-body">
               <div class="upper-card-body">
 				<h4 class="card-title">
@@ -244,41 +232,26 @@
     </div>
   </section>
   
- <div class="container">
+  <div class="container ">
 	<div class="row">
         <div class="col-md-12">
           <h3 class="section-title">Most Popular Coworks</h3>
           <div class="section-title-divider"></div>
         </div>
       </div>
-     <div class="row">
+
+     <div class="row popular-cowork">
+     {% for cowork in most_popular_coworks %}
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
             <div class="cardContent">
-				<h3>Coworks,Ecoworld</h3>
-				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>Bengaluru,India</p>
+				<h3>{{cowork.name}}</h3>
+				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>{{cowork.location__name}}, India</p>
 			</div>
           </div>
         </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
-            <div class="cardContent">
-				<h3>Coworks,Ecoworld</h3>
-				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>Bengaluru,India</p>
-			</div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
-            <div class="cardContent">
-				<h3>Coworks,Ecoworld</h3>
-				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>Bengaluru,India</p>
-			</div>
-          </div>
-        </div>
+     {% endfor %}
       </div>
  </div>
   
