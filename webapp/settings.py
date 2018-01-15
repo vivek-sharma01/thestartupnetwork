@@ -28,6 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'webapp/media')
+MEDIA_URL = 'webapp/media/'
+
 # Application definition
 
 DJANGO_APPS = [

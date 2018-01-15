@@ -15,7 +15,15 @@ MEMBERSHIPS_DICT = {
     'Event Space': 'ES',
     'Flexible Desks': 'FD',
     'Private Studios': 'PS',
-    'Virtual Office': 'VO'
+    'Virtual Office': 'VO',
+    'Business Lounge': 'BL',
+    'Hot Desk': 'DD',
+    'Meeting Room': 'CR',
+    'Dedicated Desk': 'DD',
+    'Private Office': 'PS',
+    'Virtual Office/Mail box': 'VO',
+    'Meeting Rooms for small durations': 'CR',
+    'Conference Rooms': 'CR'
 }
 
 
@@ -25,7 +33,8 @@ MEMBERSHIPS_REVERSE_DICT = {
     'ES': 'Event Space',
     'FD': 'Flexible Desks',
     'PS': 'Private Studios',
-    'VO': 'Virtual Office'}
+    'VO': 'Virtual Office',
+    'BL': 'Business Lounge'}
 
 MEMBERSHIPS_91SPRINGBOARD_MAPPING = {
     9: 'Private Studios',

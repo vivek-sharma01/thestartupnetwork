@@ -61,7 +61,8 @@ class CoworksListSerializer(serializers.ModelSerializer):
     # contact_person = ContactPersonSerializer(many=True)
     # membership = serializers.ListField(source='get_pricing')
     starting_price = serializers.CharField(source='get_minimum_price')
+    # banner_image = serializers.CharField(source='')
 
     class Meta:
         model = models.Cowork
-        fields = ('name', 'slug', 'description', 'address', 'starting_price')
+        fields = ('name', 'slug', 'description', 'address', 'starting_price', 'banner_image')

@@ -17,12 +17,14 @@ jedi==0.11.0
 parso==0.1.0
 pexpect==4.2.1
 pickleshare==0.7.4
+Pillow==5.0.0
 prompt-toolkit==1.0.15
 psycopg2==2.7.3.2
 ptyprocess==0.5.2
 pyexcel-io==0.2.1
 pyexcel-xls==0.2.1
 Pygments==2.2.0
+python-slugify==1.2.4
 pytz==2017.3
 redis==2.10.6
 requests==2.18.4
@@ -31,6 +33,7 @@ simplegeneric==0.8.1
 six==1.11.0
 traitlets==4.3.2
 typing==3.6.2
+Unidecode==1.0.22
 urllib3==1.22
 wcwidth==0.1.7
 xlrd==1.0.0

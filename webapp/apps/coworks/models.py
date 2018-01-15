@@ -50,7 +50,7 @@ class Cowork(ModelBase):
     price_per_day = models.CharField(max_length=50, null=True, blank=True)
     price_per_month = models.CharField(max_length=50, null=True, blank=True)
     no_of_workstattion = models.CharField(max_length=50, null=True, blank=True)
-
+    banner_image = models.ImageField(upload_to='banner_image/', null=True, blank=True)
     objects = managers.CoworkManager()
 
     def __str__(self):
