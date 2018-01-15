@@ -44,6 +44,16 @@ class PricingSerializer(serializers.ModelSerializer):
         fields = ('membership', 'price')
 
 
+class LocationSerializer(serializers.ModelSerializer):
+    """Pricing Serializer"""
+    url = serializers.CharField(source='get_url')
+    name = serializers.CharField(source='name_capitalize')
+
+    class Meta:
+        model = models.Location
+        fields = ('name', 'url', 'slug')
+
+
 class CoworksListSerializer(serializers.ModelSerializer):
     """regions list serializer"""
     # amenities = AmenityListSerializer(source='amenity', many=True)

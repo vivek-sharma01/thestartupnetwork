@@ -146,3 +146,11 @@ class Location(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_url(self):
+        """"""
+        return '/coworks/{}'.format(self.slug)
+
+    def name_capitalize(self):
+        """"""
+        return " ".join(list(map(lambda x: x.capitalize(), self.name.split())))

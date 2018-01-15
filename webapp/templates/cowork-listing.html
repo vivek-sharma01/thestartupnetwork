@@ -1,0 +1,115 @@
+{% extends 'base.html' %}"
+
+{% load custom_filters %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% custom_static 'assets/css/startup.css' %}">
+	<link rel="stylesheet" href="{% custom_static 'assets/css/listing.css' %}">
+{% endblock %}
+
+{% block custom_js %}
+	<script src="{% custom_static 'assets/js/coworks-listing.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+ <div class="container-fluid location-coworks">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="">Coworks in <span id="location-dropdown">
+					<select id="city-select">
+						{% for city in cities %}
+						  <option value="{{city.url}}" {% if city_slug == city.slug %} selected {% endif %}>{{city.name}}</option>
+						{% endfor %}
+					</select>
+		  </span></h3>
+        </div>
+      </div>
+  </div>
+
+<!--<section class="location-filters">-->
+  <!--<div class="container-fluid">-->
+      <!--<div class="row">-->
+        <!--<div class="col-md-12">-->
+			<!--<a href="#" class="btn btn-default">Space Type</a>-->
+			<!--<a href="#" class="btn btn-default">Price</a>-->
+			<!--<a href="#" class="btn btn-default">Membership Type</a>-->
+			<!--<a href="#" class="btn btn-default">Amenities</a>-->
+			<!--<a href="#" class="btn btn-default more-filters"><img src="{% custom_static 'assets/images/filter.png' %}"/><span>More Filters</span></a>-->
+			<!--<a href="#" class="btn btn-default more-filters"><img src="{% custom_static 'assets/images/Sort.png' %}"/><span>Sort</span></a>-->
+      <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+<!--</section> -->
+
+<section class="listing-container"> 
+<div class="container-fluid">
+	{% for datum in data %}
+	<div class="row">
+		{% for cowork in datum %}
+    	    <div class="col-lg-3 col-md-3 col-sm-6">
+			  <div class="card h-listing">
+				<a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/annie-spratt-294450.jpg' %}" alt=""></a>
+				<div class="card-body">
+					<div class="upper-card-body">
+						<h4 class="card-title">
+							<a href="#">{{cowork.name}}</a>
+						</h4>
+					  <p>{{cowork.address}}</p>
+					</div>
+				</div>
+				<div class="price-rating-container">
+
+					<div class="price-rate">
+						<p>Starting from <i class="fa fa-inr"></i><b>{{cowork.starting_price}}/month</b></p>
+					</div>
+					<div class ="day-Pass">
+						<a href="#" class="btn btn-default"><span>Free</span><br><span>Day Pass</span></a>
+					</div>
+				</div>
+			  </div>
+			</div>
+
+		{% endfor %}
+   </div>
+	{% endfor %}
+
+  </div>
+</section>
+
+	<nav class="my-4 text-center">
+		<ul class="pagination pagination-circle pg-blue mb-0">
+
+			<!--Numbers-->
+			<li class="page-item active"><a class="page-link">1</a></li>
+			<li class="page-item"><a class="page-link">2</a></li>
+			<li class="page-item"><a class="page-link">3</a></li>
+			<li class="page-item"><a class="page-link">4</a></li>
+			<li class="page-item"><a class="page-link">5</a></li>
+
+			<!--Arrow right-->
+			<li class="page-item active">
+				<a class="page-link" aria-label="Next">
+					<span>&raquo;</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+<script type="text/javascript">
+		$(function () {
+			var that = this;
+			var toolitup = $(".price-rate").jRate({
+				rating: 1,
+				startColor: "#008489",
+				endColor: "#008489",
+				strokeColor: '#008489',
+				strokeWidth:'20px',
+				precision: 1,
+				width: 15,
+				height: 15,
+			});
+
+		});
+	</script>
+
+{% endblock %}

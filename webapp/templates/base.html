@@ -15,7 +15,7 @@
   <script src="{% custom_static 'assets/js/jquery-1.10.2.min.js' %}"></script>
   <script src="{% custom_static 'assets/js/bootstrap.min.js' %}"></script>
   <script type="text/javascript" src="{% custom_static 'assets/js/slick.min.js' %}"></script>
-
+  <script src="{% custom_static 'assets/js/jRate.js' %}"></script>
   <script src="https://www.w3schools.com/lib/w3.js"></script>
 	{% block custom_css %}
 
@@ -36,7 +36,7 @@
             <span class="icon-bar"></span>
           </button>
           <div>
-            <a class="navbar-brand" href="#"><img src="{% custom_static 'assets/images/logo.png' %}" alt="The Startup Network"></a>
+            <a class="navbar-brand" href="/"><img src="{% custom_static 'assets/images/logo.png' %}" alt="The Startup Network"></a>
           </div>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
@@ -47,10 +47,12 @@
             <li class="{% if 'startup' not in request.path  and 'enterpreneur' not in request.path %} active {% endif %}"><a href="/">Coworks</a></li>
           </ul>
 
-          <ul class="nav navbar-nav navbar-right">
-            <li><a class="sign-up" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a class="log-in" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		  <ul class="nav navbar-nav navbar-right">
+			<li><a class="sign-up" href="/contact-us"><span class="glyphicon glyphicon-phone-alt"></span>Get In Touch</a></li>
+			<li><a class="sign-up" href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+			<li><a class="log-in" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
+
 
           <div class="navbar-form navbar-right" role="search">
 		<form class="site-search" role="search" method="get" action="">
@@ -101,8 +103,9 @@
 			<ul>
 				<li><h4>Location</h4></li>
 				<div class="footer-title-divider"></div>
-				<li><a href="#">Bengaluru</a></li>
-				<li><a href="#">Mumbai</a></li>
+				{% for city in cities %}
+					<li><a href="{{city.url}}">{{city.name}}</a></li>
+				{% endfor %}
 			</ul>
 		</div>
 		<div class="col-lg-3 col-sm-6 social-media">
