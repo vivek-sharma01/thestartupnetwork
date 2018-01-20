@@ -22,7 +22,7 @@
 	{% endblock %}
 
 	{% block custom_js %}
-
+		<script src="{% custom_static 'assets/js/coworks-listing.js' %}"></script>
 	{% endblock %}
 </head>
 
@@ -54,12 +54,12 @@
           </ul>
 
 
-          <div class="navbar-form navbar-right" role="search">
-		<form class="site-search" role="search" method="get" action="">
-			<input type="search" name="search" placeholder="Search by name, place, type" value="">
-			<button type="submit" value="Search"><i class="glyphicon glyphicon-search"></i></button>
+	  <div class="navbar-form navbar-right" role="search">
+		<form class="site-search">
+			<input type="text" id="search-coworks-input" name="search" placeholder="Search by name, place, type" value="">
+			<button type="button" id="search-coworks-button" value="Search"><i class="glyphicon glyphicon-search"></i></button>
 		</form>
-	</div>
+	  </div>
         </div>
       </div>
     </nav>

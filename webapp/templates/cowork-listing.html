@@ -12,11 +12,13 @@
 {% endblock %}
 
 {% block content %}
+{% if city_slug %}
  <div class="container-fluid location-coworks">
       <div class="row">
         <div class="col-md-12">
           <h3 class="">Coworks in <span id="location-dropdown">
 					<select id="city-select">
+						<option value="india" selected>India</option>
 						{% for city in cities %}
 						  <option value="{{city.url}}" {% if city_slug == city.slug %} selected {% endif %}>{{city.name}}</option>
 						{% endfor %}
@@ -25,7 +27,7 @@
         </div>
       </div>
   </div>
-
+{% endif %}
 <!--<section class="location-filters">-->
   <!--<div class="container-fluid">-->
       <!--<div class="row">-->
