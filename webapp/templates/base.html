@@ -25,7 +25,19 @@
 		<script src="{% custom_static 'assets/js/coworks-listing.js' %}"></script>
 		<script src="{% custom_static 'assets/js/carousel.js' %}"></script>
 	{% endblock %}
-</head>
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112809161-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-112809161-1');
+</script></head>
 
 <body>
     <nav class="navbar navbar-default nav-startup">
@@ -67,6 +79,18 @@
     {% block content %}
 
     {% endblock %}
+	<section id="add-work">
+    <div class="container wow fadeInUp">
+      <div class="row">
+        <div class="col-md-8">
+          <h3 class="subscribe-title">Do You own a Coworking space? List with us</h3>
+        </div>
+        <div class="col-md-4 add-btn-container">
+          <a class="add-btn" href="#">Add Your Cowork</a>
+        </div>
+      </div>
+    </div>
+  </section>
     <section id="footer">
     <div class="container wow fadeInUp">
       <div class="row">
@@ -76,6 +100,7 @@
       </div>
     </div>
   </section>
+
 
   <section id="footer">
 	<div class="container wow fadeInUp">
@@ -123,6 +148,7 @@
       </div>
 	</div>
   </section>
+
 <section id="footer">
 	 <div class="container-fluid wow fadeInUp">
 		<div class="row">

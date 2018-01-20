@@ -1,11 +1,11 @@
 $(function()
 {
 
-	$('#contact_us').submit(function(e)
+	$('#contact-us-button').on('click', function(e)
       {
         e.preventDefault();
         $form = $(this);
-
+        debugger;
         var data = {
             'name': $('#name').val(),
             'email': $('#email').val(),
@@ -16,6 +16,11 @@ $(function()
         $.ajax({
             type: "POST",
             url: '/contact-us-form/',
+            headers: {
+                'X-CSRFToken': 'qwerty',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': '*'
+                },
             data: data,
             success: function(response) {
                 $('#success').text('we will contact you shortly');
