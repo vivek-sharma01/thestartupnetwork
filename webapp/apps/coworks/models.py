@@ -131,9 +131,9 @@ class ContactPerson(models.Model):
     """Contact Person for cowork"""
     name = models.CharField(max_length=300, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    phone = models.CharField(max_length=15, null=True, blank=True)
+    phone = models.CharField(max_length=30, null=True, blank=True)
     email = models.CharField(max_length=254, null=True, blank=True)
-    alternate_no = models.CharField(max_length=15, null=True, blank=True)
+    alternate_no = models.CharField(max_length=30, null=True, blank=True)
 
     def __str__(self):
         return self.name or ''

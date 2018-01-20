@@ -13,7 +13,7 @@ class Subscribe(models.Model):
 
 class ContactUs(models.Model):
     """Contact us model"""
-    email = models.CharField(max_length=254, unique=True)
+    email = models.CharField(max_length=254)
     name = models.CharField(max_length=254, null= True, blank=True)
     phone = models.CharField(max_length=15, null=True, blank=True)
     message = models.TextField(null=True, blank=True)
