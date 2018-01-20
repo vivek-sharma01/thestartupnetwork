@@ -25,6 +25,9 @@ class CityCoworks(APIView):
         if city == 'india':
             kwargs = {}
         coworks = models.Cowork.objects.get_coworks_list(**kwargs)
+        search_keyword = request.GET.get('search')
+        if search_keyword:
+            coworks = coworks.filter(Q(name__icontains=search_keyword) | Q(location__name__icontains=search_keyword))
         serializer = serializers.CoworksListSerializer(coworks, many=True)
         cowork_chunks = [serializer.data[x:x + 4] for x in range(0, len(serializer.data), 4)]
 
