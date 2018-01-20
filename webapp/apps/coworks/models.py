@@ -41,10 +41,11 @@ class Cowork(ModelBase):
     description = models.TextField(null=True, blank=True)
     address = models.TextField(null=True, blank=True)
     landmark = models.TextField(null=True, blank=True)
-    amenity = models.ManyToManyField('coworks.amenity', related_name='cowork_amenities', blank=True)
+    amenity = models.ManyToManyField('coworks.amenity', related_name='cowork_amenities', blank=True, null=True)
     neighbour_amenity = models.ManyToManyField('coworks.neighbouramenity', related_name='cowork_neighbouramenities',
-                                               blank=True)
-    contact_person = models.ManyToManyField('coworks.contactperson', related_name='cowork_contactperson', blank=True)
+                                               blank=True, null=True)
+    contact_person = models.ManyToManyField('coworks.contactperson', related_name='cowork_contactperson',
+                                            blank=True, null=True)
     location = models.ForeignKey('coworks.location', related_name='location_coworks', null=True, blank=True)
     website_url = models.CharField(max_length=500, null=True, blank=True)
     price_per_day = models.CharField(max_length=50, null=True, blank=True)
@@ -54,7 +55,7 @@ class Cowork(ModelBase):
     objects = managers.CoworkManager()
 
     def __str__(self):
-        return self.name if self.name else None
+        return self.name or ''
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -88,7 +89,7 @@ class MembershipBenefits(models.Model):
     suitable_for = ArrayField(models.CharField(max_length=200), blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name or ''
 
     def get_name(self):
         """name of benefit"""
@@ -97,15 +98,15 @@ class MembershipBenefits(models.Model):
 
 class Pricing(models.Model):
     """pricing for cowork based on membership"""
-    cowork = models.ForeignKey(Cowork, related_name="cowork_price", null=True)
-    membership = models.ForeignKey(MembershipBenefits, related_name="membership_price", null=True)
+    cowork = models.ForeignKey(Cowork, related_name="cowork_price", null=True, blank=True)
+    membership = models.ForeignKey(MembershipBenefits, related_name="membership_price", null=True, blank=True)
     price = models.FloatField(null=True, blank=True)
     time_unit = models.CharField(max_length=30, null=True, blank=True)
     time_value = models.CharField(max_length=30, null=True, blank=True)
     seats = models.PositiveIntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.cowork.name + ": " + self.membership.name + ": " + str(self.price)
+        return self.cowork.name + ": " + self.membership.name + ": " + str(self.price) or ''
 
 
 class Amenity(models.Model):
@@ -114,7 +115,7 @@ class Amenity(models.Model):
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name or ''
 
 
 class NeighbourAmenity(models.Model):
@@ -123,7 +124,7 @@ class NeighbourAmenity(models.Model):
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name or ''
 
 
 class ContactPerson(models.Model):
@@ -135,7 +136,7 @@ class ContactPerson(models.Model):
     alternate_no = models.CharField(max_length=15, null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name or ''
 
 
 class Location(models.Model):
@@ -145,7 +146,7 @@ class Location(models.Model):
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name or ''
 
     def get_url(self):
         """"""
