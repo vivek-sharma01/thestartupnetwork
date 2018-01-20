@@ -54,7 +54,7 @@ class Cowork(ModelBase):
     objects = managers.CoworkManager()
 
     def __str__(self):
-        return self.name
+        return self.name if self.name else None
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
