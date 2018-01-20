@@ -23,6 +23,7 @@
 
 	{% block custom_js %}
 		<script src="{% custom_static 'assets/js/coworks-listing.js' %}"></script>
+		<script src="{% custom_static 'assets/js/carousel.js' %}"></script>
 	{% endblock %}
 </head>
 
@@ -140,20 +141,5 @@
       </div>
 	 </div>
  </section>
-<script type="text/javascript">
-    $(document).ready(function(){
-       $('.popular-cowork').slick({
-			 infinite: true,
-			slidesToShow: 3,
-			slidesToScroll: 3
-		});
 
-		$('.space-types').slick({
-			 infinite: true,
-			slidesToShow: 3,
-			slidesToScroll: 3
-		});
-
-    });
-  </script>
 </body>

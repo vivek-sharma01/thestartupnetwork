@@ -328,7 +328,7 @@
     color: #ffffff;
     width: 100%;
     padding: 0px 15px;
-    height: 37%;
+    height: 42%;
 }
 
 .container .cardContent img {
@@ -336,7 +336,12 @@
 }
 
 .container .cardContent h3{
-	font-size : 20px;
+	font-size : 18px;
+	height: 35%;
+}
+
+.container .cardContent p {
+	font-size : 16px;
 }
 
 .space-container{
@@ -570,7 +575,7 @@
     width: 295px;
 }
 
-.site-search input {
+.site-search input[type="search"] {
     height: 34px;
     padding: 10px 20px 10px 20px;
     font-size: 14px;
@@ -636,7 +641,11 @@
 }
 
 .slick-prev {
-    left: -30px;
+    left: -20px;
+}
+
+.slick-next {
+    right: -20px;
 }
 
 .slick-slide img {

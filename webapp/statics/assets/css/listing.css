@@ -19,10 +19,18 @@
 	padding : 20px 0px 20px 20px;
 }
 
+.price-rate span{
+	font-weight : 600;
+}
+
 .location-coworks{
 	padding : 0px 0px 10px 20px;
 	margin-top: -20px;
 	border-bottom : 1px solid #C2C2C2;
+}
+
+.location-coworks h3 {
+	font-size : 20px;
 }
 
 .coworks-location{
@@ -42,7 +50,7 @@
   padding-bottom: 10px;
   border-bottom: 2px solid #FAAD28;
   line-height: 48px;
-  font-size : 24px;
+  font-size : 20px;
   color : #253238;
   font-weight : bold;
   cursor : pointer;
@@ -62,13 +70,18 @@
 	display : inline-flex;
 }
 
+.h-listing img{
+	height : 190px;
+}
+
 .card{
 	border : none;
 }
 
 .card-title{
-	font-size : 14px medium;
+	font-size : 14px;
 	color : #253238;
+	font-weight : 600;
 }
 
 .card-body p{
@@ -92,9 +105,14 @@
 	color: #4A4A4A;
 }
 
+.day-Pass a span{
+	font-weight : 700;
+}
+
 .day-Pass .btn {
     display: inline-block;
-    padding: 6px 12px;
+    /* padding: 6px 12px; */
+	margin-top: 3px;
     margin-left: 20px;
 	font-size: 10px;
     font-weight: 400;
@@ -130,11 +148,16 @@
 
 .upper-card-body{
 	border-bottom : 1px solid #C2C2C2;
+	height : 90px;
+}
+
+.rental_count{
+	height : 40px;
 }
 
 #list-footer .add-btn-container {
   text-align: center;
-  padding-left : 10px;
+  padding-left : 25px;
   margin-top : -4px;
 }
 
@@ -192,6 +215,19 @@
 		font-size: 9px;
 		margin : 0px;
 	}
+	
+	#list-footer .add-btn-container {
+		text-align: center;
+		padding-left: 100px;    
+		margin-top: 10px;
+	}
+	
+	.day-Pass .btn{
+		padding: 10px 12px;
+		margin-left: 112px;
+		height: 50px;
+		
+	}
 }
 
 select{
@@ -201,6 +237,13 @@ select{
 #location-dropdown select{
 	cursor:pointer;
 }
+
+.review-value{
+	position: absolute;
+    margin-top: 29px;
+    margin-left: 80px;
+}
+
 /* #location-dropdown{
 	overflow: hidden;
     position: relative;
