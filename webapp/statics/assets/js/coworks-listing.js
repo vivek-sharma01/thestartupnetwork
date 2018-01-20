@@ -7,7 +7,6 @@ $(function()
 	});
 
 	$('#search-coworks-button').on('click', function() {
-	    debugger;
 	    var search_url = '/coworks/?search=' + $("#search-coworks-input").val();
 	    window.location.href = search_url;
 	});
