@@ -5,7 +5,7 @@ $(function()
       {
         e.preventDefault();
         $form = $(this);
-        debugger;
+
         var data = {
             'name': $('#name').val(),
             'email': $('#email').val(),
@@ -17,9 +17,8 @@ $(function()
             type: "POST",
             url: '/contact-us-form/',
             headers: {
-                'X-CSRFToken': 'qwerty',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': '*'
+
+                'Content-Type': 'application/json'
                 },
             data: data,
             success: function(response) {
