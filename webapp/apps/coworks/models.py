@@ -64,22 +64,41 @@ class Cowork(ModelBase):
     def get_pricing(self):
         """get pricing related to membership"""
         memberships = Pricing.objects.filter(cowork_id=self.id).values('membership__name', 'membership__description',
-                                                                       'price')
+                                                                       'price', 'membership__suitable_for')
         response = []
-        for membership in memberships:
-            obj = {
-                'name': membership['membership__name'],
-                'description': membership['membership__description'],
-                'price': membership['price']
+        class_list = [
+            {'business-card': 'business-card-body'},
+            {'meeting-card': 'meeting-card-body'},
+            {'virtual-office-card': 'virtual-office-card-body'},
+            {'business-card': 'business-card-body'},
+            {'meeting-card': 'meeting-card-body'},
+            {'virtual-office-card': 'virtual-office-card-body'},
+            {'business-card': 'business-card-body'},
+            {'meeting-card': 'meeting-card-body'},
+            {'virtual-office-card': 'virtual-office-card-body'}
+        ]
 
-            }
-            response.append(obj)
+        for index, membership in enumerate(memberships):
+            for heading_class, suitable_class in class_list[index].items():
+                obj = {
+                    'name': constants.MEMBERSHIPS_REVERSE_DICT[membership['membership__name']],
+                    'description': membership['membership__description'],
+                    'price': membership['price'],
+                    'heading_class': suitable_class,
+                    'suitable_class': heading_class,
+                    'suitable_for': membership['membership__suitable_for']
+                }
+                response.append(obj)
         return response
 
     def get_minimum_price(self):
         """minimum price for a cowork"""
-        memberships = Pricing.objects.filter(cowork_id=self.id).values_list('price', flat=True)
-        return min(memberships) if memberships else None
+        return self.price_per_month
+        # memberships = Pricing.objects.filter(cowork_id=self.id).values_list('price', flat=True)
+        # return min(memberships) if memberships else None
+
+    def get_location_name(self):
+        return self.location.name
 
 
 class MembershipBenefits(models.Model):
@@ -104,7 +123,8 @@ class Pricing(models.Model):
     time_unit = models.CharField(max_length=30, null=True, blank=True)
     time_value = models.CharField(max_length=30, null=True, blank=True)
     seats = models.PositiveIntegerField(null=True, blank=True)
-
+    suitable_for = ArrayField(models.CharField(max_length=200), blank=True, null=True)
+    
     def __str__(self):
         return self.cowork.name + ": " + self.membership.name + ": " + str(self.price) or ''
 
