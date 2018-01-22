@@ -83,3 +83,27 @@ class CoworksSearch(APIView):
         }
 
         return render(request, template_name=self.template_name, context=context)
+
+
+class CoworksDetails(APIView):
+    """Coworks details page"""
+    template_name = 'cowork-details.html'
+
+    def get(self, request, country, city, slug):
+        """
+        Args:
+            request:
+
+        Returns:
+        """
+        cowork = models.Cowork.objects.get_cowork_by_slug(slug)
+        serializer = serializers.CoworksDetailSerializer(cowork)
+
+        if serializer.is_valid:
+            context = {
+                'data': serializer.data
+            }
+            # return Response(context, status=status.HTTP_200_OK)
+        # return Response(serializer.errors, status=status.HTTP_200_OK)
+            return render(request, template_name=self.template_name, context=context)
+        return render(request, template_name=self.template_name, context={})
