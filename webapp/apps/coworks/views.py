@@ -100,8 +100,8 @@ class CoworksDetails(APIView):
         serializer = serializers.CoworksDetailSerializer(cowork)
         similar_coworks = models.Cowork.objects.get_similar_coworks(cowork.locality)
         similar_coworks_serializer = serializers.SimilarCoworksDetailSerializer(similar_coworks, many=True)
-    
-        other_coworks_in_city = models.Cowork.objects.get_cowork_by_city(city)
+
+        other_coworks_in_city = models.Cowork.objects.get_cowork_by_city(city, cowork)
         other_coworks_in_city_serializer = serializers.SimilarCoworksDetailSerializer(other_coworks_in_city, many=True)
         if serializer.is_valid:
             context = {
