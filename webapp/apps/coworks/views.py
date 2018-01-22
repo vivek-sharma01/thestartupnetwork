@@ -98,10 +98,16 @@ class CoworksDetails(APIView):
         """
         cowork = models.Cowork.objects.get_cowork_by_slug(slug)
         serializer = serializers.CoworksDetailSerializer(cowork)
-
+        similar_coworks = models.Cowork.objects.get_similar_coworks(cowork.locality)
+        similar_coworks_serializer = serializers.SimilarCoworksDetailSerializer(similar_coworks, many=True)
+    
+        other_coworks_in_city = models.Cowork.objects.get_cowork_by_city(city)
+        other_coworks_in_city_serializer = serializers.SimilarCoworksDetailSerializer(other_coworks_in_city, many=True)
         if serializer.is_valid:
             context = {
-                'data': serializer.data
+                'data': serializer.data,
+                'similar_coworks': similar_coworks_serializer.data,
+                'other_coworks_in_city': other_coworks_in_city_serializer.data
             }
             # return Response(context, status=status.HTTP_200_OK)
         # return Response(serializer.errors, status=status.HTTP_200_OK)

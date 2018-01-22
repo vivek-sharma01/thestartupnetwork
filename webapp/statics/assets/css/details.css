@@ -1,0 +1,706 @@
+#hero {
+  display: table;
+  width: 100%;
+  height: 550px;
+  background: url(../images/contactus.jpg) top center fixed;
+  background-size: cover;
+  margin-top : -20px;
+}
+
+#hero h1 {
+  font-weight : 600;
+  color: #fff;
+  font-family: "Helvetica Neue";
+  font-size:70px;
+}
+
+#hero h3 {
+  margin: 0px 0 50px 0;
+  line-height:70px;
+  color: #fff;
+  font-family: "Helvetica Neue";
+  font-size:40px;
+}
+
+#hero .actions a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+}
+
+#hero .btn-get-started {
+  background: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  color: #4A4A4A;
+}
+
+#hero .btn-get-started:hover {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  font-weight : 700;
+}
+
+.message-us .btn-get-started:hover{
+  background: #24B47E;
+  border: 2px solid #24B47E;
+  color: #FFFFFF;
+  font-weight : 700;
+}
+
+.visit-us .btn-get-started:hover{
+  background: none;
+  border: 2px solid #00BCD4;
+  color: #00BCD4;
+  font-weight : 700;
+}
+
+.visit-us .day-pass .btn-get-started:hover{
+  background: #00BCD4;
+  border: 2px solid #00BCD4;
+  color: #FFFFFF;
+  font-weight : 700;
+}
+
+.member-ship .btn-get-started:hover{
+  background: #008489;
+  border: 2px solid #008489;
+  color: #FFFFFF;
+  font-weight : 700;
+}
+
+.message-us .actions a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  font-weight : 600;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  text-align : center;
+}
+
+.message-us p {
+	font-size : 14px;
+	font-weight : 600;
+	color : #253238;
+	padding : 20px 0px;
+}
+
+.message-us .btn-get-started {
+  background: #FFFFFF;
+  border: 2px solid #24B47E;
+  color: #24B47E;
+  width: 380px;
+  height: 40px;
+}
+
+.visit-us .actions a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  font-weight : 600;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  text-align : center;
+}
+
+.visit-us p {
+	font-size : 14px;
+	font-weight : 600;
+	color : #253238;
+	padding : 20px 0px;
+}
+
+.visit-us .btn-get-started {
+  background: #00BCD4;
+  border: 2px solid #00BCD4;
+  color: #FFFFFF;
+  width: 380px;
+  height: 40px;
+}
+
+.visit-us .day-pass {
+	padding : 20px 0px;
+}
+
+.visit-us .day-pass .actions a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  font-weight : 600;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  text-align : center;
+}
+
+.visit-us .day-pass p {
+	font-size : 14px;
+	font-weight : 600;
+	color : #253238;
+}
+
+.visit-us .day-pass .btn-get-started {
+  background: #FFFFFF;
+  border: 2px solid #00BCD4;
+  color: #00BCD4;
+  width: 380px;
+  height: 40px;
+}
+
+.member-ship .actions a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  font-weight : 600;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  text-align : center;
+}
+
+.member-ship p {
+	font-size : 14px;
+	font-weight : 600;
+	color : #253238;
+	padding : 20px 0px;
+}
+
+.member-ship .btn-get-started {
+  background: #FFFFFF;
+  border: 2px solid #008489;
+  color: #008489;
+  width: 380px;
+  height: 40px;
+}
+
+.worker-name p{
+	padding : 20px 0px;
+}
+
+.worker-name{
+	border-bottom : 1px solid #D8D8D8;
+	width: 70%;
+}
+
+.add-rating-container{
+	width: 30%;
+}
+
+.worker-title-divider{
+	width: 120px;
+    height: 4px;
+    background: #FAAD25;
+}
+
+.detail-container{
+	display : inline-flex;
+}
+
+.review-value-details{
+	position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 85px;
+	font-size: 20px;
+	color : #253238;
+}
+
+.add-rating{
+	padding : 10px 0px;
+	font-size : 16px;
+	font-weight : 600;
+	color : #008489;
+	cursor : pointer;
+}
+
+.worker-name h4 a{
+	font-size : 24px;
+	font-weight : 600;
+	color : #253238;
+}
+
+.h-details img{
+	width : 250px;
+	height :140px;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+	padding-right: 40px;
+}
+
+.price-rate , .visit-us, .overview,.space-available,.basic-ammenties,.special-plans,.cost-structure{
+	border-bottom : 1px solid #D8D8D8;
+}
+
+.price-rate span{
+	font-weight : 600;
+	font-size : 14px;
+	color : #253238;
+}
+
+.price-rate-value span{
+	font-weight : 600;
+	font-size : 14px;
+	color : #253238;
+}
+
+.price-rate-value p{
+	font-size : 14px;
+	color : #253238;
+	padding : 20px 0px;
+}
+
+.similar-coworks{
+	padding : 0px;
+	margin-top : -20px;
+}
+
+.price-rate p{
+	font-size : 14px;
+	color : #253238;
+}
+
+.overview h4 a{
+	font-size : 22px;
+	font-weight : 600;
+	color : #253238;
+}
+
+.overview .card-title{
+	padding-top : 10px;
+}
+
+.overview-title-divider{
+	width: 40px;
+    height: 2px;
+    background: #00BCD4;
+}
+
+.overview-summary {
+	padding : 10px 0px;
+	height : 130px;
+	line-height: 26px;
+}
+
+.overview-summary-wework {
+	padding : 10px 0px;
+	line-height: 26px;
+}
+
+.overview-summary-wework p {
+    font-size: 16px;
+    color: #4E4E4E;
+}
+
+.overview-more a{
+	font-size : 16px;
+	font-weight : 600;
+	color :#00BCD4;
+}
+
+.overview-more {
+	padding-top : 20px;
+	padding-bottom : 30px;
+}
+
+.contact-wework a{
+	font-size : 16px;
+	font-weight : 600;
+	color :#00BCD4;
+}
+
+.contact-wework{
+	padding-bottom : 40px;
+}
+
+.overview-summary p{
+	font-size : 16px;
+	color : #4E4E4E;
+	
+}
+
+.space-available,.basic-ammenties,.special-plans,.cost-structure{
+	padding-top : 20px;
+	padding-bottom : 40px;
+}
+
+.space-available h4 a{
+	font-size: 22px;
+    font-weight: 600;
+    color: #253238;
+}
+
+.work-ammenties ul ,.desks-rate ul,.private-office ul,.support-ammenties ul,.kitchen-ammenties ul,.events-ammenties ul,.unique-ammenties ul,.extra-ammenties ul{
+	list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rate-type ul li span{
+	font-size : 16px;
+	color : #505050;
+}
+
+.desks-rate .card-title a{
+	font-size : 18px;
+	font-weight : 600;
+	color : #24B47E;
+}
+
+.private-office .card-title a{
+	font-size : 18px;
+	font-weight : 600;
+	color : #24B47E;
+}
+
+.desks-rate .card-title,.private-office .card-title{
+	padding : 20px 0px;
+}
+
+
+.rate-type ul li p{
+	font-size : 12px;
+	color : #505050;
+	padding : 10px 0px;
+}
+
+.rate-value ul li span{
+	font-size : 16px;
+	font-weight : 600;
+	color : #505050;
+}
+
+.unique-ammenties .card-title a{
+	font-size : 16px;
+	color : #E40037;
+}
+
+.work-ammenties .card-title a{
+	font-size : 16px;
+	color : #24B47E;
+}
+
+.support-ammenties .card-title a{
+	font-size : 16px;
+	color : #008489;
+}
+
+.kitchen-ammenties .card-title a{
+	font-size : 16px;
+	color : #E25950;	
+}
+
+.events-ammenties .card-title a{
+	font-size : 16px;
+	color : #FAAD26;	
+}
+
+.extra-ammenties .card-title a{
+	font-size : 16px;
+	color : #00BCD4;	
+}
+
+.work-ammenties .card-title, .support-ammenties .card-title,.extra-ammenties .card-title,.kitchen-ammenties .card-title,.events-ammenties .card-title,.unique-ammenties .card-title{
+	padding : 10px 0px;
+}
+
+
+.work-ammenties ul li,.private-office ul li, .support-ammenties ul li,.extra-ammenties ul li,.kitchen-ammenties ul li,.events-ammenties ul li,.unique-ammenties ul li{
+    padding-bottom: 20px;
+}
+
+.work-ammenties span,.support-ammenties span,.extra-ammenties span,.kitchen-ammenties span,.events-ammenties span,.unique-ammenties span{
+	font-size : 16px;
+	color : #505050;
+	padding-left : 10px;
+}
+
+.additional-charges{
+	padding-top : 30px;
+	padding-bottom : 40px;
+}
+
+.additional-charges p{
+	font-size : 16px;
+	color : #505050;
+}
+
+.price-rate{
+	border-bottom : 0px;
+}
+
+.basic-ammenties h4 a{
+	font-size: 22px;
+    font-weight: 600;
+    color: #253238;
+}
+
+.special-plans  h4 a,.cost-structure h4 a{
+	font-size: 22px;
+    font-weight: 600;
+    color: #253238;
+}
+
+.card{
+	border : 0px;
+}
+
+.card-body {
+	padding : 0px;
+}
+
+.business-card-body,.virtual-office-card-body,.meeting-card-body{
+	padding-top : 20px;
+}
+
+.business-card-body h4 a{
+	font-size : 18px;
+	font-weight : 600;
+	color : #24B47E;
+	padding-bottom : 10px;
+}
+
+.meeting-card-body h4 a{
+	font-size : 18px;
+	font-weight : 600;
+	color : #E25950;
+	padding-bottom : 10px;
+}
+
+.virtual-office-card-body h4 a{
+	font-size : 18px;
+	font-weight : 600;
+	padding-bottom : 10px;
+	color : #008489;
+}
+
+.virtual-office h4{
+	font-size : 16px;
+	color : #008489;
+}
+
+.business-card-body p{
+	font-size : 16px;
+	color : #505050;
+}
+
+.lower-card-body{
+	padding : 0px;
+}
+
+.business-card h4{
+	font-size : 16px;
+	color : #24B47E;
+}
+
+.meeting-card h4{
+	font-size : 16px;
+	color : #E25950;
+}
+.lower-card-body .card-text li{
+	font-size : 16px;
+	color : #505050;
+}
+
+.business-card .card-text li::before {
+  content: "• ";
+  color: #24B47E; /* or whatever color you prefer */
+}
+
+.virtual-office .card-text li::before {
+  content: "• ";
+  color: #008489; /* or whatever color you prefer */
+}
+
+.meeting-card .card-text li::before {
+  content: "• ";
+  color: #E25950; /* or whatever color you prefer */
+}
+
+.meeting-card-parttime .card-text li::before {
+  content: "• ";
+  color: #24B47E; /* or whatever color you prefer */
+}
+
+.meeting-card-batman .card-text li::before {
+  content: "• ";
+  color: #008489; /* or whatever color you prefer */
+}
+
+.available-space{
+	padding-top : 20px;
+}
+
+.plan-name{
+	width: 250px;
+    height: 100px;
+	
+}
+
+.part-time{
+	background-color : #24B47E;
+	border : 1px solid #24B47E;
+}
+
+.bat-man{
+	background-color : #008489;
+	border : 1px solid #008489;
+}
+
+.student{
+	background-color : #E25950;
+	border : 1px solid #E25950;
+}
+
+.registered-desk {
+	background-color : #FAAD26;
+	border : 1px solid #FAAD26;
+}
+.rate-card .card-body .card-title a{
+	font-size : 18px;
+	font-weight : 600;
+	color : #000000;
+}
+
+.rate-card .card-body .card-title p{
+	font-size : 12px;
+	color : #505050;
+}
+
+.meeting-card-body p{
+	font-size : 16px;
+	color : #505050;
+}
+
+.plan-name h4{
+	text-align : center;
+	font-size : 22px;
+	font-weight : 600;
+	color : #FFFFFF;
+	line-height: 80px;
+}
+
+.plan-container{
+	padding : 20px 0px;
+}
+
+.day-Pass .btn-default {
+    color: #FFFFFF;
+    background-color: #008489;
+    border-color: #ccc;
+}
+
+.day-Pass a span{
+	font-weight : 700;
+}
+
+.day-Pass .btn {
+    display: inline-block;
+    /* padding: 6px 12px; */
+	margin-top: 3px;
+    margin-left: 20px;
+	font-size: 10px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    height: 40px;
+}
+
+.price-rating-container{
+	padding: 1.25rem;
+	display: inline-flex;
+}
+
+.price-rating-container p{
+	font-size: 12px light;
+	color: #4A4A4A;
+}
+
+.price-rating-container #amount{
+	font-size : 12px medium;
+	color: #4A4A4A;
+}
+
+.price-rate span{
+	font-weight : 600;
+}
+
+.review-value{
+	position: absolute;
+    margin-top: 29px;
+    margin-left: 80px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #hero h3 {
+		font-size:25px;
+	}
+	
+	.bottom-right {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+	
+	.overview-more{
+		padding-top : 80px;
+	}
+	
+	.rating-container {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding-right: 50px;
+	}
+	
+	.review-value-details {
+		padding-right: 14px;
+	}
+	
+	#hero .actions a {
+		margin : 10px 0px;
+	}
+	
+	.add-rating{
+		padding : 35px 0px;
+	}
+}
+
+#hero .hero-container {
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}

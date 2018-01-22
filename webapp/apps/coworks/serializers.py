@@ -61,11 +61,12 @@ class CoworksListSerializer(serializers.ModelSerializer):
     # contact_person = ContactPersonSerializer(many=True)
     # membership = serializers.ListField(source='get_pricing')
     starting_price = serializers.CharField(source='get_minimum_price')
+    url = serializers.CharField(source='get_url')
     # banner_image = serializers.CharField(source='')
 
     class Meta:
         model = models.Cowork
-        fields = ('name', 'slug', 'description', 'address', 'starting_price', 'banner_image')
+        fields = ('name', 'slug', 'description', 'address', 'starting_price', 'banner_image', 'url')
 
 
 class CoworksDetailSerializer(serializers.ModelSerializer):
@@ -80,4 +81,12 @@ class CoworksDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Cowork
         fields = ('name', 'slug', 'description', 'address', 'starting_price', 'banner_image',
-                  'city', 'amenities', 'contact_person', 'memberships')
+                  'city', 'amenities', 'contact_person', 'memberships', 'locality', 'parent_cowork')
+
+
+class SimilarCoworksDetailSerializer(serializers.ModelSerializer):
+    """similar coworks serializer"""
+    url = serializers.CharField(source='get_url')
+    class Meta:
+        model = models.Cowork
+        fields = ('name', 'address', 'banner_image', 'url')

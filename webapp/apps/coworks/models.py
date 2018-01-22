@@ -52,6 +52,8 @@ class Cowork(ModelBase):
     price_per_month = models.CharField(max_length=50, null=True, blank=True)
     no_of_workstattion = models.CharField(max_length=50, null=True, blank=True)
     banner_image = models.ImageField(upload_to='banner_image/', null=True, blank=True)
+    parent_cowork = models.CharField(max_length=300, null=True, blank=True)
+    locality = models.CharField(max_length=300, null=True, blank=True)
     objects = managers.CoworkManager()
 
     def __str__(self):
@@ -64,7 +66,7 @@ class Cowork(ModelBase):
     def get_pricing(self):
         """get pricing related to membership"""
         memberships = Pricing.objects.filter(cowork_id=self.id).values('membership__name', 'membership__description',
-                                                                       'price', 'membership__suitable_for')
+                                                                       'price', 'membership__suitable_for', 'suitable_for')
         response = []
         class_list = [
             {'business-card': 'business-card-body'},
@@ -86,7 +88,7 @@ class Cowork(ModelBase):
                     'price': membership['price'],
                     'heading_class': suitable_class,
                     'suitable_class': heading_class,
-                    'suitable_for': membership['membership__suitable_for']
+                    'suitable_for': membership['suitable_for']
                 }
                 response.append(obj)
         return response
@@ -99,6 +101,10 @@ class Cowork(ModelBase):
 
     def get_location_name(self):
         return self.location.name
+
+    def get_url(self):
+        """"""
+        return "/coworks/india/{}/{}/".format(self.location.slug, self.slug)
 
 
 class MembershipBenefits(models.Model):
@@ -124,7 +130,7 @@ class Pricing(models.Model):
     time_value = models.CharField(max_length=30, null=True, blank=True)
     seats = models.PositiveIntegerField(null=True, blank=True)
     suitable_for = ArrayField(models.CharField(max_length=200), blank=True, null=True)
-    
+
     def __str__(self):
         return self.cowork.name + ": " + self.membership.name + ": " + str(self.price) or ''
 

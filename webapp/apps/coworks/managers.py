@@ -16,3 +16,11 @@ class CoworkManager(models.Manager):
     def get_cowork_by_slug(self, slug):
         """get cowork by slug"""
         return self.get(slug=slug)
+
+    def get_similar_coworks(self, locality):
+        """get similar coworks"""
+        return self.filter(locality=locality)
+
+    def get_cowork_by_city(self, city):
+        """"""
+        return self.filter(location__slug=city)

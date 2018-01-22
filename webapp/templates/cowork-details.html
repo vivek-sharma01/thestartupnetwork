@@ -25,7 +25,6 @@
     </div>
 </section>
 
-
 <div class="container">
 	<div class ="row">
 		<div class ="col-lg-8 col-md-8 col-sm-6">
@@ -36,7 +35,7 @@
 					</h4>
 					<div class="worker-title-divider"></div>
 					<p>{{data.address}}</p>
-					
+
 				</div>
 				<div class="add-rating-container">
 					<div class="rating-container"></div>
@@ -52,21 +51,21 @@
 				<div class="overview-summary">
 					<p>{{data.description}}</p>
 				</div>
-				<div class="overview-more"><a href="#">Read More about WeWork</a></div>
-				<div class="contact-wework"><a href="#">Contact WeWork</a></div>
+				<!--<div class="overview-more"><a href="#">Read More about WeWork</a></div>-->
+				<!--<div class="contact-wework"><a href="#">Contact WeWork</a></div>-->
 			</div>
-			
-			<div class="overview">
-				<h4 class="card-title">
-					<a href="#">Why {{data.name}}</a>
-				</h4>
-				<div class="overview-title-divider"></div>
-				<div class="overview-summary-wework">
-					<p> The members of our coworking spaces work in a wide variety of industries and they collectively have a wide breadth of areas of expertise.By pitching your idea to our members, you will often gain valuable insights.
-					</p>
-				</div>
-			</div>
-			
+
+			<!--<div class="overview">-->
+				<!--<h4 class="card-title">-->
+					<!--<a href="#">Why WeWork</a>-->
+				<!--</h4>-->
+				<!--<div class="overview-title-divider"></div>-->
+				<!--<div class="overview-summary-wework">-->
+					<!--<p> The members of our coworking spaces work in a wide variety of industries and they collectively have a wide breadth of areas of expertise.By pitching your idea to our members, you will often gain valuable insights.-->
+					<!--</p>-->
+				<!--</div>-->
+			<!--</div>-->
+
 			<div class="space-available">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-6">
@@ -76,18 +75,18 @@
 						<div class="overview-title-divider"></div>
 					</div>
 				</div>
-				<div class="row">
-				{% for membership in data.memberships %}
 
+				<div class="row">
+					{% for membership in data.memberships %}
 					<div class="col-lg-4 col-md-4 col-sm-6 available-space">
 						<div class="card h-details">
 							<a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
 							<div class="card-body">
 								<div class="{{membership.header_class}}">
 									<h4 class="card-title">
-										<a href="#">{{membership.name}}</a>
-								  	</h4>
-								 {% if membership.description %}
+									<a href="#">{{membership.name}}</a>
+								  </h4>
+								  {% if membership.description %}
 									<p>{{membership.description}}</p>
 								 {% else %}
 								  <p>Informal drop in meeting spaces with free tea,coffee,secure wi-fi access to a printer,scanner and photocopier.</p>
@@ -97,18 +96,18 @@
 							<div class="lower-card-body {{membership.suitable_class}}">
 								<h4>Suitable for :</h4>
 							  <ul class="card-text">
-								{% for suitable_for in membership.suitable_for %}
+								  {% for suitable_for in membership.suitable_for %}
 									<li>{{suitable_for}}</li>
-								{% endfor %}
+								  {% endfor %}
+
 							  </ul>
 							</div>
 						</div>
 					</div>
-
-
-				{% endfor %}
+					{% endfor %}
 				</div>
-			
+			</div>
+
 			<div class="basic-ammenties">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-6">
@@ -118,14 +117,14 @@
 						<div class="overview-title-divider"></div>
 					</div>
 				</div>
-				
+
 				<div class="row work-ammenties">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
 							<a href="#">Work</a>
 						</h4>
 					</div>
-					
+
 					<div class="col-lg-4 col-md-4 col-sm-6 ">
 						<ul>
 							<li><img src="{% custom_static 'assets/images/Conference Room.png' %}"><span>Conference Rooms</span></li>
@@ -148,14 +147,14 @@
 						</ul>
 					</div>
 				</div>
-				
+
 				<div class="row support-ammenties">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
 							<a href="#">Support</a>
 						</h4>
 					</div>
-					
+
 					<div class="col-lg-4 col-md-4 col-sm-6 ">
 						<ul>
 							<li><img src="{% custom_static 'assets/images/Onsite Staff.png' %}"><span>Onsite Staff</span></li>
@@ -166,16 +165,16 @@
 							<li><img src="{% custom_static 'assets/images/Cleaning Service.png' %}"><span>Cleaning Services</span></li>
 						</ul>
 					</div>
-					
+
 				</div>
-				
+
 				<div class="row kitchen-ammenties">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
 							<a href="#">Kitchen</a>
 						</h4>
 					</div>
-					
+
 					<div class="col-lg-4 col-md-4 col-sm-6 ">
 						<ul>
 							<li><img src="{% custom_static 'assets/images/Induction.png' %}"><span>Induction</span></li>
@@ -194,14 +193,14 @@
 						</ul>
 					</div>
 				</div>
-				
+
 				<div class="row events-ammenties">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
 							<a href="#">Events</a>
 						</h4>
 					</div>
-					
+
 					<div class="col-lg-4 col-md-4 col-sm-6 ">
 						<ul>
 							<li><img src="{% custom_static 'assets/images/Professsional Events.png' %}"><span>Professional Events</span></li>
@@ -213,14 +212,14 @@
 						</ul>
 					</div>
 				</div>
-				
+
 				<div class="row unique-ammenties">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
 							<a href="#">Unique to this Building</a>
 						</h4>
 					</div>
-					
+
 					<div class="col-lg-4 col-md-4 col-sm-6 ">
 						<ul>
 							<li><img src="{% custom_static 'assets/images/Bike_Storage.png' %}"><span>Bike Storage</span></li>
@@ -240,14 +239,14 @@
 						</ul>
 					</div>
 				</div>
-				
+
 				<div class="row extra-ammenties">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
 							<a href="#">Extra Amenties(Additional Charges*)</a>
 						</h4>
 					</div>
-					
+
 					<div class="col-lg-4 col-md-4 col-sm-6 ">
 						<ul>
 							<li><img src=""><span>Car Cleaning</span></li>
@@ -265,14 +264,14 @@
 							<li><img src=""><span>Car Cleaning</span></li>
 							<li><img src=""><span>Pet Care</span></li>
 						</ul>
-					</div>					
+					</div>
 				</div>
-				
+
 				<div class="additional-charges">
 					<p>*The Charges will be subject to WeWorks</p>
-				</div>				
+				</div>
 			</div>
-			
+
 			<div class="special-plans">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-6">
@@ -282,7 +281,7 @@
 						<div class="overview-title-divider"></div>
 					</div>
 				</div>
-				
+
 				<div class="row plan-container">
 					<div class="col-lg-4 col-md-4 col-sm-6 ">
 						<div class="rate-card">
@@ -323,7 +322,7 @@
 							</div>
 							<div class="lower-card-body meeting-card-batman">
 							  <ul class="card-text">
-								<li>Access to all hubs across the country</li>								
+								<li>Access to all hubs across the country</li>
 							  </ul>
 							</div>
 						</div>
@@ -378,14 +377,14 @@
 							</div>
 							<div class="lower-card-body meeting-card-batman">
 							  <ul class="card-text">
-								<li>Access to all hubs across the country</li>								
+								<li>Access to all hubs across the country</li>
 							  </ul>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="cost-structure">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-6">
@@ -395,19 +394,19 @@
 						<div class="overview-title-divider"></div>
 					</div>
 				</div>
-				
+
 				<div class="row desks-rate">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
 							<a href="#">Desks</a>
 						</h4>
 					</div>
-					
+
 					<div class="col-lg-3 col-md-3 col-sm-6 rate-type">
 						<ul>
 							<li><span>Dedicated desk</span>
 								<p>per person</p>
-							</li>							
+							</li>
 						</ul>
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-6 rate-value">
@@ -428,15 +427,15 @@
 						</ul>
 					</div>
 				</div>
-				
+
 				<div class="row private-office">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
 							<a href="#">Private Office</a>
 						</h4>
 					</div>
-					
-					<div class="col-lg-3 col-md-3 col-sm-6 rate-type">
+
+					<div class="col-lg-3 col-md-3 col-sm-4 rate-type">
 						<ul>
 							<li><span>1 Seat</span></li>
 							<li><span>3 Seat</span></li>
@@ -445,7 +444,7 @@
 							<li><span>10 Seat</span></li>
 						</ul>
 					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6 rate-value">
+					<div class="col-lg-3 col-md-3 col-sm-4 rate-value">
 						<ul>
 							<li><span><i class="fa fa-inr"></i>23,500 per/month</span></li>
 							<li><span><i class="fa fa-inr"></i>65,200 per/month</span></li>
@@ -473,14 +472,14 @@
 						</ul>
 					</div>
 				</div>
-				
+
 			</div>
-			
+
 		</div>
-		
+
 		<div class ="col-lg-4 col-md-4 col-sm-6">
-			<div class="price-rate">
-				<p>Starting from <i class="fa fa-inr"></i><span>{{cowork.starting_price}}/month</span></p>
+			<div class="price-rate-value">
+				<p>Starting from <i class="fa fa-inr"></i><span>16,500/month</span></p>
 			</div>
 			<div class="message-us">
 				<p>Talk to we work</p>
@@ -508,148 +507,71 @@
 		</div>
 	</div>
 </div>
+{% if similar_coworks|length > 0 %}
+ <!--<div class="container similar-coworks">-->
+	<!--<div class="row">-->
+        <!--<div class="col-md-12">-->
+          <!--<h3 class="section-title">Similar CoWorks in {{data.locality}}</h3>-->
+          <!--<div class="section-title-divider"></div>-->
+        <!--</div>-->
+    <!--</div>-->
 
-<!-- <div class="container ">
-	<div class="row">
-        <div class="col-md-12">
-          <h3 class="section-title">Similar CoWorks in Koramangala</h3>
-          <div class="section-title-divider"></div>
-        </div>
-    </div>
-	
-	<div class="row">
-		<div class="col-lg-3 col-md-3 col-sm-6">
-          <div class="card h-listing">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/annie-spratt-294450.jpg' %}" alt=""></a>
-            <div class="card-body">
-				<div class="upper-card-body">
-					<h4 class="card-title">
-						<a href="#">WeWork,Koramangala</a>
-					</h4>
-				  <p>Embassy Gold links,Cinnabar Hills off Intermediate Ring Road,Domlur | Stage Bengaluru KA 560071</p>
-				</div>
-			</div>
-            <div class="price-rating-container">
-				
-				<div class="price-rate">
-					<p>Starting from <i class="fa fa-inr"></i><span>16,500/month</span></p>
-				</div>
-				<div class ="day-Pass">
-					<a href="#" class="btn btn-default"><span>Free</span><br><span>Day Pass</a>
-				</div>
-				<div class="review-value">186</div>
-			</div>
-          </div>
-        </div>
-		<div class="col-lg-3 col-md-3 col-sm-6">
-          <div class="card h-listing">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/annie-spratt-294450.jpg' %}" alt=""></a>
-            <div class="card-body">
-				<div class="upper-card-body">
-					<h4 class="card-title">
-						<a href="#">WeWork,Koramangala</a>
-					</h4>
-				  <p>Embassy Gold links,Cinnabar Hills off Intermediate Ring Road,Domlur | Stage Bengaluru KA 560071</p>
-				</div>
-			</div>
-            <div class="price-rating-container">
-				
-				<div class="price-rate">
-					<p>Starting from <i class="fa fa-inr"></i><span>16,500/month</span></p>
-				</div>
-				<div class ="day-Pass">
-					<a href="#" class="btn btn-default"><span>Free</span><br><span>Day Pass</a>
-				</div>
-				<div class="review-value">186</div>
-			</div>
-          </div>
-        </div>
-		<div class="col-lg-3 col-md-3 col-sm-6">
-          <div class="card h-listing">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/annie-spratt-294450.jpg' %}" alt=""></a>
-            <div class="card-body">
-				<div class="upper-card-body">
-					<h4 class="card-title">
-						<a href="#">WeWork,Koramangala</a>
-					</h4>
-				  <p>Embassy Gold links,Cinnabar Hills off Intermediate Ring Road,Domlur | Stage Bengaluru KA 560071</p>
-				</div>
-			</div>
-            <div class="price-rating-container">
-				
-				<div class="price-rate">
-					<p>Starting from <i class="fa fa-inr"></i><span>16,500/month</span></p>
-				</div>
-				<div class ="day-Pass">
-					<a href="#" class="btn btn-default"><span>Free</span><br><span>Day Pass</a>
-				</div>
-				<div class="review-value">186</div>
-			</div>
-          </div>
-        </div>
-		<div class="col-lg-3 col-md-3 col-sm-6">
-          <div class="card h-listing">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/annie-spratt-294450.jpg' %}" alt=""></a>
-            <div class="card-body">
-				<div class="upper-card-body">
-					<h4 class="card-title">
-						<a href="#">WeWork,Koramangala</a>
-					</h4>
-				  <p>Embassy Gold links,Cinnabar Hills off Intermediate Ring Road,Domlur | Stage Bengaluru KA 560071</p>
-				</div>
-			</div>
-            <div class="price-rating-container">
-				
-				<div class="price-rate">
-					<p>Starting from <i class="fa fa-inr"></i><span>16,500/month</span></p>
-				</div>
-				<div class ="day-Pass">
-					<a href="#" class="btn btn-default"><span>Free</span><br><span>Day Pass</a>
-				</div>
-				<div class="review-value">186</div>
-			</div>
-          </div>
-        </div>
-	</div>
- </div> -->
+	<!--<div class="row similar-types-coworks">-->
+		<!--{% for cowork in similar_coworks %}-->
+		<!--<div class="col-lg-3 col-md-3 col-sm-6">-->
+          <!--<div class="card h-listing">-->
+            <!--<a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/annie-spratt-294450.jpg' %}" alt=""></a>-->
+            <!--<div class="card-body">-->
+				<!--<div class="upper-card-body">-->
+					<!--<h4 class="card-title">-->
+						<!--<a href="#">WeWork,Koramangala</a>-->
+					<!--</h4>-->
+				  <!--<p>Embassy Gold links,Cinnabar Hills off Intermediate Ring Road,Domlur | Stage Bengaluru KA 560071</p>-->
+				<!--</div>-->
+			<!--</div>-->
+            <!--<div class="price-rating-container">-->
+				<!--<div class="price-rate">-->
+					<!--<p>Starting from <i class="fa fa-inr"></i><span>16,500/month</span></p>-->
+				<!--</div>-->
+				<!--<div class ="day-Pass">-->
+					<!--<a href="#" class="btn btn-default"><span>Free</span><br><span>Day Pass</a>-->
+				<!--</div>-->
+				<!--<div class="review-value">186</div>-->
+			<!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+		<!--{% endfor %}-->
+	<!--</div>-->
 
+ <!--</div>-->
+{% endif %}
 <div class="container ">
 	<div class="row">
         <div class="col-md-12">
-          <h3 class="section-title">Other WeWorks in Bengaluru</h3>
+          <h3 class="section-title">Other {{data.parent_cowork}} in {{data.city}}</h3>
           <div class="section-title-divider"></div>
         </div>
       </div>
      <div class="row popular-cowork">
+		 {% for cowork in other_coworks_in_city %}
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
             <div class="cardContent">
-				<h3>Coworks,Ecoworld</h3>
-				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>Bengaluru,India</p>
+				<h3>{{cowork.name}}</h3>
+				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>{{cowork.address}}</p>
 			</div>
           </div>
         </div>
-		<div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
-            <div class="cardContent">
-				<h3>Coworks,Ecoworld</h3>
-				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>Bengaluru,India</p>
-			</div>
-          </div>
-        </div>
-		<div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
-            <div class="cardContent">
-				<h3>Coworks,Ecoworld</h3>
-				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>Bengaluru,India</p>
-			</div>
-          </div>
-        </div>
+		 {% endfor %}
+
       </div>
  </div>
 
+
+
+
+<input type="hidden" id="image_url" value="{% if data.banner_image %}/{{data.banner_image}}
+				 {% else %} {% custom_static 'assets/images/annie-spratt-294450.jpg' %} {% endif %}"/>
 
 {% endblock %}
