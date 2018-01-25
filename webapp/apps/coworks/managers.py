@@ -23,4 +23,4 @@ class CoworkManager(models.Manager):
 
     def get_cowork_by_city(self, city, cowork):
         """"""
-        return self.filter(location__slug=city, parent_cowork=cowork.parent_cowork)
+        return self.filter(location__slug=city, parent_cowork=cowork.parent_cowork).exclude(id=cowork.id)
