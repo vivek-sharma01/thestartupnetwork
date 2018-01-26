@@ -15,7 +15,7 @@ from slugify import slugify
 # pyexcel-xls==0.2.1 and xlrd==1.0.0 is installed in your virtual env
 
 
-def add_location(name):
+def add_location(name, state):
     """
     Args:
         name: name of location
@@ -25,9 +25,10 @@ def add_location(name):
     from webapp.apps.coworks.models import Location
     data = {
         'name': name.capitalize(),
-        'slug': slugify(name)
+        'slug': slugify(name),
+        'state': state
     }
-    return Location.objects.get_or_create(slug=slug, defaults=data)[0]
+    return Location.objects.update_or_create(slug=slug, defaults=data)[0]
 
 
 # @transaction.atomic
@@ -41,27 +42,27 @@ def add_data():
     BASE_PATH = os.path.dirname(os.path.realpath(__file__))
     from webapp.apps.coworks import models, constants
 
-    file_path = os.path.join(BASE_PATH, 'CoworksDetails_20thJanuary2018.xlsx')
+    file_path = os.path.join(BASE_PATH, 'Coworks_Details26Jan.xlsx')
     data = get_data(file_path)
 
     # row_list is data of first sheet
-    row_list = data['Results_20th January']
+    row_list = data['Results_26th January']
     row_list.pop(0)
 
     for row in row_list:
-
-        name = row[2].split(",")
-        cowork_name = ",".join(name[:-1])
-        address = row[44] + ", " + row[47] + ", " + row[49]
-        address = ", ".join(row[44:48] + [str(row[48])])
-        location_name = 'bengaluru' if row[45].strip() == 'Bangalore' else row[45].strip()
-        location_obj = add_location(location_name)
+        
+        cowork_name = row[2]
+        address = row[43]
+        location_name = 'bengaluru' if row[44].strip() == 'Bangalore' else row[44].strip()
+        state = row[45]
+        location_obj = add_location(location_name, state)
 
         cowork_data = {
             'address': address,
             'location_id': location_obj.id,
             'name': cowork_name,
             'website_url': row[5],
+            'reasons_to_choose': row[84]
             # 'price_per_day': row[19],
             # 'price_per_month': row[20],
             # 'no_of_workstattion': row[14]
@@ -77,7 +78,7 @@ def add_data():
 
         contact_person_obj, created = models.ContactPerson.objects.get_or_create(email=row[8], defaults=contact_person_data)
 
-        for index in range(51, 57):
+        for index in range(50, 56):
             if row[index]:
                 benefit_name = constants.MEMBERSHIPS_DICT[row[index]]
                 benefit_data = {
@@ -109,9 +110,6 @@ def add_data():
 
         cowork_obj.amenity.add(*amenity_obj_list)
         cowork_obj.save()
-
-
-
 
 
 if __name__ == "__main__":

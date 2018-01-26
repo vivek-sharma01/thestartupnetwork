@@ -54,6 +54,7 @@ class Cowork(ModelBase):
     banner_image = models.ImageField(upload_to='banner_image/', null=True, blank=True)
     parent_cowork = models.CharField(max_length=300, null=True, blank=True)
     locality = models.CharField(max_length=300, null=True, blank=True)
+    reasons_to_choose = models.TextField(null=True, blank=True)
     objects = managers.CoworkManager()
 
     def __str__(self):
@@ -95,9 +96,10 @@ class Cowork(ModelBase):
 
     def get_minimum_price(self):
         """minimum price for a cowork"""
-        return self.price_per_month
-        # memberships = Pricing.objects.filter(cowork_id=self.id).values_list('price', flat=True)
-        # return min(memberships) if memberships else None
+        if self.price_per_month:
+            return self.price_per_month
+        memberships = Pricing.objects.filter(cowork_id=self.id).values_list('price', flat=True)
+        return min(memberships) if memberships else None
 
     def get_location_name(self):
         return self.location.name
@@ -171,6 +173,8 @@ class Location(models.Model):
     name = models.CharField(max_length=300, null=True, blank=True)
     slug = models.SlugField(max_length=300, unique=True)
     description = models.TextField(null=True, blank=True)
+    state = models.CharField(max_length=300, null=True, blank=True)
+    country = models.CharField(max_length=300, default='India', null=True, blank=True)
 
     def __str__(self):
         return self.name or ''
