@@ -49,8 +49,6 @@ def add_data():
     row_list.pop(0)
 
     for row in row_list:
-
-
         cowork_name = row[1]
         address = row[42]
         print(cowork_name)

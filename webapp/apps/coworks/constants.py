@@ -43,3 +43,32 @@ MEMBERSHIPS_91SPRINGBOARD_MAPPING = {
     12: 'Virtual Office',
     13: 'Event Space'
 }
+
+AMENITIES_FILTER_MAPPING = {
+    'Work': 'W',
+    'Facilities & Support': 'FS',
+    'Events & Activities': 'EA',
+    'Food & Kitchen': 'FK',
+    'Payable Amenties': 'PA',
+    'Other Amenities': 'OA'
+}
+
+AMENITIES_FILTER = (
+    ('W', _('Work')),
+    ('FS', _('Facilities & Support')),
+    ('EA', _('Events & Activities')),
+    ('FK', _('Food & Kitchen')),
+    ('PA', _('Payable Amenties')),
+    ('OA', _('Other Amenities')),
+)
+
+
+AMENITIES_FILTER_INDEX = {
+    1: 'W',
+    2: 'FS',
+    3: 'EA',
+    4: 'FK',
+    5: 'PA',
+    6: 'OA'
+}
+
