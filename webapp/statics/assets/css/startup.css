@@ -323,13 +323,14 @@
 .container .cardContent {
     position: absolute;
     bottom: 0;
-    background: #4A98C6; /* Black background with transparency */
-	opacity : 0.7;
-    color: #ffffff;
+    background: #ffffff; /* Black background with transparency */
+	opacity : 0.8;
+    color: #253238;
     width: 100%;
     padding: 0px 15px;
     height: 42%;
 }
+
 
 .container .cardContent img {
 	 padding-right: 6px;
@@ -337,6 +338,7 @@
 
 .container .cardContent h3{
 	font-size : 18px;
+	font-weight : 600;
 	height: 35%;
 }
 

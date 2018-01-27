@@ -5,10 +5,11 @@ from . import models
 
 class AmenityListSerializer(serializers.ModelSerializer):
     """Amenity list serializer"""
+    filter_class = serializers.CharField(source='get_filter_class', required=False)
 
     class Meta:
         model = models.Amenity
-        fields = ('name', 'description')
+        fields = ('name', 'description', 'filter_class', 'filter')
 
 
 class NeighbourAmenityListSerializer(serializers.ModelSerializer):
@@ -71,7 +72,7 @@ class CoworksListSerializer(serializers.ModelSerializer):
 
 class CoworksDetailSerializer(serializers.ModelSerializer):
     """regions list serializer"""
-    amenities = AmenityListSerializer(source='amenity', many=True)
+    amenities = serializers.DictField(source='get_amenities_list', required=False)
     # neighbour_amenities = NeighbourAmenityListSerializer(source='neighbour_amenity', many=True)
     contact_person = ContactPersonSerializer(many=True)
     memberships = serializers.ListField(source='get_pricing')
@@ -81,7 +82,8 @@ class CoworksDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Cowork
         fields = ('name', 'slug', 'description', 'address', 'starting_price', 'banner_image',
-                  'city', 'amenities', 'contact_person', 'memberships', 'locality', 'parent_cowork')
+                  'city', 'amenities', 'contact_person', 'memberships', 'locality', 'parent_cowork',
+                  'reasons_to_choose')
 
 
 class SimilarCoworksDetailSerializer(serializers.ModelSerializer):

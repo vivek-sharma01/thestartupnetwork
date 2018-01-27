@@ -72,3 +72,21 @@ AMENITIES_FILTER_INDEX = {
     6: 'OA'
 }
 
+
+AMENITY_FILTER_CSS = {
+    'Work': 'work-ammenties',
+    'Facilities & Support': 'support-ammenties',
+    'Events & Activities': 'events-ammenties',
+    'Food & Kitchen': 'kitchen-ammenties',
+    'Payable Amenties': 'unique-ammenties',
+    'Other Amenities': 'extra-ammenties'
+}
+
+AMENITY_FILTER_REVERSE_MAPPING = {
+     'EA': 'Events & Activities',
+     'FK': 'Food & Kitchen',
+     'FS': 'Facilities & Support',
+     'OA': 'Other Amenities',
+     'PA': 'Payable Amenties',
+     'W': 'Work'
+}

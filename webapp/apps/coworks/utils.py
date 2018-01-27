@@ -1,5 +1,6 @@
 from . import models, serializers
 
+
 def get_locations():
     """"""
     cowork_location = models.Location.objects.all()

@@ -11,9 +11,6 @@
 	<script src="{% custom_static 'assets/js/details.js' %}"></script>
 {% endblock %}
 
-
-<body>
-
 {% block content %}
 <section id="hero">
     <div class="hero-container">
@@ -35,7 +32,7 @@
 					</h4>
 					<div class="worker-title-divider"></div>
 					<p>{{data.address}}</p>
-
+					
 				</div>
 				<div class="add-rating-container">
 					<div class="rating-container"></div>
@@ -51,21 +48,52 @@
 				<div class="overview-summary">
 					<p>{{data.description}}</p>
 				</div>
-				<!--<div class="overview-more"><a href="#">Read More about WeWork</a></div>-->
-				<!--<div class="contact-wework"><a href="#">Contact WeWork</a></div>-->
+				<div class="contact-wework"><a href="#">Contact {{data.name}}</a></div>
 			</div>
-
-			<!--<div class="overview">-->
-				<!--<h4 class="card-title">-->
-					<!--<a href="#">Why WeWork</a>-->
-				<!--</h4>-->
-				<!--<div class="overview-title-divider"></div>-->
-				<!--<div class="overview-summary-wework">-->
-					<!--<p> The members of our coworking spaces work in a wide variety of industries and they collectively have a wide breadth of areas of expertise.By pitching your idea to our members, you will often gain valuable insights.-->
-					<!--</p>-->
-				<!--</div>-->
-			<!--</div>-->
-
+			<div class="overview">
+				<h4 class="card-title">
+					<a href="#">Why {{data.name}}</a>
+				</h4>
+				<div class="overview-title-divider"></div>
+				<div class="overview-summary-wework">
+					<p> {{data.reasons_to_choose}}
+					</p>
+				</div>
+			</div>
+		</div>
+		<div id="rightContent" class ="col-lg-4 col-md-4 col-sm-6 membership-data">
+			<div class="price-rate-value">
+				<p>Starting from <i class="fa fa-inr"></i><span>{{data.starting_price}}/month</span></p>
+			</div>
+			<div class="message-us">
+				<p>Talk to {{data.name}}</p>
+				<div class="actions">
+					<a href="#about" class="btn-get-started">Message Us</a>
+				</div>
+			</div>
+			<div class="visit-us">
+				<p>Visit {{data.name}}</p>
+				<div class="actions">
+					<a href="#about" class="btn-get-started">Book a Tour</a>
+				</div>
+				<div class="day-pass">
+					<div class="actions">
+						<a href="#about" class="btn-get-started">Request a Day Pass</a>
+					</div>
+				</div>
+			</div>
+			<div class="member-ship">
+				<p>Become a Member</p>
+				<div class="actions">
+					<a href="#about" class="btn-get-started">Membership Enquiry</a>
+				</div>
+			</div>
+		</div>
+		<div class="report_cowork"><img src="{% custom_static 'assets/images/Flag.png' %}"/><p>Report this Listing<p></div>
+	</div>
+	<div class="row">
+		<div class ="col-lg-8 col-md-8 col-sm-6">
+		
 			<div class="space-available">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-6">
@@ -75,12 +103,12 @@
 						<div class="overview-title-divider"></div>
 					</div>
 				</div>
-
+				
 				<div class="row">
-					{% for membership in data.memberships %}
-					<div class="col-lg-4 col-md-4 col-sm-6 available-space">
+					{% for membership in space_types %}
+						<div class="col-lg-4 col-md-4 col-sm-6 available-space">
 						<div class="card h-details">
-							<a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
+							<a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""/></a>
 							<div class="card-body">
 								<div class="{{membership.header_class}}">
 									<h4 class="card-title">
@@ -96,182 +124,63 @@
 							<div class="lower-card-body {{membership.suitable_class}}">
 								<h4>Suitable for :</h4>
 							  <ul class="card-text">
-								  {% for suitable_for in membership.suitable_for %}
+								{% for suitable_for in membership.suitable_for %}
 									<li>{{suitable_for}}</li>
 								  {% endfor %}
-
 							  </ul>
 							</div>
 						</div>
 					</div>
 					{% endfor %}
+
+					
+				</div>
+				<div class="row">
+					<div class="more-spaces"><span>More Spaces <img src="{% custom_static 'assets/images/down-arrow.png' %}"/></span></div>
 				</div>
 			</div>
-
+			
 			<div class="basic-ammenties">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
-							<a href="#">Basic Ammenties</a>
+							<a href="#">Basic Amenities</a>
 						</h4>
 						<div class="overview-title-divider"></div>
 					</div>
 				</div>
 
-				<div class="row work-ammenties">
-					<div class="col-lg-12 col-md-12 col-sm-6">
-						<h4 class="card-title">
-							<a href="#">Work</a>
-						</h4>
-					</div>
+				{% for key, value in data.amenities.items %}
+					<div class="row {{key|amenity_filter_class}}">
+						<div class="col-lg-12 col-md-12 col-sm-6">
+							<h4 class="card-title">
+								<a href="#">{{key}}</a>
+							</h4>
+						</div>
+					{% for amenity_list in value %}
+						{% for amenity in amenity_list %}
+						<div class="col-lg-4 col-md-4 col-sm-6 ">
+							<ul>
 
-					<div class="col-lg-4 col-md-4 col-sm-6 ">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Conference Room.png' %}"><span>Conference Rooms</span></li>
-							<li><img src="{% custom_static 'assets/images/Common Arar.png' %}"><span>Unique Common Rooms</span></li>
-							<li><img src="{% custom_static 'assets/images/Photocopy.png' %}"><span>Photocopiers</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Phone Booth.png' %}"><span>Phone Booths</span></li>
-							<li><img src="{% custom_static 'assets/images/Printer.png' %}"><span>Printers</span></li>
-							<li><img src="{% custom_static 'assets/images/TV _ Connector.png' %}"><span>Tv & Connectors</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Internet_Wifi.png' %}"><span>High Speed Internet</span></li>
-							<li><img src="{% custom_static 'assets/images/Scanners.png' %}"><span>Scanners</span></li>
-							<li><img src="{% custom_static 'assets/images/Beanbag.png' %}"><span>Bean Bags</span></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="row support-ammenties">
-					<div class="col-lg-12 col-md-12 col-sm-6">
-						<h4 class="card-title">
-							<a href="#">Support</a>
-						</h4>
-					</div>
-
-					<div class="col-lg-4 col-md-4 col-sm-6 ">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Onsite Staff.png' %}"><span>Onsite Staff</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Cleaning Service.png' %}"><span>Cleaning Services</span></li>
-						</ul>
-					</div>
+								{% with amenity.name as amenity_name %}
+								{% with 'assets/images/'|add:amenity_name|add:'.png' as amenity_image %}
+								<li><img src="{% custom_static amenity_image %}"/><span>{{amenity.name}}</span></li>
+								{% endwith %}
+								{% endwith %}
+							</ul>
+						</div>
+						{% endfor %}
+					{% endfor %}
 
 				</div>
+				{% endfor %}
 
-				<div class="row kitchen-ammenties">
-					<div class="col-lg-12 col-md-12 col-sm-6">
-						<h4 class="card-title">
-							<a href="#">Kitchen</a>
-						</h4>
-					</div>
-
-					<div class="col-lg-4 col-md-4 col-sm-6 ">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Induction.png' %}"><span>Induction</span></li>
-							<li><img src="{% custom_static 'assets/images/Tea.png' %}"><span>Tea</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Coffee.png' %}"><span>Micro Roasted Coffee</span></li>
-							<li><img src="{% custom_static 'assets/images/Water.png' %}"><span>Free Drinking Water</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Fruit Juices.png' %}"><span>Fruit Water</span></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="row events-ammenties">
-					<div class="col-lg-12 col-md-12 col-sm-6">
-						<h4 class="card-title">
-							<a href="#">Events</a>
-						</h4>
-					</div>
-
-					<div class="col-lg-4 col-md-4 col-sm-6 ">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Professsional Events.png' %}"><span>Professional Events</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Professsional Events.png' %}"><span>Social Events</span></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="row unique-ammenties">
-					<div class="col-lg-12 col-md-12 col-sm-6">
-						<h4 class="card-title">
-							<a href="#">Unique to this Building</a>
-						</h4>
-					</div>
-
-					<div class="col-lg-4 col-md-4 col-sm-6 ">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Bike_Storage.png' %}"><span>Bike Storage</span></li>
-							<li><img src="{% custom_static 'assets/images/Parking.png' %}"><span>Parking</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Event Space.png' %}"><span>Event Space</span></li>
-							<li><img src="{% custom_static 'assets/images/Dog Friendly.png' %}"><span>Dog Friendly</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<ul>
-							<li><img src="{% custom_static 'assets/images/Wellenss Room.png' %}"><span>Wellness Room</span></li>
-							<li><img src="{% custom_static 'assets/images/Smoking Room.png' %}"><span>Smoking Room</span></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="row extra-ammenties">
-					<div class="col-lg-12 col-md-12 col-sm-6">
-						<h4 class="card-title">
-							<a href="#">Extra Amenties(Additional Charges*)</a>
-						</h4>
-					</div>
-
-					<div class="col-lg-4 col-md-4 col-sm-6 ">
-						<ul>
-							<li><img src=""><span>Car Cleaning</span></li>
-							<li><img src=""><span>Pet Care</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<ul>
-							<li><img src=""><span>Car Cleaning</span></li>
-							<li><img src=""><span>Pet Care</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<ul>
-							<li><img src=""><span>Car Cleaning</span></li>
-							<li><img src=""><span>Pet Care</span></li>
-						</ul>
-					</div>
-				</div>
-
+				
 				<div class="additional-charges">
-					<p>*The Charges will be subject to WeWorks</p>
-				</div>
+					<p>*The Charges will be subject to {{data.name}}</p>
+				</div>				
 			</div>
-
+			
 			<div class="special-plans">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-6">
@@ -281,7 +190,7 @@
 						<div class="overview-title-divider"></div>
 					</div>
 				</div>
-
+				
 				<div class="row plan-container">
 					<div class="col-lg-4 col-md-4 col-sm-6 ">
 						<div class="rate-card">
@@ -322,7 +231,7 @@
 							</div>
 							<div class="lower-card-body meeting-card-batman">
 							  <ul class="card-text">
-								<li>Access to all hubs across the country</li>
+								<li>Access to all hubs across the country</li>								
 							  </ul>
 							</div>
 						</div>
@@ -377,14 +286,14 @@
 							</div>
 							<div class="lower-card-body meeting-card-batman">
 							  <ul class="card-text">
-								<li>Access to all hubs across the country</li>
+								<li>Access to all hubs across the country</li>								
 							  </ul>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
+			
 			<div class="cost-structure">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-6">
@@ -394,19 +303,19 @@
 						<div class="overview-title-divider"></div>
 					</div>
 				</div>
-
+				
 				<div class="row desks-rate">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
 							<a href="#">Desks</a>
 						</h4>
 					</div>
-
+					
 					<div class="col-lg-3 col-md-3 col-sm-6 rate-type">
 						<ul>
 							<li><span>Dedicated desk</span>
 								<p>per person</p>
-							</li>
+							</li>							
 						</ul>
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-6 rate-value">
@@ -427,14 +336,14 @@
 						</ul>
 					</div>
 				</div>
-
+				
 				<div class="row private-office">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
 							<a href="#">Private Office</a>
 						</h4>
 					</div>
-
+					
 					<div class="col-lg-3 col-md-3 col-sm-4 rate-type">
 						<ul>
 							<li><span>1 Seat</span></li>
@@ -472,84 +381,57 @@
 						</ul>
 					</div>
 				</div>
-
+				
 			</div>
-
-		</div>
-
-		<div class ="col-lg-4 col-md-4 col-sm-6">
-			<div class="price-rate-value">
-				<p>Starting from <i class="fa fa-inr"></i><span>16,500/month</span></p>
-			</div>
-			<div class="message-us">
-				<p>Talk to we work</p>
-				<div class="actions">
-					<a href="#about" class="btn-get-started">Message Us</a>
-				</div>
-			</div>
-			<div class="visit-us">
-				<p>Visit WeWork</p>
-				<div class="actions">
-					<a href="#about" class="btn-get-started">Book a Tour</a>
-				</div>
-				<div class="day-pass">
-					<div class="actions">
-						<a href="#about" class="btn-get-started">Request a Day Pass</a>
-					</div>
-				</div>
-			</div>
-			<div class="member-ship">
-				<p>Become a Member</p>
-				<div class="actions">
-					<a href="#about" class="btn-get-started">Membership Enquiry</a>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </div>
+
 {% if similar_coworks|length > 0 %}
- <!--<div class="container similar-coworks">-->
-	<!--<div class="row">-->
-        <!--<div class="col-md-12">-->
-          <!--<h3 class="section-title">Similar CoWorks in {{data.locality}}</h3>-->
-          <!--<div class="section-title-divider"></div>-->
-        <!--</div>-->
-    <!--</div>-->
+ <div class="container similar-coworks">
+	<div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">Similar CoWorks in {{data.locality}}</h3>
+          <div class="section-title-divider"></div>
+        </div>
+    </div>
 
-	<!--<div class="row similar-types-coworks">-->
-		<!--{% for cowork in similar_coworks %}-->
-		<!--<div class="col-lg-3 col-md-3 col-sm-6">-->
-          <!--<div class="card h-listing">-->
-            <!--<a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/annie-spratt-294450.jpg' %}" alt=""></a>-->
-            <!--<div class="card-body">-->
-				<!--<div class="upper-card-body">-->
-					<!--<h4 class="card-title">-->
-						<!--<a href="#">WeWork,Koramangala</a>-->
-					<!--</h4>-->
-				  <!--<p>Embassy Gold links,Cinnabar Hills off Intermediate Ring Road,Domlur | Stage Bengaluru KA 560071</p>-->
-				<!--</div>-->
-			<!--</div>-->
-            <!--<div class="price-rating-container">-->
-				<!--<div class="price-rate">-->
-					<!--<p>Starting from <i class="fa fa-inr"></i><span>16,500/month</span></p>-->
-				<!--</div>-->
-				<!--<div class ="day-Pass">-->
-					<!--<a href="#" class="btn btn-default"><span>Free</span><br><span>Day Pass</a>-->
-				<!--</div>-->
-				<!--<div class="review-value">186</div>-->
-			<!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-		<!--{% endfor %}-->
-	<!--</div>-->
+	<div class="row similar-types-coworks">
+		{% for cowork in similar_coworks %}
+		<div class="col-lg-3 col-md-3 col-sm-6">
+          <div class="card h-listing">
+            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/annie-spratt-294450.jpg' %}" alt=""></a>
+            <div class="card-body">
+				<div class="upper-card-body">
+					<h4 class="card-title">
+						<a href="#">{{cowork.name}}</a>
+					</h4>
+				  <p>{{cowork.address}}</p>
+				</div>
+			</div>
+            <div class="price-rating-container">
+				<div class="price-rate">
+					<p>Starting from <i class="fa fa-inr"></i><span>{{cowork.starting_from}}/month</span></p>
+				</div>
+				<div class ="day-Pass">
+					<a href="#" class="btn btn-default"><span>Free</span><br><span>Day Pass</a>
+				</div>
+				<div class="review-value">186</div>
+			</div>
+          </div>
+        </div>
+		{% endfor %}
+	</div>
 
- <!--</div>-->
+ </div>
 {% endif %}
-{% if other_coworks_in_city %}
+
+ {% if other_coworks_in_city %}
 <div class="container ">
 	<div class="row">
         <div class="col-md-12">
-          <h3 class="section-title">Other {{data.parent_cowork}} in {{data.city}}</h3>
+          <h3 class="section-title other-weworks">Other {{data.parent_cowork}} in {{data.city}}</h3>
           <div class="section-title-divider"></div>
         </div>
       </div>
@@ -570,10 +452,7 @@
  </div>
 {% endif %}
 
-
-
-
 <input type="hidden" id="image_url" value="{% if data.banner_image %}/{{data.banner_image}}
 				 {% else %} {% custom_static 'assets/images/annie-spratt-294450.jpg' %} {% endif %}"/>
 
-{% endblock %}
+ {% endblock %}

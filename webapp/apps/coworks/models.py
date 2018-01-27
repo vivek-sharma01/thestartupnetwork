@@ -108,6 +108,28 @@ class Cowork(ModelBase):
         """"""
         return "/coworks/india/{}/{}/".format(self.location.slug, self.slug)
 
+    def extract_filter(self, amenity):
+        """extracts the starting date from an entity"""
+        return amenity.get('filter')
+
+    def get_amenities_list(self):
+        from itertools import groupby
+        amenities = self.amenity.all().values('name', 'filter')
+        response = {}
+
+        for filter, group in groupby(amenities, key=self.extract_filter):
+            if filter and constants.AMENITY_FILTER_REVERSE_MAPPING[filter]:
+                response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]] = []
+                for data in list(group):
+                    obj = {
+                        'name': data.get('name'),
+                    }
+                    response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]].append(obj)
+                    response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]] = \
+                        [response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]][x:x + 3] for x in range(0,\
+                                                        len(response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]]), 3)]
+        return response
+
 
 class MembershipBenefits(models.Model):
     """Membership benefits for cowork"""
@@ -142,9 +164,13 @@ class Amenity(models.Model):
     name = models.CharField(max_length=300, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     filter = models.CharField(choices=constants.AMENITIES_FILTER, null=True, blank=True, max_length=5)
+    filter_css_class = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.name or ''
+
+    def get_filter_class(self):
+        return constants.AMENITY_FILTER_CSS[self.filter]
 
 
 class NeighbourAmenity(models.Model):
