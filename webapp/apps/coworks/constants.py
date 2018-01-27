@@ -5,7 +5,7 @@ MEMBERSHIPS = (
     ('DD', _('Dedicated Desks')),
     ('ES', _('Event Space')),
     ('FD', _('Flexible Desks')),
-    ('PS', _('Private Studios')),
+    ('PS', _('Private Office')),
     ('VO', _('Virtual Office')),
 )
 
@@ -32,9 +32,19 @@ MEMBERSHIPS_REVERSE_DICT = {
     'DD': 'Dedicated Desks',
     'ES': 'Event Space',
     'FD': 'Flexible Desks',
-    'PS': 'Private Studios',
+    'PS': 'Private Office',
     'VO': 'Virtual Office',
     'BL': 'Business Lounge'}
+
+
+MEMBERSHIPS_ORDERING = {
+    'CR': 6,
+    'DD': 2,
+    'ES': 7,
+    'FD': 1,
+    'PS': 3,
+    'VO': 4,
+    'BL': 5}
 
 MEMBERSHIPS_91SPRINGBOARD_MAPPING = {
     9: 'Private Studios',
@@ -43,6 +53,8 @@ MEMBERSHIPS_91SPRINGBOARD_MAPPING = {
     12: 'Virtual Office',
     13: 'Event Space'
 }
+
+
 
 AMENITIES_FILTER_MAPPING = {
     'Work': 'W',
@@ -90,3 +102,5 @@ AMENITY_FILTER_REVERSE_MAPPING = {
      'PA': 'Payable Amenties',
      'W': 'Work'
 }
+
+

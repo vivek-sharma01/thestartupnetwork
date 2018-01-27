@@ -31,6 +31,8 @@ class ContactPersonSerializer(serializers.ModelSerializer):
 class MembershipBenefitSerializer(serializers.ModelSerializer):
     """Amenity list serializer"""
     name = serializers.CharField(source='get_name')
+    suitable_for = serializers.ListField(source='get_suitable_for')
+
     class Meta:
         model = models.MembershipBenefits
         fields = ('name', 'description', 'suitable_for')

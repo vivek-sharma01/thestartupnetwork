@@ -50,6 +50,7 @@
 				</div>
 				<div class="contact-wework"><a href="#">Contact {{data.name}}</a></div>
 			</div>
+			{% if data.reasons_to_choose %}
 			<div class="overview">
 				<h4 class="card-title">
 					<a href="#">Why {{data.name}}</a>
@@ -60,6 +61,7 @@
 					</p>
 				</div>
 			</div>
+			{% endif %}
 		</div>
 		<div id="rightContent" class ="col-lg-4 col-md-4 col-sm-6 membership-data">
 			<div class="price-rate-value">
@@ -105,6 +107,7 @@
 				</div>
 				
 				<div class="row">
+
 					{% for membership in space_types %}
 						<div class="col-lg-4 col-md-4 col-sm-6 available-space">
 						<div class="card h-details">

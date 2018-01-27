@@ -49,9 +49,9 @@ class CoworkIndex(APIView):
         space_types = models.MembershipBenefits.objects.all()
         serializer = serializers.MembershipBenefitSerializer(space_types, many=True)
         most_popular_coworks = models.Cowork.objects.filter(name__icontains='spring').values('name', 'location__name')
-
+        space_types = sorted(serializer.data, key=utils.extract_membership_name)
         context = {
-            'space_types': serializer.data,
+            'space_types': space_types,
             'most_popular_coworks': most_popular_coworks
         }
         return render(request, template_name=self.template_name, context=context)
@@ -102,6 +102,7 @@ class CoworksDetails(APIView):
         similar_coworks_serializer = serializers.SimilarCoworksDetailSerializer(similar_coworks, many=True)
         space_types = models.MembershipBenefits.objects.all()
         membership_serializer = serializers.MembershipBenefitSerializer(space_types, many=True)
+        space_types = sorted(membership_serializer.data, key=utils.extract_membership_name)
         other_coworks_in_city = models.Cowork.objects.get_cowork_by_city(city, cowork)
         other_coworks_in_city_serializer = serializers.SimilarCoworksDetailSerializer(other_coworks_in_city, many=True)
         if serializer.is_valid:
@@ -109,7 +110,7 @@ class CoworksDetails(APIView):
                 'data': serializer.data,
                 'similar_coworks': similar_coworks_serializer.data,
                 'other_coworks_in_city': other_coworks_in_city_serializer.data,
-                'space_types': membership_serializer.data
+                'space_types': space_types
             }
             # return Response(context, status=status.HTTP_200_OK)
         # return Response(serializer.errors, status=status.HTTP_200_OK)

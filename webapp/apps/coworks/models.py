@@ -89,7 +89,7 @@ class Cowork(ModelBase):
                     'price': membership['price'],
                     'heading_class': suitable_class,
                     'suitable_class': heading_class,
-                    'suitable_for': membership['suitable_for']
+                    'suitable_for': membership['suitable_for'].split(",") if membership['suitable_for'] else None
                 }
                 response.append(obj)
         return response
@@ -143,6 +143,9 @@ class MembershipBenefits(models.Model):
     def get_name(self):
         """name of benefit"""
         return constants.MEMBERSHIPS_REVERSE_DICT[self.name]
+
+    def get_suitable_for(self):
+        return self.suitable_for.split(",") if self.suitable_for else []
 
 
 class Pricing(models.Model):
