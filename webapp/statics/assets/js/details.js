@@ -1,49 +1,30 @@
 $(function () {
 
+        var that = this;
+        var toolitup = $(".rating-container").jRate({
+            rating: 1,
+            startColor: "#008489",
+            endColor: "#008489",
+            strokeColor: "#008489",
+            strokeWidth:"20px",
+            precision: 1,
+            width: 22,
+            height: 22
+        });
+
+        var toolitup = $(".price-rate").jRate({
+            rating: 1,
+            startColor: "#008489",
+            endColor: "#008489",
+            strokeColor: '#008489',
+            strokeWidth:'20px',
+            precision: 1,
+            width: 15,
+            height: 15,
+        });
 
 
-			$(document).ready(function(){
-
-		$(document).scroll(function(){
-
-			if($(document).scrollTop() > 600 && $(document).scrollTop()<3720){
-				$("#rightContent").css({"position":"fixed","top":"20px","right":"10px"});
-				$(".report_cowork").css({"position":"fixed","bottom":"100px","right":"0"});
-			}
-			else{
-				$("#rightContent").css({"position":"static"});
-				$(".report_cowork").css({"position":"static"});
-			}
-		});
-
-
-		$(function () {
-			var that = this;
-			var toolitup = $(".rating-container").jRate({
-				rating: 1,
-				startColor: "#008489",
-				endColor: "#008489",
-				strokeColor: "#008489",
-				strokeWidth:"20px",
-				precision: 1,
-				width: 22,
-				height: 22
-			});
-
-			var toolitup = $(".price-rate").jRate({
-				rating: 1,
-				startColor: "#008489",
-				endColor: "#008489",
-				strokeColor: '#008489',
-				strokeWidth:'20px',
-				precision: 1,
-				width: 15,
-				height: 15,
-			});
-
-		});
-
-		$('.similar-types-coworks').slick({
+        $('.similar-types-coworks').slick({
 		  infinite: true,
 		  speed: 300,
 		  slidesToShow: 4,
@@ -115,27 +96,40 @@ $(function () {
 		  ]
 		});
 
-	<!-- Read More About We Work Logic -->
+        <!-- Read More About We Work Logic -->
 
-    var showChar = 300;  // How many characters are shown by default
-    var ellipsestext = "...";
-    var moretext = "Read More about WeWork";
-    var lesstext = "Read less about WeWork";
+        var showChar = 300;  // How many characters are shown by default
+        var ellipsestext = "...";
+        var moretext = "Read More about WeWork";
+        var lesstext = "Read less about WeWork";
 
-	 $('.overview-summary p').each(function() {
-        var content = $(this).html();
+	    $('.overview-summary p').each(function() {
+            var content = $(this).html();
 
-        if(content.length > showChar) {
+            if(content.length > showChar) {
 
-            var c = content.substr(0, showChar);
-            var h = content.substr(showChar, content.length - showChar);
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar, content.length - showChar);
 
-            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="overview-more">' + moretext + '</a><img src="images/down-arrow.png"></span>';
+                var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="overview-more">' + moretext + '</a><img src="images/down-arrow.png"></span>';
 
-            $(this).html(html);
-        }
+                $(this).html(html);
+            }
 
-    });
+        });
+		$(document).scroll(function(){
+
+			if($(document).scrollTop() > 600 && $(document).scrollTop()<3720){
+				$("#rightContent").css({"position":"fixed","top":"20px","right":"10px"});
+				$(".report_cowork").css({"position":"fixed","bottom":"100px","right":"0"});
+			}
+			else{
+				$("#rightContent").css({"position":"static"});
+				$(".report_cowork").css({"position":"static"});
+			}
+		});
+
+
 
     $(".overview-more").click(function(){
         if($(this).hasClass("less")) {
@@ -152,7 +146,7 @@ $(function () {
         return false;
     });
 
-	});
+
 
 	var availablespace = $(".available-space").length;
 
