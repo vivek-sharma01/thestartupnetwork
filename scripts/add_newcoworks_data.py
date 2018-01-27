@@ -28,7 +28,7 @@ def add_location(name, state):
         'slug': slugify(name),
         'state': state
     }
-    return Location.objects.update_or_create(slug=slug, defaults=data)[0]
+    return Location.objects.get_or_create(slug=slug, defaults=data)[0]
 
 
 # @transaction.atomic
@@ -42,19 +42,19 @@ def add_data():
     BASE_PATH = os.path.dirname(os.path.realpath(__file__))
     from webapp.apps.coworks import models, constants
 
-    file_path = os.path.join(BASE_PATH, 'Coworks_Details26Jan.xlsx')
+    file_path = os.path.join(BASE_PATH, 'RegisteryourCowork-report.xlsx')
     data = get_data(file_path)
 
     # row_list is data of first sheet
-    row_list = data['Results_26th January']
+    row_list = data['results']
     row_list.pop(0)
-
+    row_list.pop(0)
     for row in row_list:
-        
+
         cowork_name = row[2]
         address = row[43]
-        location_name = 'bengaluru' if row[44].strip() == 'Bangalore' else row[44].strip()
-        state = row[45]
+        location_name = 'bengaluru' if row[45].strip() == 'Bangalore' else row[45].strip()
+        state = row[46]
         location_obj = add_location(location_name, state)
 
         cowork_data = {
@@ -62,7 +62,8 @@ def add_data():
             'location_id': location_obj.id,
             'name': cowork_name,
             'website_url': row[5],
-            'reasons_to_choose': row[84]
+            'reasons_to_choose': row[85],
+            'locality': row[44]
             # 'price_per_day': row[19],
             # 'price_per_month': row[20],
             # 'no_of_workstattion': row[14]
@@ -78,7 +79,7 @@ def add_data():
 
         contact_person_obj, created = models.ContactPerson.objects.get_or_create(email=row[8], defaults=contact_person_data)
 
-        for index in range(50, 56):
+        for index in range(51, 57):
             if row[index]:
                 benefit_name = constants.MEMBERSHIPS_DICT[row[index]]
                 benefit_data = {
@@ -102,7 +103,7 @@ def add_data():
                                                                                 defaults= pricing_data)
 
         amenity_obj_list = []
-        for index in range(8, 43):
+        for index in range(8, 42):
             if row[index]:
                 amenity_name = row[index].strip()
                 obj, created = models.Amenity.objects.get_or_create(name=amenity_name, defaults={'name': amenity_name})
