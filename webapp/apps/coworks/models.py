@@ -6,6 +6,8 @@ from django.template.defaultfilters import slugify
 from . import managers, constants
 from webapp.apps import gen_hash, expires
 
+from itertools import groupby
+
 
 class ModelBase(models.Model):
     """
@@ -64,34 +66,41 @@ class Cowork(ModelBase):
         self.slug = slugify(self.name)
         super(Cowork, self).save(*args, **kwargs)
 
+    def extract_name(self, pricing):
+        return pricing.get('membership__name')
+
     def get_pricing(self):
         """get pricing related to membership"""
         memberships = Pricing.objects.filter(cowork_id=self.id).values('membership__name', 'membership__description',
                                                                        'price', 'membership__suitable_for', 'suitable_for')
-        response = []
-        class_list = [
-            {'business-card': 'business-card-body'},
-            {'meeting-card': 'meeting-card-body'},
-            {'virtual-office-card': 'virtual-office-card-body'},
-            {'business-card': 'business-card-body'},
-            {'meeting-card': 'meeting-card-body'},
-            {'virtual-office-card': 'virtual-office-card-body'},
-            {'business-card': 'business-card-body'},
-            {'meeting-card': 'meeting-card-body'},
-            {'virtual-office-card': 'virtual-office-card-body'}
-        ]
+        response = {}
+        # class_list = [
+        #     {'business-card': 'business-card-body'},
+        #     {'meeting-card': 'meeting-card-body'},
+        #     {'virtual-office-card': 'virtual-office-card-body'},
+        #     {'business-card': 'business-card-body'},
+        #     {'meeting-card': 'meeting-card-body'},
+        #     {'virtual-office-card': 'virtual-office-card-body'},
+        #     {'business-card': 'business-card-body'},
+        #     {'meeting-card': 'meeting-card-body'},
+        #     {'virtual-office-card': 'virtual-office-card-body'}
+        # ]
 
-        for index, membership in enumerate(memberships):
-            for heading_class, suitable_class in class_list[index].items():
-                obj = {
-                    'name': constants.MEMBERSHIPS_REVERSE_DICT[membership['membership__name']],
-                    'description': membership['membership__description'],
-                    'price': membership['price'],
-                    'heading_class': suitable_class,
-                    'suitable_class': heading_class,
-                    'suitable_for': membership['suitable_for'].split(",") if membership['suitable_for'] else None
-                }
-                response.append(obj)
+        for name, group in groupby(memberships, self.extract_name):
+
+            if name and constants.MEMBERSHIPS_REVERSE_DICT[name]:
+                response[constants.MEMBERSHIPS_REVERSE_DICT[name]] = []
+                for data in list(group):
+                    obj = {
+                        'name': constants.MEMBERSHIPS_REVERSE_DICT[data['membership__name']],
+                        'description': data['membership__description'],
+                        'price': data['price'],
+                        'heading_class': '',
+                        'suitable_class': '',
+                        'suitable_for': data['suitable_for'].split(",") if data['suitable_for'] else None
+                    }
+                    response[constants.MEMBERSHIPS_REVERSE_DICT[name]].append(obj)
+        print(response)
         return response
 
     def get_minimum_price(self):
@@ -113,7 +122,7 @@ class Cowork(ModelBase):
         return amenity.get('filter')
 
     def get_amenities_list(self):
-        from itertools import groupby
+
         amenities = self.amenity.all().values('name', 'filter')
         response = {}
 

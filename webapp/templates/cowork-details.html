@@ -303,85 +303,36 @@
 						<div class="overview-title-divider"></div>
 					</div>
 				</div>
-				
+
+				{% for name, value in data.pricing.items %}
+
 				<div class="row desks-rate">
 					<div class="col-lg-12 col-md-12 col-sm-6">
 						<h4 class="card-title">
-							<a href="#">Desks</a>
+							<a href="#">{{name}}</a>
 						</h4>
 					</div>
-					
-					<div class="col-lg-3 col-md-3 col-sm-6 rate-type">
-						<ul>
-							<li><span>Dedicated desk</span>
-								<p>per person</p>
-							</li>							
-						</ul>
-					</div>
+					{% for data in value %}
+					<!--<div class="col-lg-3 col-md-3 col-sm-6 rate-type">-->
+						<!--<ul>-->
+							<!--<li><span>Dedicated desk</span>-->
+								<!--<p>per person</p>-->
+							<!--</li>							-->
+						<!--</ul>-->
+					<!--</div>-->
 					<div class="col-lg-3 col-md-3 col-sm-6 rate-value">
 						<ul>
-							<li><span><i class="fa fa-inr"></i>15000 per/month</span></li>
+							<li><span><i class="fa fa-inr"></i>{{data.price}} per/month</span></li>
 						</ul>
 					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6 rate-type">
-						<ul>
-							<li><span>Hot Desk</span>
-								<p>per person</p>
-							</li>
-						</ul>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6 rate-value">
-						<ul>
-							<li><span><i class="fa fa-inr"></i>10000 per/month</span></li>
-						</ul>
-					</div>
+					{% endfor %}
+
+
 				</div>
-				
-				<div class="row private-office">
-					<div class="col-lg-12 col-md-12 col-sm-6">
-						<h4 class="card-title">
-							<a href="#">Private Office</a>
-						</h4>
-					</div>
-					
-					<div class="col-lg-3 col-md-3 col-sm-4 rate-type">
-						<ul>
-							<li><span>1 Seat</span></li>
-							<li><span>3 Seat</span></li>
-							<li><span>5 Seat</span></li>
-							<li><span>8 Seat</span></li>
-							<li><span>10 Seat</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 rate-value">
-						<ul>
-							<li><span><i class="fa fa-inr"></i>23,500 per/month</span></li>
-							<li><span><i class="fa fa-inr"></i>65,200 per/month</span></li>
-							<li><span><i class="fa fa-inr"></i>96,500 per/month</span></li>
-							<li><span><i class="fa fa-inr"></i>1,48,9000 per/month</span></li>
-							<li><span><i class="fa fa-inr"></i>1,85,200 per/month</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6 rate-type">
-						<ul>
-							<li><span>2 Seat</span></li>
-							<li><span>4 Seat</span></li>
-							<li><span>6 Seat</span></li>
-							<li><span>9 Seat</span></li>
-							<li><span>11-29 Seat</span></li>
-						</ul>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6 rate-value">
-						<ul>
-							<li><span><i class="fa fa-inr"></i>44,900 per/month</span></li>
-							<li><span><i class="fa fa-inr"></i>84,000 per/month</span></li>
-							<li><span><i class="fa fa-inr"></i>1,11,500 per/month</span></li>
-							<li><span><i class="fa fa-inr"></i>1,71,500 per/month</span></li>
-							<li><span><i class="fa fa-inr"></i>2,04,800 per/month</span></li>
-						</ul>
-					</div>
-				</div>
-				
+
+
+
+				{% endfor %}
 			</div>
 			
 		</div>
