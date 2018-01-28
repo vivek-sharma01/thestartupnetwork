@@ -63,7 +63,8 @@ def add_data():
             'name': cowork_name,
             'website_url': row[5],
             'reasons_to_choose': row[85],
-            'locality': row[44]
+            'locality': row[44],
+            'description': row[3]
             # 'price_per_day': row[19],
             # 'price_per_month': row[20],
             # 'no_of_workstattion': row[14]
