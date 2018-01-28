@@ -96,12 +96,12 @@ $(function () {
 		  ]
 		});
 
-        <!-- Read More About We Work Logic -->
+        <!-- Read More Logic -->
 
         var showChar = 300;  // How many characters are shown by default
         var ellipsestext = "...";
-        var moretext = "Read More about WeWork";
-        var lesstext = "Read less about WeWork";
+        var moretext = "Read More";
+        var lesstext = "Read less";
 
 	    $('.overview-summary p').each(function() {
             var content = $(this).html();
