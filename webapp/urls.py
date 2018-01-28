@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^coming-soon/', include('webapp.apps.core.urls')),
     url(r'^contact-us-form/$', views.ContactUsForm.as_view(), name='contact-us-form'),
     url(r'^contact-us$', views.ContactUs.as_view(), name='contact-us'),
+    url(r'^subscribe/$', views.Subscribe.as_view(), name='subscribe'),
 
 ]
 

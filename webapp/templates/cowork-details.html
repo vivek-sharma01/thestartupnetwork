@@ -5,10 +5,24 @@
 {% block custom_css %}
     <link rel="stylesheet" href="{% custom_static 'assets/css/startup.css' %}">
 	<link rel="stylesheet" href="{% custom_static 'assets/css/details.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/message-us.css ' %}">
+  	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/message-sent.css' %}">
+    <link rel="stylesheet" href="{% custom_static 'assets/css/message-sent-wework.css' %}" type="text/css"/>
+ 	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/member-ship.css' %}">
+ 	<link rel="stylesheet" href="{% custom_static 'assets/css/enquiry-sent.css' %}" type="text/css' %}"/>
+  	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/contact-wework.css' %}">
+ 	 <link rel="stylesheet" href="{% custom_static 'assets/css/add-cowork.css' %}" type="text/css' %}"/>
+  
 {% endblock %}
 
 {% block custom_js %}
 	<script src="{% custom_static 'assets/js/details.js' %}"></script>
+	<script src="{% custom_static 'assets/js/message-us.js' %}"></script>
+	<script src="{% custom_static 'assets/js/message-sent-wework.js' %}"></script>
+	<script src="{% custom_static 'assets/js/member-ship.js' %}"></script>
+	<script src="{% custom_static 'assets/js/enquiry-sent.js' %}"></script>
+	<script src="{% custom_static 'assets/js/contact-wework.js' %}"></script>
+	<script src="{% custom_static 'assets/js/add-cowork.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -70,7 +84,7 @@
 			<div class="message-us">
 				<p>Talk to {{data.name}}</p>
 				<div class="actions">
-					<a href="#about" class="btn-get-started">Message Us</a>
+					<a id="message-us-popup" class="btn-get-started">Message Us</a>
 				</div>
 			</div>
 			<div class="visit-us">
@@ -87,7 +101,7 @@
 			<div class="member-ship">
 				<p>Become a Member</p>
 				<div class="actions">
-					<a href="#about" class="btn-get-started">Membership Enquiry</a>
+					<a id="member-ship" class="btn-get-started">Membership Enquiry</a>
 				</div>
 			</div>
 		</div>
@@ -313,25 +327,20 @@
 						</h4>
 					</div>
 					{% for data in value %}
-					<!--<div class="col-lg-3 col-md-3 col-sm-6 rate-type">-->
-						<!--<ul>-->
-							<!--<li><span>Dedicated desk</span>-->
+					<div class="col-lg-3 col-md-3 col-sm-6 rate-type">
+						<ul>
+							<li><span>{{name}}</span>
 								<!--<p>per person</p>-->
-							<!--</li>							-->
-						<!--</ul>-->
-					<!--</div>-->
+							</li>
+						</ul>
+					</div>
 					<div class="col-lg-3 col-md-3 col-sm-6 rate-value">
 						<ul>
 							<li><span><i class="fa fa-inr"></i> {{data.price}} per/month</span></li>
 						</ul>
 					</div>
 					{% endfor %}
-
-
 				</div>
-
-
-
 				{% endfor %}
 			</div>
 			
@@ -402,6 +411,17 @@
       </div>
  </div>
 {% endif %}
+
+
+{% include 'message-us-modal.html' %}
+{% include 'message-sent-cowork-modal.html' %}
+
+{% include 'membership-enquiry-modal.html' %}
+{% include 'enquiry-sent-modal.html' %}
+
+{% include 'contact-cowork-modal.html' %}
+{% include 'add-cowork-modal.html' %}
+
 
 <input type="hidden" id="image_url" value="{% if data.banner_image %}/{{data.banner_image}}
 				 {% else %} {% custom_static 'assets/images/annie-spratt-294450.jpg' %} {% endif %}"/>

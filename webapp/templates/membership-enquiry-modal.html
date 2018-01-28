@@ -1,0 +1,34 @@
+{% load custom_filters %}
+<div id="membership-enquiry-modal" class="modal">
+	<div class="modal-content">
+		<span class="membership-close" id="membership-close">&#10005;</span>
+		<div id="membership-enquiry-form">
+			<form action="#" name="registration">
+				<div><p>Membership Enquiry</p></div>
+					<div id="input">
+						<table id="form">
+							<tr>
+								<td><input type="text" id="name" placeholder="Name*" required></td>
+							</tr>
+							<tr>
+								<td><input type="email" id="email" placeholder="Email*" required></td>
+							</tr>
+							<tr>
+								<td><input type="text" id="phone" minlength="10" maxlength="20" placeholder="Phone" maxlength="12" onclick="phone();" required></td>
+							</tr>
+							<tr>
+								<td><textarea name="" id="message" cols="30" rows="10" minlength="3" maxlength="100" placeholder="Enquiry*" required></textarea></td>
+							</tr>
+							<tr>
+								<td><input type="submit" value="Submit"></td>
+							</tr>
+							<tr>
+								<td class="mandatory">*Mandatory Fields</td>
+							</tr>
+						</table>
+					</div>
+			</form>
+        </div>
+	</div>
+  </div>
+

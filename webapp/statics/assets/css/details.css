@@ -339,7 +339,7 @@
 .overview-summary p{
 	font-size : 16px;
 	color : #4E4E4E;
-
+	
 }
 
 .space-available,.basic-ammenties,.special-plans,.cost-structure{
@@ -410,17 +410,17 @@
 
 .kitchen-ammenties .card-title a{
 	font-size : 16px;
-	color : #E25950;
+	color : #E25950;	
 }
 
 .events-ammenties .card-title a{
 	font-size : 16px;
-	color : #FAAD26;
+	color : #FAAD26;	
 }
 
 .extra-ammenties .card-title a{
 	font-size : 16px;
-	color : #00BCD4;
+	color : #00BCD4;	
 }
 
 .work-ammenties .card-title, .support-ammenties .card-title,.extra-ammenties .card-title,.kitchen-ammenties .card-title,.events-ammenties .card-title,.unique-ammenties .card-title{
@@ -496,7 +496,7 @@
 	font-size: 16px;
     font-weight: 500;
     color: #00BCD4;
-}
+} 
 
 .morelink {
     display: block;
@@ -533,7 +533,7 @@
 .card-body-similar{
 	flex: 1 1 auto;
     padding: 1.25rem;
-}
+}  
 
 .card-body-similar p {
     font-size: 12px;
@@ -627,7 +627,7 @@
 .plan-name{
 	width: 250px;
     height: 100px;
-
+	
 }
 
 .part-time{

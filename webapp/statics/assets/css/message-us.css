@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "HelveticaNeue";
+	src: url("../fonts/HelveticaNeue.ttf");
+ }
+ 
+#message-us-modal{
+    width: 498px;
+    height: 370px;
+    margin: 0 auto;
+    margin-top: 80px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+    display: none;
+}
+
+#message-us-modal .modal-content{
+	height: 370px;
+}
+
+#message-us-modal .modal-content h1{
+    position: relative;
+    top: 40px;
+    text-align: center;
+    font-size: 26px;
+    color: #253238;
+    font-weight: 400;
+    font-family: HelveticaNeue;
+ }
+	
+.para{
+    position: relative;
+    top: 60px;
+    text-align: center;
+    font-family: HelveticaNeue;
+    font-size: 14px;
+    color: #7a7a7a;
+    line-height: 20px;
+}
+div#input{
+    width: 338px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+ table#form td input[type="email"]{
+    width: 317px;
+    height: 40px;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #dbdbdb;
+    font-size: 14px;
+    background: #f6f9fc;
+    color: #252328 ;
+}
+input[type="submit"]{
+    margin-top: 30px;
+    width: 338px;
+    height: 40px;
+    border: 1px solid #dbdbdb;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 400;
+    background: #00bcd4;
+}
+.para-2{
+    position: relative;
+    top: 10px;
+    text-align: center;
+    font-family: HelveticaNeue;
+    font-size: 12px;
+    color: #7a7a7a;
+}
+div#btn-popup{
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 300px;
+}
+
+div#btn-popup .btn-register{
+    width: 200px;
+    height: 40px;
+    border: 2px dashed #dbdbdb;
+    background: #00bcd4;
+    outline: 3px double #00bcd4;
+    font-size: 24px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+/* The Close Button */
+#message-us-modal .message-close {
+    font-size: 30px;
+    color: #000;
+    padding : 20px;
+	float: right;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+#message-us-modal .message-close:hover,
+#message-us-modal .message-close:focus {
+    color: #00bcd4;
+    text-decoration: none;
+    cursor: pointer;
+}
+

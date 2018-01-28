@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "HelveticaNeue";
+	src: url("../fonts/HelveticaNeue.ttf");
+ }
+
+#enquiry-sent .modal-content{
+	height: 370px;
+}
+    
+#enquiry-sent .image{ 
+        position: relative;
+        top: 80px;
+        left: 170px;
+    
+}
+    
+#enquiry-sent h1{
+            position: relative;
+            top: 90px;
+            text-align: center;
+            font-size: 24px;
+            color: #253238;
+            font-weight: 400;
+            font-family: HelveticaNeue;
+}
+#enquiry-sent p{
+            position: relative;
+            top: 110px;
+            font-family: HelveticaNeue;
+            font-size: 18px;
+            color: #9a9a9a;
+            text-align: center;
+}
+    
+#enquiry-sent{
+	width: 498px;
+	height: 370px;
+	margin: 0 auto;
+	margin-top: 80px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+	display: none;
+}
+    /* The Close Button */
+#enquiry-sent .enquiry-sent-close{
+    font-size: 30px;
+    color: #000;
+    padding : 20px;
+	float: right;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+#enquiry-sent .enquiry-sent-close:hover,
+#enquiry-sent .enquiry-sent-close:focus {
+    color: #00bcd4;
+    text-decoration: none;
+    cursor: pointer;
+}}
+    

@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_protect
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -30,10 +32,12 @@ class StartUpIndex(APIView):
         return render(request, template_name=self.template_name, context=context)
 
 
+
 class Subscribe(APIView):
     """"""
     template_name = 'contact.html'
 
+    # @csrf_protect
     def post(self, request):
         """"""
         email = request.data.get('email')

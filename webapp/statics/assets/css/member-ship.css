@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "HelveticaNeue";
+	src: url("../fonts/HelveticaNeue.ttf");
+ }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+} 
+ 
+#membership-enquiry-modal{
+    background: #fff;
+    width: 500px;
+	margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+    display: none;
+	height : 615px;
+} 
+
+
+div#name{
+    margin: 70px 0 50px 0;
+    text-align: center;
+    font-weight: 400;
+    font-size: 24px;
+    color: #253238;
+}
+
+    div#input{
+        width: 338px;
+        margin: 0 auto;
+        margin-top: 80px;
+    }
+    
+    table#form td input[type="text"], table#form td input[type="email"]{
+        width: 317px;
+        height: 40px;
+        padding-left: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #dbdbdb;
+        font-size: 14px;
+        background: #f6f9fc;
+		color:#253238;
+    }
+    input[type="submit"]{
+        margin-top: 30px;
+        width: 338px;
+        height: 40px;
+        border: 1px solid #dbdbdb;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 400;
+        background: #00bcd4;
+    }
+    
+    .mandatory{
+        padding: 20px 0 50px 0;
+        font-size: 14px;
+        color: #7a7a7a;
+        letter-spacing: 1px;
+    }
+    
+    textarea{
+        padding: 10px 0 0 15px;
+        width: 318px;
+        height: 100px;
+        border: 1px solid #dbdbdb;
+        resize: none;
+        border-radius: 2px;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;    
+        font-size: 14px;
+        background-color: #f6f9fc;
+        color: #a0a1a2;
+    }
+
+.membership-close {
+    float: right;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+	
+     /* The Close Button */
+#membership-enquiry-modal .membership-close{
+    font-size: 30px;
+    color: #000;
+    padding : 20px;
+}
+
+#membership-enquiry-modal .membership-close:hover,
+#membership-enquiry-modal .membership-close:focus {
+    color: #00bcd4;
+    text-decoration: none;
+    cursor: pointer;
+}
+    

@@ -1,6 +1,6 @@
 $(function()
 {
-
+    var csrftoken = Cookies.get('csrftoken');
 	$('#contact-us-button').on('click', function(e)
       {
         e.preventDefault();
@@ -17,10 +17,10 @@ $(function()
             type: "POST",
             url: '/contact-us-form/',
             headers: {
-
+                'X-CSRFToken': csrftoken,
                 'Content-Type': 'application/json'
                 },
-            data: data,
+            data: JSON.stringify(data),
             success: function(response) {
                 $('#success').text('we will contact you shortly');
                 setTimeout(function(){ $('#success').text(''); }, 3000);
@@ -31,7 +31,8 @@ $(function()
                 setTimeout(function(){  $('#-error').text('');}, 3000);
 
             },
-            dataType: 'json'
+            dataType: 'json',
+            contentType: 'json'
         });
 
       });
