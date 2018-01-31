@@ -7,7 +7,7 @@ class CoworkManager(models.Manager):
 
     def get_coworks_list(self, **kwargs):
         """get coworks list"""
-        return self.filter(**kwargs)
+        return self.filter(**kwargs).order_by('-created_at')
 
     def get_coworks_list_search(self, search_keyword, **kwargs):
         """get coworks list"""

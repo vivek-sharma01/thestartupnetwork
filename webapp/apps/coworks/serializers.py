@@ -59,17 +59,23 @@ class LocationSerializer(serializers.ModelSerializer):
 
 class CoworksListSerializer(serializers.ModelSerializer):
     """regions list serializer"""
-    # amenities = AmenityListSerializer(source='amenity', many=True)
-    # neighbour_amenities = NeighbourAmenityListSerializer(source='neighbour_amenity', many=True)
-    # contact_person = ContactPersonSerializer(many=True)
-    # membership = serializers.ListField(source='get_pricing')
+
     starting_price = serializers.CharField(source='get_minimum_price')
     url = serializers.CharField(source='get_url')
-    # banner_image = serializers.CharField(source='')
 
     class Meta:
         model = models.Cowork
         fields = ('name', 'slug', 'description', 'address', 'starting_price', 'banner_image', 'url')
+
+
+class MostPopularCoworksSerializer(serializers.ModelSerializer):
+    """regions list serializer"""
+
+    url = serializers.CharField(source='get_url')
+
+    class Meta:
+        model = models.Cowork
+        fields = ('name', 'location__name', 'address', 'url')
 
 
 class CoworksDetailSerializer(serializers.ModelSerializer):

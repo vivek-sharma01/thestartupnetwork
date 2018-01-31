@@ -45,7 +45,8 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
      'webapp.apps.core',
-     'webapp.apps.coworks'
+     'webapp.apps.coworks',
+     'corsheaders',
 
 ]
 
@@ -55,10 +56,27 @@ THIRD_PARTY_APPS = [
     'django_extensions'
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = False
+
+
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
+
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -165,3 +183,10 @@ CACHES = {
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'webapp/statics'),
 )
+
+
+EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
+EMAIL_HOST_USER = 'AKIAILTKWXOPAPGWXJ6A'
+EMAIL_HOST_PASSWORD = 'AguSxHA4ZKjY415Ta9Eq1sk9XTy2u6wiXxs9oVhB7yjr'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

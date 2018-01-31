@@ -222,11 +222,12 @@
      {% for cowork in most_popular_coworks %}
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
+            <a href="{{cowork.url}}"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt="">
             <div class="cardContent">
 				<h3>{{cowork.name}}</h3>
-				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>{{cowork.location__name}}, India</p>
+				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>{{cowork.address}}</p>
 			</div>
+            </a>
           </div>
         </div>
      {% endfor %}

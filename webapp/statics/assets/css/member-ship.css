@@ -38,6 +38,15 @@ div#name{
     color: #253238;
 }
 
+    h1{
+    position: relative;
+    top: 40px;
+    text-align: center;
+    font-size: 26px;
+    color: #253238;
+    font-weight: 400;
+    font-family: HelveticaNeue;
+ }
     div#input{
         width: 338px;
         margin: 0 auto;

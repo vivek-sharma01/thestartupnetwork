@@ -111,7 +111,7 @@ $(function () {
                 var c = content.substr(0, showChar);
                 var h = content.substr(showChar, content.length - showChar);
 
-                var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="overview-more">' + moretext + '</a><img src="images/down-arrow.png"></span>';
+                var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="overview-more">' + moretext + '</a><img src="/statics/assets/images/down-arrow.png"></span>';
 
                 $(this).html(html);
             }
