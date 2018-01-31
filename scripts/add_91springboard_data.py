@@ -15,6 +15,35 @@ from slugify import slugify
 # pyexcel-xls==0.2.1 and xlrd==1.0.0 is installed in your virtual env
 
 
+def add_amenities():
+    """"""
+    from pyexcel_xls import get_data
+
+    BASE_PATH = os.path.dirname(os.path.realpath(__file__))
+    from webapp.apps.coworks import models, constants
+
+    file_path = os.path.join(BASE_PATH, 'Amentities_31 Jan_+91springboard Amenities.xlsx')
+    data = get_data(file_path)
+
+    # row_list is data of first sheet
+
+    row_list = data['Sheet1']
+    row_list.pop(0)
+
+    for row in row_list[:18]:
+        cowork_obj = models.Cowork.objects.get(name=row[0].strip())
+        amenity_obj_list = []
+        print('cowork {}'.format(cowork_obj.name))
+        for col in row[1:]:
+            if col:
+                amenity_name = col.strip()
+                obj, created = models.Amenity.objects.get_or_create(name=amenity_name, defaults={'name': amenity_name})
+                amenity_obj_list.append(obj)
+        print(amenity_obj_list)
+        cowork_obj.amenity.add(*amenity_obj_list)
+        cowork_obj.save()
+
+
 def add_location(name):
     """
     Args:
@@ -74,7 +103,8 @@ def add_data():
                 'website_url': row[30],
                 'price_per_day': row[19],
                 'price_per_month': row[20],
-                'no_of_workstattion': row[14]
+                'no_of_workstattion': row[14],
+                'description':''
             }
 
         cowork_obj, updated = models.Cowork.objects.update_or_create(name=cowork_name, defaults=cowork_data)
@@ -131,10 +161,10 @@ def add_data():
                                                                                 defaults=pricing_data)
 
 
-
 if __name__ == "__main__":
     SITE_ROOT = os.path.dirname(dirname(os.path.realpath(__file__)))
     sys.path.append(SITE_ROOT)
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "webapp.settings")
     django.setup()
-    add_data()
+    # add_data()
+    add_amenities()
