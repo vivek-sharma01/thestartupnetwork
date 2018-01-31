@@ -173,8 +173,9 @@
 							</h4>
 						</div>
 					{% for amenity_list in value %}
-						{% for amenity in amenity_list %}
 						<div class="col-lg-4 col-md-4 col-sm-6 ">
+						{% for amenity in amenity_list %}
+
 							<ul>
 
 								{% with amenity.name as amenity_name %}
@@ -183,8 +184,9 @@
 								{% endwith %}
 								{% endwith %}
 							</ul>
-						</div>
+
 						{% endfor %}
+							</div>
 					{% endfor %}
 
 				</div>

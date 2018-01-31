@@ -134,9 +134,9 @@ class Cowork(ModelBase):
                         'name': data.get('name'),
                     }
                     response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]].append(obj)
-                    response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]] = \
-                        [response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]][x:x + 3] for x in range(0,\
-                                                        len(response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]]), 3)]
+                response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]] = \
+                    [response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]][x:x + 3] for x in range(0,\
+                                                    len(response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]]), 3)]
         return response
 
 
