@@ -125,7 +125,6 @@ class Cowork(ModelBase):
 
         amenities = self.amenity.all().values('name', 'filter')
         response = {}
-
         for filter, group in groupby(amenities, key=self.extract_filter):
             if filter and constants.AMENITY_FILTER_REVERSE_MAPPING[filter]:
                 response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]] = []
@@ -154,7 +153,7 @@ class MembershipBenefits(models.Model):
         return constants.MEMBERSHIPS_REVERSE_DICT[self.name]
 
     def get_suitable_for(self):
-        return self.suitable_for.split(",") if self.suitable_for else []
+        return self.suitable_for
 
 
 class Pricing(models.Model):
