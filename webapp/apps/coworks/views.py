@@ -34,7 +34,7 @@ class CityCoworks(APIView):
         context = {
             'data': cowork_chunks,
             'city_slug': city,
-            # 'cities': utils.get_locations()
+            'title': 'Coworking spaces in {}'.format(city)
         }
 
         return render(request, template_name=self.template_name, context=context)
@@ -111,7 +111,8 @@ class CoworksDetails(APIView):
                 'data': serializer.data,
                 'similar_coworks': similar_coworks_serializer.data,
                 'other_coworks_in_city': other_coworks_in_city_serializer.data,
-                'space_types': space_types
+                'space_types': space_types,
+                'title': cowork.name + "-" + city + "- Book Online"
             }
             # return Response(context, status=status.HTTP_200_OK)
         # return Response(serializer.errors, status=status.HTTP_200_OK)
