@@ -94,6 +94,15 @@ AMENITY_FILTER_CSS = {
     'Other Amenities': 'extra-ammenties'
 }
 
+AMENITY_FILTER_GROUP = {
+    'Work': [],
+    'Facilities & Support': [],
+    'Events & Activities': [],
+    'Food & Kitchen': [],
+    'Payable Amenties': [],
+    'Other Amenities': []
+}
+
 AMENITY_FILTER_REVERSE_MAPPING = {
      'EA': 'Events & Activities',
      'FK': 'Food & Kitchen',

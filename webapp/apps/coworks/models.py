@@ -124,18 +124,18 @@ class Cowork(ModelBase):
     def get_amenities_list(self):
 
         amenities = self.amenity.all().values('name', 'filter')
-        response = {}
+        import copy
+        response = copy.deepcopy(constants.AMENITY_FILTER_GROUP)
         for filter, group in groupby(amenities, key=self.extract_filter):
             if filter and constants.AMENITY_FILTER_REVERSE_MAPPING[filter]:
-                response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]] = []
                 for data in list(group):
                     obj = {
                         'name': data.get('name'),
                     }
                     response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]].append(obj)
-                response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]] = \
-                    [response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]][x:x + 3] for x in range(0,\
-                                                    len(response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]]), 3)]
+        for key, val in response.items():
+            response[key] = [val[x:x+3] for x in range(0, len(val), 3)]
+        
         return response
 
 
