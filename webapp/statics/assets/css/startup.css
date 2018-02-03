@@ -14,6 +14,10 @@
     margin-top: 2px;
 }
 
+#add-coWork{
+	cursor : pointer;
+}
+
 .navbar-default .navbar-nav>.active>a:hover {
     color: #555;
     background-color: #e7e7e7;
@@ -23,7 +27,7 @@
 .form-control{
 	background-color: #F6F9FC;
     border: 1px solid #D8D8D8;
-	color : #C2C2C2;
+	color : #253238;
 }
 
 .glyphicon-user,.glyphicon-log-in{
@@ -83,13 +87,13 @@
   background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-  background-image: url(../images/loadImage.jpeg); 
+  background-image: url(../images/1.Banner.png);
 }
 .fade-carousel .slides .slide-2 {
-  background-image: url(../images/loadImage.jpeg);
+  background-image: url(../images/1.Banner.png);
 }
 .fade-carousel .slides .slide-3 {
-  background-image: url(../images/loadImage.jpeg);
+  background-image: url(../images/1.Banner.png);
 }
 
 .hero .hero-container {
@@ -103,6 +107,7 @@
 .hero h1 {
   margin: 80px 0 45px 0;
   color: #fff;
+  font-weight : 600;
 }
 
 .hero .actions a {
@@ -276,7 +281,7 @@
     border-radius: .25rem;
 }
 .h-100 {
-    height: 100%!important;
+    height: 247px!important;
 }
 
 .h-600 {
@@ -314,6 +319,10 @@
 	line-height: 22px;
 }
 
+.site-search input[type='text']{
+	color: #253238;
+}
+
 .card-img-top {
     width: 100%;
     border-top-left-radius: calc(.25rem - 1px);
@@ -328,18 +337,17 @@
     color: #253238;
     width: 100%;
     padding: 0px 15px;
-    height: 42%;
+    height: 55%;
 }
 
-
 .container .cardContent img {
-	 padding-right: 6px;
+	padding-right: 6px;
 }
 
 .container .cardContent h3{
 	font-size : 18px;
 	font-weight : 600;
-	height: 35%;
+	height: 22%;
 }
 
 .container .cardContent p {
@@ -390,14 +398,6 @@
 #subscribe .subscribe-btn-container {
   text-align: center;
   padding-top: 20px;
-}
-
-#footerContainer ul li:first-child{
-	margin-top : 30px;
-}
-
-#footerContainer ul li:last-child{
-	margin-bottom : 30px;
 }
 
 .lower-card-body ul {
@@ -486,93 +486,7 @@
 	margin : 40px;
 }
 
-#add-work{
-  background: #F6F9FC;
-  margin-top : 20px;
-  padding: 4px;
-}
-
-#add-work .add-btn-container {
-  text-align: center;
-}
-
-#add-work .add-btn {
-  font-family: "Raleway", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 8px 20px;
-  border-radius: 2px;
-  transition: 0.5s;
-  margin: 10px;
-  background: #03C4EB;
-  border: 2px solid #03C4EB;
-  color: #fff;
-}
-
-#footer {
-  background: #253238;
-  padding: 30px 0;
-  color: #fff;
-  border-bottom: 1px solid #9B9B9B;
-}
-
-#footer .copyright {
-  text-align: center;
-}
-
-#footer .credits {
-  padding-top: 10px;
-  text-align: center;
-  font-size: 13px;
-  color: #ccc;
-}
-
-#footerContainer img{
-	height: auto;
-    width: 221px;
-    margin: -75px;
-}
-
-#footer ul li{
-	list-style: none;
-	margin-top : 10px;
-}
-
-#footer ul li a{
-	color: #fff;
-}
-
-.facebook img,.googleplus img,.twitter img,li.linkedin img{
-	height: auto;
-    width: 30px;
-}
-
-.footer-logo img{
-	height: auto;
-    width: 221px;
-    margin: -75px;
-}
-
-.footer-logo{
-	text-align : center;
-}
-
-#social_media {
-    display:inline-block;
-}
-.social-media ul {
-    display: block;
-}
-
-.social-media ul li.facebook,li.linkedin{
-    width: 30px;
-	float : left;
-	margin: 0px 8px;
-}
-
- .site-search {
+.site-search {
     position: relative;
     width: 295px;
 }
@@ -582,7 +496,7 @@
     padding: 10px 20px 10px 20px;
     font-size: 14px;
     background-color: #F6F9FC;
-    color: #C2C2C2;
+    color: #253238;
     border: 1px solid #D8D8D8;
     border-radius: 4px;
     width: 100%;
@@ -653,3 +567,126 @@
 .slick-slide img {
     display: inline-block;
 }	
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+*{
+    margin: 0;
+    padding: 0;
+}
+.site-footer{
+    background-color: #ffffff;
+}
+
+.add-cowork-section #add-coWork {
+	float:right;
+	margin: 20px auto;
+	width: 290px;
+	height: 60px;
+	font-size: 24px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.add-cowork-section h3{
+    color: #253238;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 30px auto;
+    float: left;
+}
+
+.cowork-location h4{
+    color: #253238;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.site-footer ul{
+    list-style-type: none;
+	padding-top : 5px;
+}
+
+.site-footer ul li{
+    padding: 5px;
+}
+
+.site-footer ul li a{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 16px;
+    color: #253238;
+}
+
+.logos-cowork img{
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.footer{
+    background:#f6f9fc;
+    padding: 20px 0;
+}
+
+.footer-popular p{
+    font-size: 16px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    padding-top: 15px;
+    word-spacing: 4px;
+	line-height: 2;
+}
+
+.footer-popular p a{
+    color: #253238;
+}
+
+ .copyright {
+    text-align: center;
+    color: #253238;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+	padding-top : 20px;
+
+}
+  
+ .credits {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #253238;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 200;
+  }
+  
+@media only screen and (max-width: 400px) {
+  .container p {font-size:11px;}
+
+}
+.subtitle::after{
+    content:"";
+    width: 55px;
+    height: 2px;
+    border-bottom: 2px solid black;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+
+}
+
+#double {
+	width : 570px;
+} 
+
+#double li{
+	width : 50%;
+	float : left;
+	display : inline;
+}
+
+.footer .location {
+
+
+    border-bottom: 2px solid black;
+    position: absolute;
+    top: 10px;
+    left: 53px;
+}

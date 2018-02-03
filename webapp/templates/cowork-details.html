@@ -3,7 +3,7 @@
 {% load custom_filters %}
 
 {% block custom_css %}
-    <link rel="stylesheet" href="{% custom_static 'assets/css/startup.css' %}">
+
 	<link rel="stylesheet" href="{% custom_static 'assets/css/details.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/message-us.css ' %}">
   	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/message-sent.css' %}">
@@ -364,11 +364,11 @@
 		{% for cowork in similar_coworks %}
 		<div class="col-lg-3 col-md-3 col-sm-6">
           <div class="card h-listing">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/annie-spratt-294450.jpg' %}" alt=""></a>
+            <a href="{{cowork.url}}"><img class="card-img-top" src="{% custom_static 'assets/images/annie-spratt-294450.jpg' %}" alt=""></a>
             <div class="card-body">
 				<div class="upper-card-body">
 					<h4 class="card-title">
-						<a href="#">{{cowork.name}}</a>
+						<a href="{{cowork.url}}">{{cowork.name}}</a>
 					</h4>
 				  <p>{{cowork.address}}</p>
 				</div>
@@ -402,11 +402,12 @@
 		 {% for cowork in other_coworks_in_city %}
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt=""></a>
-            <div class="cardContent">
-				<h3>{{cowork.name}}</h3>
-				<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>{{cowork.address}}</p>
-			</div>
+            <a href="{{cowork.url}}"><img class="card-img-top" src="{% custom_static 'assets/images/cardImage.jpg' %}" alt="">
+				<div class="cardContent">
+					<h3>{{cowork.name}}</h3>
+					<p><img src="{% custom_static 'assets/images/Location.png' %}" alt=""/>{{cowork.address}}</p>
+				</div>
+			</a>
           </div>
         </div>
 		 {% endfor %}
@@ -428,5 +429,5 @@
 
 <input type="hidden" id="image_url" value="{% if data.banner_image %}/{{data.banner_image}}
 				 {% else %} {% custom_static 'assets/images/annie-spratt-294450.jpg' %} {% endif %}"/>
-
+<input type="hidden" value="{{data.slug}}" id="cowork_slug"/>
  {% endblock %}

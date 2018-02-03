@@ -1,13 +1,13 @@
 $(document).ready(function() {
     // Get the modal
 
-var messageModal = $('#message-us-modal');
+var messageModal = $('#contact-wework-modal');
 
 // Get the button that opens the modal
 var btn =$("#message-us-popup");
 
 // Get the <span> element that closes the modal
-var span = $(".message-close")[0];
+var span = $(".contact-wework-close")[0];
 
 // When the user clicks the button, open the modal
 btn.click(function() {
@@ -38,14 +38,21 @@ function transparent(){
 
 var csrftoken = Cookies.get('csrftoken');
 
-$('#message-us-form').submit(function(e) {
+$('#contact-cowork-form').submit(function(e) {
 
         e.preventDefault();
         $form = $(this);
+        data = {
+            'name': $('#contact-name').val(),
+            'email': $('#contact-email').val(),
+            'phone': $('#contact-phone').val(),
+            'message': $('#contact-message').val(),
+            'cowork_slug': $('#cowork_slug').val()
+        }
         $.ajax({
             type: "POST",
-            url: '/subscribe/',
-            data: JSON.stringify({'email': $('#message-us-email').val()}),
+            url: '/contact-us-form/',
+            data: JSON.stringify(data),
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -55,8 +62,6 @@ $('#message-us-form').submit(function(e) {
                 messageModal.hide();
                 var messageSentWeWorkmodal = $('#message-sent-wework');
                 messageSentWeWorkmodal.show();
-
-
             },
             error: function (response) {
                 messageModal.hide();

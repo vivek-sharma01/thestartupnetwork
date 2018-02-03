@@ -112,7 +112,7 @@ class CoworksDetails(APIView):
                 'similar_coworks': similar_coworks_serializer.data,
                 'other_coworks_in_city': other_coworks_in_city_serializer.data,
                 'space_types': space_types,
-                'title': cowork.name + "-" + city + "- Book Online"
+                'title': cowork.name + "| " + city + "| Book Online"
             }
             # return Response(context, status=status.HTTP_200_OK)
         # return Response(serializer.errors, status=status.HTTP_200_OK)

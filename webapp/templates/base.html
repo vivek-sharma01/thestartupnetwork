@@ -11,6 +11,7 @@
   <link href="{% custom_static 'assets/lib/animate-css/animate.min.css' %}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/slick.css' %}"/>
   <link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/slick-theme.css' %}"/>
+  <link rel="stylesheet" href="{% custom_static 'assets/css/startup.css' %}">
 
   <script src="{% custom_static 'assets/js/jquery-1.10.2.min.js' %}"></script>
   <script src="{% custom_static 'assets/js/bootstrap.min.js' %}"></script>
@@ -93,75 +94,110 @@ window.smartsupp||(function(d) {
     {% block content %}
 
     {% endblock %}
-	<section id="add-work">
-    <div class="container wow fadeInUp">
-      <div class="row">
-        <div class="col-md-8">
-          <h3 class="subscribe-title">Do You own a Coworking space? List with us</h3>
-        </div>
-        <div class="col-md-4 add-btn-container">
-          <a class="add-btn" href="#">Add Your Cowork</a>
+  <footer class="site-footer">
+    <section class="footer add-cowork-section">
+	 <div class="container">
+		  <div class="row">
+			<div class="col-md-6">
+			   <h3>Do you own a Coworking space?List with us</h3>
+			</div>
+			<div class="col-md-6 col-xs-12">
+				<button type="button" id="add-coWork"  class="btn btn-info btn-lg">Add your Cowork</button>
+			</div>
+		  </div>
+      </div>
+    </section>
+<!---Footer background image and logo -->
+    <div class="row" style="background-image:url('/statics/assets/images/footer-background.png');background-repeat:no-repeat;background-position:center top;background-color:#f6f9fc;background-size:100% 100%;margin-left:0;margin-right:0;">
+      <div class="col-md-12 col-sm-12 col-xs-12" style="height:100px;text-align:center  ">
+       <!-- <img src="{% custom_static 'assets/white-logo.png' %}"/>-->
+
         </div>
       </div>
-    </div>
-  </section>
-    <section id="footer">
-    <div class="container wow fadeInUp">
+<!--Menu area -->
+     <section class="footer">
+      <div class="container" >
       <div class="row">
-        <div class="col-md-12 footer-logo">
-			<a href="#"><img src="{% custom_static 'assets/images/small_logo.png' %}"></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="footer">
-	<div class="container wow fadeInUp">
-		<div class="row">
         <div class="col-lg-3 col-sm-6">
-			<ul>
-				<li><h4>The Startup Network</h4></li>
-				<div class="footer-title-divider"></div>
-				<li><a href="#">About Us</a></li>
-				<li><a href="#">Coworks</a></li>
-				<li><a href="/contact-us">Contact Us</a></li>
-			</ul>
-		</div>
-		<div class="col-lg-3 col-sm-6">
-			<ul>
-				<li><h4>Space Types</h4></li>
-				<div class="footer-title-divider"></div>
-				<li><a href="#">Co-working Hot Desk</a></li>
-				<li><a href="#">Co-working Dedicated Desk</a></li>
-				<li><a href="#">Virtual Office</a></li>
-				<li><a href="#">Private Office</a></li>
-				<li><a href="#">Meeting Room</a></li>
-			</ul>
-		</div>
-		<div class="col-lg-3 col-sm-6">
-			<ul>
-				<li><h4>Location</h4></li>
-				<div class="footer-title-divider"></div>
-				{% for city in cities %}
-					<li><a href="{{city.url}}">{{city.name}}</a></li>
-				{% endfor %}
-			</ul>
-		</div>
-		<div class="col-lg-3 col-sm-6 social-media">
-				<ul>
-					<li><h4>Connect with us</h4></li>
-					<div class="footer-title-divider"></div>
-					<!--<li class="googleplus"><a href="#"><img src="{% custom_static 'assets/images/Google Plus.png' %}"/></a></li>-->
-					<li class="facebook"><a target="_blank" href="https://www.facebook.com/thestartupnetwork.in/"><img src="{% custom_static 'assets/images/fb.png' %}"/></a></li>
-					<!--<li class="twitter"><a href="#"><img src="{% custom_static 'assets/images/Linkedin.png' %}"/></a></li>-->
-					<li class="linkedin"><a target="_blank" href="https://www.linkedin.com/company/13603161/"><img src="{% custom_static 'assets/images/Linkedin.png' %}"/></a></li>
-					<!--<li class="linkedin"><a href="#"><img src="{% custom_static 'assets/images/Linkedin.png' %}"/></a></li>-->
-				</ul>
-		</div>
+		<h4 class="subtitle" >The Startup Network</h4>
+          <ul>
+			  <li><a href="#">About Us</a></li>
+			  <li><a href="/coworks/india">Coworks</a></li>
+			  <li><a href="/contact-us">Contact Us</a></li>
+          </ul>
+         </div>
+        <div class="col-md-6 ">
+		<h4 class="subtitle" >Space Types</h4>
+          <ul id="double">
+			  <li><a href="/coworks/india">Hot Desk</a></li>
+			  <li><a href="/coworks/india">Dedicated Desk</a></li>
+			  <li><a href="/coworks/india">Virtual Office</a></li>
+			  <li><a href="/coworks/india">Meeting Room</a></li>
+			  <li><a href="/coworks/india">Private Office</a></li>
+
+          </ul>
+        </div>
+		<!-- <div class="col-md-3 col-sm-6 ">
+          <ul>
+              <li><a href="#"></a></li><br><br>
+              <li><a href="#">Private Office</a></li>
+              <li><a href="#">Private Office</a></li>
+              <li><a href="#">Private Office</a></li>
+              <li><a href="#">Private Office</a></li>
+          </ul>
+        </div> -->
+
+        <div class="col-md-3 col-xs-12 logos-cowork">
+          <h4 class="subtitle"> Connect with Us</h4>
+               <!--<a href="#"><img src="{% custom_static 'assets/google.png' %}"/></a>-->
+			   <a href="https://www.facebook.com/thestartupnetwork.in/"><img src="{% custom_static 'assets/images/Facebook.png' %}"/></a>
+			   <a href="https://www.linkedin.com/company/13603161/"><img src="{% custom_static 'assets/images/LinkedIn.png' %}"/></a>
+				<a href="https://twitter.com/contact_tsn"><img src="{% custom_static 'assets/images/Twitter.png' %}"/></a>
+			   <!--<a href="#"><img src="{% custom_static 'assets/Instagram.png' %}"/></a>-->
+          </div>
       </div>
-	</div>
-  </section>
+
+      </div>
+    </section>
+  <!--Location -->
+
+      <section class="footer cowork-location" style="position:relative; top:2px;">
+        <div class="container">
+          <div class="row">
+			<h4 class="location">Location</h4>
+			{% for city_list in cities %}
+            <div class="col-md-3 col-sm-6 ">
+				<ul>
+					{% for city in city_list %}
+					  <li><a href="{{city.url}}">{{city.name}}</a></li>
+					{% endfor %}
+				</ul>
+            </div>
+			{% endfor %}
+          </div>
+        </div>
+
+      </section>
+  <!--Popular Coworks -->
+
+      <section class="footer" style="position:relative; top:3px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <h4 class="subtitle">Popular Coworks</h4>
+            </div>
+          </div>
+          <div class="row footer-popular">
+            <div class="col-md-12 col-xs-12">
+			<p>	{% for cowork in coworks %}
+				<a href="{{cowork.url}}">{{cowork.name}}</a>&nbsp|&nbsp
+				{% endfor %}</p>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
 
 <section id="footer">
 	 <div class="container-fluid wow fadeInUp">
@@ -181,7 +217,7 @@ window.smartsupp||(function(d) {
       </div>
 	 </div>
  </section>
-
+</footer>
 
 
 

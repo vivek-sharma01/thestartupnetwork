@@ -4,7 +4,7 @@ from . import models
 
 
 class ContactUsSerializer(serializers.ModelSerializer):
-    """Amenity list serializer"""
+    """Contact us serializer"""
 
     class Meta:
         model = models.ContactUs

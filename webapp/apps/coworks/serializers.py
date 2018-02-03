@@ -75,7 +75,7 @@ class MostPopularCoworksSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Cowork
-        fields = ('name', 'location__name', 'address', 'url')
+        fields = ('name', 'address', 'url')
 
 
 class CoworksDetailSerializer(serializers.ModelSerializer):

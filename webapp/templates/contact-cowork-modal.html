@@ -3,21 +3,21 @@
 	<div class="modal-content">
 		<span class="contact-wework-close">&#10005;</span>
 		  <div id="form">
-				<form action="#" name="registration">
-					<div id="name"><p>Message WeWork</p></div>
+				<form id="contact-cowork-form" name="registration">
+					<div id="name"><p>Message {{data.name}}</p></div>
 						<div id="input">
 							<table id="form">
 								<tr>
-									<td><input type="text" placeholder="Name*" required></td>
+									<td><input type="text" id="contact-name" placeholder="Name*" required></td>
 								</tr>
 								<tr>
-									<td><input type="email" placeholder="Email*" required></td>
+									<td><input type="email" id="contact-email" placeholder="Email*" required></td>
 								</tr>
 								<tr>
-									<td><input type="text" id="code" minlength="10" maxlength="20" placeholder="Phone" maxlength="12" onclick="phone();" required></td>
+									<td><input type="text" id="contact-phone" minlength="10" maxlength="20" placeholder="Phone" maxlength="12" onclick="phone();" required></td>
 								</tr>
 								<tr>
-									<td><textarea name="" id="" cols="30" rows="10" minlength="3" maxlength="100" placeholder="Message" required></textarea></td>
+									<td><textarea name="" id="contact-message" cols="30" rows="10" minlength="3" maxlength="100" placeholder="Message" required></textarea></td>
 								</tr>
 								<tr>
 									<td><input type="submit" value="Submit"></td>
