@@ -117,15 +117,31 @@ $(function () {
             }
 
         });
-		$(document).scroll(function(){
 
-			if($(document).scrollTop() > 600 && $(document).scrollTop()<3720){
-				$("#rightContent").css({"position":"fixed","top":"20px","right":"10px"});
-				$(".report_cowork").css({"position":"fixed","bottom":"100px","right":"0"});
+        var scrollBottomValue;
+		var footerHeight;
+
+		var similarCoworks = $('.similar-coworks');
+		var otherWeWorks = $('.other-weworks-section');
+		var footerStart = $('.footer-start');
+
+		if(similarCoworks.length){
+			footerHeight = $('.similar-coworks').offset().top;
+			scrollBottomValue = footerHeight - 600;
+		}else if(otherWeWorks.length){
+			footerHeight = $('.other-weworks-section').offset().top;
+			scrollBottomValue = footerHeight - 600;
+		}
+		else{
+			footerHeight = $('.footer-start').offset().top;
+			scrollBottomValue = footerHeight - 600;
+		}
+		$(document).scroll(function(){
+			if($(document).scrollTop() > 600 && $(document).scrollTop()< scrollBottomValue){
+				$("#rightContent").addClass('fixedRightContent');
 			}
 			else{
-				$("#rightContent").css({"position":"static"});
-				$(".report_cowork").css({"position":"static"});
+				$("#rightContent").removeClass('fixedRightContent');
 			}
 		});
 
