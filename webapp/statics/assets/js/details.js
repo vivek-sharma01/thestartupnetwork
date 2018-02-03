@@ -103,7 +103,7 @@ $(function () {
         var moretext = "Read More";
         var lesstext = "Read less";
 
-	    $('.overview-summary p').each(function() {
+         $('.overview-summary p').each(function() {
             var content = $(this).html();
 
             if(content.length > showChar) {
@@ -111,11 +111,28 @@ $(function () {
                 var c = content.substr(0, showChar);
                 var h = content.substr(showChar, content.length - showChar);
 
-                var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="overview-more">' + moretext + '</a><img src="/statics/assets/images/down-arrow.png"></span>';
+                var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>'
+                 + h + '</span>&nbsp;&nbsp;<a href="" class="overview-more">' + moretext +
+                  '</a><img src="/statics/assets/images/down-arrow.png"></span>';
 
                 $(this).html(html);
             }
 
+        });
+
+        $(".overview-more").click(function(){
+            if($(this).hasClass("less")) {
+                $(this).removeClass("less");
+                $(this).html(moretext);
+                $(".morecontent img").show();
+            } else {
+                $(this).addClass("less");
+                $(this).html(lesstext);
+                $(".morecontent img").hide();
+            }
+            $(this).parent().prev().toggle();
+            $(this).prev().toggle();
+            return false;
         });
 
         var scrollBottomValue;
@@ -147,22 +164,6 @@ $(function () {
 
 
 
-    $(".overview-more").click(function(){
-        if($(this).hasClass("less")) {
-            $(this).removeClass("less");
-            $(this).html(moretext);
-			$(".morecontent img").show();
-        } else {
-            $(this).addClass("less");
-            $(this).html(lesstext);
-			$(".morecontent img").hide();
-        }
-        $(this).parent().prev().toggle();
-        $(this).prev().toggle();
-        return false;
-    });
-
-
 
 	var availablespace = $(".available-space").length;
 
@@ -179,5 +180,7 @@ $(function () {
 
     var imageUrl = $('#image_url').val();
     $('#hero').css('background-image', 'url(' + imageUrl + ')');
+
+
 
 });

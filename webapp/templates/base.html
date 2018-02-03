@@ -94,7 +94,7 @@ window.smartsupp||(function(d) {
     {% block content %}
 
     {% endblock %}
-  <footer class="site-footer">
+  <footer class="site-footer footer-start">
     <section class="footer add-cowork-section">
 	 <div class="container">
 		  <div class="row">
@@ -165,7 +165,7 @@ window.smartsupp||(function(d) {
         <div class="container">
           <div class="row">
 			<h4 class="location">Location</h4>
-			{% for city_list in cities %}
+			{% for city_list in footer_cities %}
             <div class="col-md-3 col-sm-6 ">
 				<ul>
 					{% for city in city_list %}

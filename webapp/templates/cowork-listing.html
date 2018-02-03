@@ -19,7 +19,7 @@
           <h3 class="">Coworks in <span id="location-dropdown">
 					<select id="city-select">
 						<option value="india" selected>India</option>
-						{% for city in cities %}
+						{% for city in listing_cities %}
 						  <option value="{{city.url}}" {% if city_slug == city.slug %} selected {% endif %}>{{city.name}}</option>
 						{% endfor %}
 					</select>
