@@ -19,6 +19,8 @@ class ContactUs(models.Model):
     phone = models.CharField(max_length=15, null=True, blank=True)
     message = models.TextField(null=True, blank=True)
     cowork = models.ForeignKey(cowork_model.Cowork, related_name="contact_cowork", null=True, blank=True)
+    reason = models.TextField(null=True, blank=True)
+    request_date = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return "phone: " + str(self.phone) + " email: " + str(self.email)

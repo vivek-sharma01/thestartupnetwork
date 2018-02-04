@@ -1,0 +1,48 @@
+{% load custom_filters %}
+<div id="day-pass" class="modal">
+	<div class="modal-content">
+		<span id="day-pass-close" class="day-pass-close">&#10005;</span>
+		<div id="form">
+			<form name="registration">
+					<h3>Request a Day Pass</h3>
+					<div id="input">
+						<div class="input-group date form_date "  style="width:320px !important; margin-left:-1%;" data-date-format="yyyy-mm-dd"  data-link-field="dtp_input1">
+							<input class="form-control name" id="day-pass-date" style="padding:5%;"type="text" value ="YYYY-MM-DD" readonly>
+
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div><br>
+						<table id="form">
+							<tr>
+								<td><input type="text" id="day-pass-name" placeholder="Name*" required></td>
+							</tr>
+							<tr>
+								<td><input type="email" id="day-pass-email" placeholder="Email*" required></td>
+							</tr>
+							<tr>
+								<td><input type="text" id="day-pass-phone" minlength="10" maxlength="20" placeholder="Phone" maxlength="12" onclick="phone();" required></td>
+							</tr>
+							<tr>
+								<td><textarea name="" id="day-pass-message" cols="30" rows="10" minlength="3" maxlength="100" placeholder="Message*" required></textarea></td>
+							</tr>
+							<tr>
+								<td><input type="submit" id="day-pass-contact-us-button" value="Submit"></td>
+							</tr>
+							<tr>
+								<td class="mandatory">*Mandatory Fields</td>
+							</tr>
+						</table>
+                    </div>
+            </form>
+        </div>
+	</div>
+  </div>
+
+
+<div id="day-pass-request-sent" class="modal">
+		<div class="modal-content">
+			<span id="day-pass-request-sent-close" class="day-pass-request-sent-close">&#10005;</span>
+			<img class="image" src="{% custom_static 'assets/images/tick.png' %}"/>
+            <h1> Request for Day Pass sent!</h1>
+            <p>Booking details will be shared on your email id.</p>
+		</div>
+  </div>

@@ -11,7 +11,10 @@
  	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/member-ship.css' %}">
  	<link rel="stylesheet" href="{% custom_static 'assets/css/enquiry-sent.css' %}" type="text/css' %}"/>
   	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/contact-wework.css' %}">
- 	 <link rel="stylesheet" href="{% custom_static 'assets/css/add-cowork.css' %}" type="text/css' %}"/>
+    <link rel="stylesheet" href="{% custom_static 'assets/css/add-cowork.css' %}" type="text/css' %}"/>
+	<link rel="stylesheet" href="{% custom_static 'assets/css/day-pass.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% custom_static 'assets/css/day-pass-sent.css' %}" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/bootstrap-datetimepicker.min.css' %}">
   
 {% endblock %}
 
@@ -23,6 +26,8 @@
 	<script src="{% custom_static 'assets/js/enquiry-sent.js' %}"></script>
 	<script src="{% custom_static 'assets/js/contact-wework.js' %}"></script>
 	<script src="{% custom_static 'assets/js/add-cowork.js' %}"></script>
+	<script type="text/javascript" src="{% custom_static 'assets/js/bootstrap-datetimepicker.js' %}" charset="UTF-8"></script>
+
 {% endblock %}
 
 {% block content %}
@@ -62,7 +67,7 @@
 				<div class="overview-summary">
 					<p>{{data.description}}</p>
 				</div>
-				<div class="contact-wework"><a href="#">Contact {{data.name}}</a></div>
+				<div class="contact-wework message-us-popup"><a href="#">Contact {{data.name}}</a></div>
 			</div>
 			{% if data.reasons_to_choose %}
 			<div class="overview">
@@ -84,17 +89,17 @@
 			<div class="message-us">
 				<p>Talk to {{data.name}}</p>
 				<div class="actions">
-					<a id="message-us-popup" class="btn-get-started">Message Us</a>
+					<a id="message-us-popup" class="btn-get-started message-us-popup">Message Us</a>
 				</div>
 			</div>
 			<div class="visit-us">
 				<p>Visit {{data.name}}</p>
 				<div class="actions">
-					<a href="#about" class="btn-get-started">Book a Tour</a>
+					<a id="" class="btn-get-started">Book a Tour</a>
 				</div>
 				<div class="day-pass">
 					<div class="actions">
-						<a href="#about" class="btn-get-started">Request a Day Pass</a>
+						<a id="day-pass-button" class="btn-get-started">Request a Day Pass</a>
 					</div>
 				</div>
 			</div>
@@ -199,7 +204,7 @@
 				</div>				
 			</div>
 			
-			
+
 			
 			<div class="cost-structure">
 				<div class="row">
@@ -316,6 +321,8 @@
 {% include 'contact-cowork-modal.html' %}
 {% include 'add-cowork-modal.html' %}
 
+{% include 'day-pass-modal.html' %}
+<script src="{% custom_static 'assets/js/day-pass.js' %}"></script>
 
 <input type="hidden" id="image_url" value="{% if data.banner_image %}/{{data.banner_image}}
 				 {% else %} {% custom_static 'assets/images/annie-spratt-294450.jpg' %} {% endif %}"/>

@@ -4,7 +4,7 @@ $(document).ready(function() {
 var messageModal = $('#contact-wework-modal');
 
 // Get the button that opens the modal
-var btn =$("#message-us-popup");
+var btn =$(".message-us-popup");
 
 // Get the <span> element that closes the modal
 var span = $(".contact-wework-close")[0];

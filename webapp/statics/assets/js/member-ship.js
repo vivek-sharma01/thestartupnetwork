@@ -37,6 +37,11 @@ function phone(){
     document.getElementById("phone").value = "+91";
 }
 
+var sentModal = $('#enquiry-sent');
+var span = $('#enquiry-sent-close');
+span.click(function() {
+    sentModal.hide();
+});
 
 var csrftoken = Cookies.get('csrftoken');
 	$('#membership-enquiry-form').submit(function(e)
@@ -49,6 +54,7 @@ var csrftoken = Cookies.get('csrftoken');
             'email': $('#email').val(),
             'phone': $('#phone').val(),
             'message': $('#message').val(),
+            'reason': 'membership enquiry'
         }
 
         $.ajax({
@@ -61,12 +67,12 @@ var csrftoken = Cookies.get('csrftoken');
             data: JSON.stringify(data),
             success: function(response) {
                 membershipModal.hide();
-                $('#enquiry-sent').show();
+                sentModal.show();
 
             },
             error: function (response) {
                 membershipModal.hide();
-                $('#enquiry-sent').show();
+                sentModal.show();
             },
             dataType: 'json',
             contentType: 'json'

@@ -107,7 +107,7 @@ class Cowork(ModelBase):
         """minimum price for a cowork"""
         if self.price_per_month:
             return self.price_per_month
-        memberships = Pricing.objects.filter(cowork_id=self.id).values_list('price', flat=True)
+        memberships = Pricing.objects.filter(cowork_id=self.id).exclude(membership__name='CR') .values_list('price', flat=True)
         return min(memberships) if memberships else None
 
     def get_location_name(self):

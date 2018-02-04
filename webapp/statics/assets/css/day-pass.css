@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+font-family: "HelveticaNeue";
+src: url("../fonts/HelveticaNeue.ttf");
+}
+
+#day-pass .datetimepicker{
+	left:39% !important;
+	padding-left:40px !important;
+}
+
+#day-pass  .switch{
+    color: #00bcd4;
+}
+
+#day-pass .today {
+    background-color:#00bcd4 !important;
+    background-image:none !important;
+    border-radius: 100% !important;
+
+}
+
+#day-pass .dropdown-menu{
+	width:320px !important;
+}
+
+#day-pass .form-control{
+	background-color: #f6f9fc !important;
+}
+
+#day-pass{
+	background: #fff;
+    width: 500px;
+	margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+    display: none;
+	height : 615px;
+    
+}
+#day-pass h3{
+    position: relative;
+    top: 40px;
+    text-align: center;
+    font-size: 20px;
+    color: #253238;
+    font-weight: 400;
+    font-family: HelveticaNeue;
+    }
+    div#input{
+        width: 338px;
+        margin: 0 auto;
+        margin-top: 80px;
+    }
+    
+    table#form td input[type="text"], table#form td input[type="email"]{
+        width: 317px;
+        height: 40px;
+        padding-left: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #dbdbdb;
+        font-size: 14px;
+        background: #f6f9fc;
+		color:#253238;
+    }
+    input[type="submit"]{
+        margin-top: 30px;
+        width: 338px;
+        height: 40px;
+        border: 1px solid #dbdbdb;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 400;
+        background: #00bcd4;
+    }
+    
+    textarea{
+        padding: 10px 0 0 15px;
+        width: 318px;
+        height: 100px;
+        border: 1px solid #dbdbdb;
+        resize: none;
+        border-radius: 2px;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;    
+        font-size: 14px;
+        background-color: #f6f9fc;
+        color: #a0a1a2;
+    }
+    
+    .mandatory{
+        padding: 20px 0 50px 0;
+        font-size: 14px;
+        color: #7a7a7a;
+        letter-spacing: 1px;
+    }
+    
+     /* The Close Button */
+#day-pass .day-pass-close{
+    font-size: 30px;
+    color: #000;
+    padding : 20px;
+	float: right;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+#day-pass .day-pass-close:hover,
+#day-pass .day-pass-close:focus {
+    color: #00bcd4;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+

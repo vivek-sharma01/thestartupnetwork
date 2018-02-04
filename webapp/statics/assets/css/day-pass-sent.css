@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "HelveticaNeue";
+	src: url("../fonts/HelveticaNeue.ttf");
+ }
+
+#day-pass-request-sent .modal-content{
+	height: 370px;
+}
+ 
+#day-pass-request-sent .image{ 
+    position: relative;
+    top: 80px;
+    left: 45%;
+}
+
+#day-pass-request-sent p{
+    position: relative;
+    top: 100px;
+    font-family: Helvetica Neue;
+    font-size: 24px;
+    color: #253238;
+    text-align: center;
+}
+
+#day-pass-request-sent h1{
+        position: relative;
+        top: 90px;
+        text-align: center;
+        font-size: 24px;
+        color: #253238;
+        font-weight: 400;
+        font-family: HelveticaNeue;
+}
+
+#day-pass-request-sent{
+		width: 498px;
+		height: 330px;
+		margin: 0 auto;
+		margin-top: 80px;
+		border-radius: 4px;
+		-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+		display: none;
+}
+
+#day-pass-request-sent .day-pass-request-sent-close{
+    font-size: 30px;
+    color: #000;
+    padding : 20px;
+	float: right;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+#day-pass-request-sent .day-pass-request-sent-close:hover,
+#day-pass-request-sent .day-pass-request-sent-close:focus {
+    color: #00bcd4;
+    text-decoration: none;
+    cursor: pointer;
+}}
+

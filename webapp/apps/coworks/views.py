@@ -99,7 +99,7 @@ class CoworksDetails(APIView):
         """
         cowork = models.Cowork.objects.get_cowork_by_slug(slug)
         serializer = serializers.CoworksDetailSerializer(cowork)
-        similar_coworks = models.Cowork.objects.get_similar_coworks(cowork.locality)
+        similar_coworks = models.Cowork.objects.get_similar_coworks(cowork.locality, cowork)
         similar_coworks_serializer = serializers.SimilarCoworksDetailSerializer(similar_coworks, many=True)
         space_types = models.MembershipBenefits.objects.all()
         membership_serializer = serializers.MembershipBenefitSerializer(space_types, many=True)
