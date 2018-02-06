@@ -113,3 +113,29 @@ AMENITY_FILTER_REVERSE_MAPPING = {
 }
 
 
+ENQUIRY_REASON = {
+    'day pass': 'Day Pass Request for {}',
+    'membership enquiry': 'Membership Request',
+    'message': 'Message'
+}
+
+MEMBERSHIP_ENQUIRY_MAIL_TEXT = """
+Hi,<br><br>
+
+    Greeting from <a href="https://www.thestartupnetwork.in/">The Startup Network!</a><br><br>
+
+    <b>You have received a customer enquiry.</b><br><br>
+
+    Venue:- {}<br><br>
+
+    Enquiry Details<br><br>
+
+    Enquiry Type:- {}<br>
+    Customer Name:- {}<br>
+    Contact Number:- {}<br>
+    Email id:- {}<br><br>
+
+    In case of any query, reply to the same mail."""
+
+MEMBERSHIP_ENQUIRY_MAIL_SUBJECT = "{} | Customer Enquiry | The Startup Network"
+

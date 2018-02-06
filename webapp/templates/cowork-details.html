@@ -225,16 +225,23 @@
 						</h4>
 					</div>
 					{% for data in value %}
-					<div class="col-lg-3 col-md-3 col-sm-6 rate-type">
+					<div class="col-lg-4 col-md-4 col-sm-6 rate-type">
 						<ul>
 							<li><span>{{name}}</span>
 								<!--<p>per person</p>-->
 							</li>
 						</ul>
 					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6 rate-value">
+					{% if data.seats %}
+					<div class="col-lg-4 col-md-4 col-sm-4 rate-type">
 						<ul>
-							<li><span><i class="fa fa-inr"></i> {{data.price}} per/month</span></li>
+							<li><span>{{data.seats}} Seat{{data.seats|pluralize}}</span></li>
+						</ul>
+					</div>
+					{% endif %}
+					<div class="col-lg-4 col-md-4 col-sm-6 rate-value">
+						<ul>
+							<li><span><i class="fa fa-inr"></i> {{data.price}} per/{{data.time_unit}}</span></li>
 						</ul>
 					</div>
 					{% endfor %}

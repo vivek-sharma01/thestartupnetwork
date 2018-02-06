@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load custom_filters %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Membership</title>
+    <!--<link rel="stylesheet" href="{% custom_static 'assets/css/membership-customer-email.css' %}" type="text/css"/>-->
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #f2f2f2;
+}
+.image-1{
+    width: 200px;
+    height: 70px;
+    margin: 0 auto;
+    position: relative;
+    right: 100px;
+    top: -100px;
+
+}
+.container-2{
+    width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #f2f2f2;
+    margin-top: 150px;
+}
+.first{
+    position: relative;
+    top: 20px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 18px;
+    color: #696969;
+    text-align: center;
+    font-weight: 500;
+}
+.blue{
+    position: relative;
+    top: 30px;
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 24px;
+    color: #00bcd4;
+    text-align: center;
+    font-weight: 600;
+}
+.first-1{
+    position: relative;
+    top: 40px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 18px;
+    color: #696969;
+    text-align: center;
+    font-weight: 500;
+}
+.light-gray{
+    position: relative;
+    top: 70px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 16px;
+    color: #a9a9a9;
+    text-align: center;
+    font-weight: 500;
+}
+.first-2{
+    position: relative;
+    top: 100px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 12px;
+    color: #696969;
+    font-weight: 600;
+    left: 20px;
+}
+.address{
+    position: relative;
+    top: 110px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 12px;
+    color: #5d95f6;
+    left: 20px;
+    font-weight: 600;
+
+}
+.blue-1{
+    position: relative;
+    top: 140px;
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 18px;
+    color: #00bcd4;
+    font-weight: 600;
+    left: 20px;
+}
+.member{
+    position: relative;
+    top: 170px;
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #696969;
+    left: 20px;
+    font-weight: 600;
+}
+.member-value{
+    position: relative;
+    top: 170px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #9b9b9b;
+    left: 30px;
+    font-weight: 500;
+}
+.date{
+    position: relative;
+    top: 180px;
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #696969;
+    left: 19px;
+    font-weight: 600;
+}
+.date-value{
+    position: relative;
+    top: 180px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #9b9b9b;
+    left: 1px;
+    font-weight: 500;
+}
+.message{
+    position: relative;
+    top: 190px;
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #696969;
+    left: 20px;
+    font-weight: 600;
+}
+.message-value{
+    position: relative;
+    top: 190px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #9b9b9b;
+    left: 1px;
+    font-weight: 500;
+}
+.blue-2{
+    position: relative;
+    top: 220px;
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 18px;
+    color: #00bcd4;
+    font-weight: 600;
+    left: 20px;
+}
+.email{
+    position: relative;
+    top: 250px;
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #696969;
+    left: 20px;
+    font-weight: 600;
+}
+.email-value a{
+    position: relative;
+    top: 250px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #5d95f6;
+    font-weight: 500;
+}
+.phone{
+    position: relative;
+    top: 270px;
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #696969;
+    left: 20px;
+    font-weight: 600;
+}
+.phone-value a{
+    position: relative;
+    top: 270px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #9b9b9b;
+    left: 30px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.image {
+    text-align: center;
+    position: relative;
+    top: 20px;
+    letter-spacing: 10px;
+}
+.last-line-1{
+    position: relative;
+    top: 40px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #9b9b9b;
+    font-weight: 500;
+    left: 650px;
+    padding-bottom: 40px;
+}
+.last-line-2{
+    position: relative;
+    top: 40px;
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #696969;
+    font-weight: 600;
+    left: 650px;
+    padding-bottom: 40px;
+
+}
+    </style>
+</head>
+<body>
+     <div class="image-1">  <img src= "{% custom_static 'assets/images/logo-3.png' %}" alt="logo" /> </div>
+    <div class="container-2">
+        <p class="first">Your membership enquiry to </p>
+        <p class="blue"> {{cowork_name}}</p>
+        <p class="first-1"> has been sent </p>
+        <p class="light-gray">{{cowork.name}} has received your request and will</p>
+        <p class="light-gray"> reply to you soon</p>
+        <p class="first-2"> {{cowork_name}} </p>
+        <a href="#" class="address">{{cowork_address}}</a>
+        <p class= "blue-1"> Your Membership Request:</p>
+        <table>
+            <tr>
+                <td class="member">Membership Type:</td>
+                <td class="member-value"> {{data.membership_type}}</td>
+            </tr>
+            <tr> 
+                <td class="date"> Start Date:</td>
+                <td class="date-value"> {{request_date}} </td>
+            </tr>
+            <tr>
+                <td class="message"> Message: </td>
+                <td class="message-value"> <p> {{data.message}}</p> </td>
+            </tr>
+        </table>
+        <p class="blue-2">{{cowork.name}} </p>
+        {% if name %}
+        <table>
+            <tr>
+                <td class="email">Email:</td>
+                <td class="email-value"> <a href="Drajesh.cherji@awfis.com">{{email}}</a></td>
+                <tr>
+                    <td class="phone">Phone Number:</td>
+                    <td class="phone-value"> <a href="#">{{phone_no}} </a></td>
+                </tr>
+            </tr>
+        </table>
+        {% endif %}
+    
+    </div>
+    <div class="image">
+        <img src="{% custom_static 'assets/images/Facebook.png'%}"/>
+        <img src="{% custom_static 'assets/images/Twitter.png'%}"/>
+        <img src="{% custom_static 'assets/images/Linkedin.png'%}"/>
+    </div>
+    <span class="last-line-1">Sent with love from</span><span class="last-line-2">The Startup Network</span>
+
+
+</body>
+</html>

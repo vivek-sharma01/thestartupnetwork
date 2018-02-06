@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
 from . import models, serializers
 from webapp.apps.coworks import models as cowork_models
-
+from webapp.apps.coworks import utils as cowork_utils
 
 class EnterpreneurIndex(APIView):
     """"""
@@ -68,11 +69,15 @@ class ContactUsForm(APIView):
         """Contact us form details"""
 
         data = request.data
+        cowork = None
         if 'cowork_slug' in request.data:
             cowork = cowork_models.Cowork.objects.get_cowork_by_slug(request.data['cowork_slug'])
             data['cowork_id'] = cowork.id
         serializer = serializers.ContactUsSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            cowork_utils.send_mail_to_cowork(data, cowork)
+            if data['reason'] == 'membership enquiry':
+                cowork_utils.send_mail_to_customer(data, cowork)
             return Response({'message': 'success'}, status=status.HTTP_201_CREATED)
         return Response({'message': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)

@@ -47,7 +47,8 @@ $('#contact-cowork-form').submit(function(e) {
             'email': $('#contact-email').val(),
             'phone': $('#contact-phone').val(),
             'message': $('#contact-message').val(),
-            'cowork_slug': $('#cowork_slug').val()
+            'cowork_slug': $('#cowork_slug').val(),
+            'reason': 'message'
         }
         $.ajax({
             type: "POST",

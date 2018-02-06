@@ -9,6 +9,7 @@ from webapp.apps import gen_hash, expires
 from itertools import groupby
 
 
+
 class ModelBase(models.Model):
     """
         This is a abstract model class to add is_deleted, created_at and modified at fields in any model
@@ -72,7 +73,8 @@ class Cowork(ModelBase):
     def get_pricing(self):
         """get pricing related to membership"""
         memberships = Pricing.objects.filter(cowork_id=self.id).values('membership__name', 'membership__description',
-                                                                       'price', 'membership__suitable_for', 'suitable_for')
+                                                                       'price', 'membership__suitable_for',
+                                                                       'suitable_for', 'time_unit', 'seats')
         response = {}
         # class_list = [
         #     {'business-card': 'business-card-body'},
@@ -87,7 +89,6 @@ class Cowork(ModelBase):
         # ]
 
         for name, group in groupby(memberships, self.extract_name):
-
             if name and constants.MEMBERSHIPS_REVERSE_DICT[name]:
                 response[constants.MEMBERSHIPS_REVERSE_DICT[name]] = []
                 for data in list(group):
@@ -97,7 +98,9 @@ class Cowork(ModelBase):
                         'price': data['price'],
                         'heading_class': '',
                         'suitable_class': '',
-                        'suitable_for': data['suitable_for'].split(",") if data['suitable_for'] else None
+                        'suitable_for': data['suitable_for'].split(",") if data['suitable_for'] else None,
+                        'seats': data['seats'],
+                        'time_unit': data.get('time_unit') if data.get('time_unit') else 'month'
                     }
                     response[constants.MEMBERSHIPS_REVERSE_DICT[name]].append(obj)
         print(response)
