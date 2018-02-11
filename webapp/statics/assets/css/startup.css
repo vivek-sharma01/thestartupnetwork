@@ -683,10 +683,17 @@
 }
 
 .footer .location {
-
-
-    border-bottom: 2px solid black;
     position: absolute;
     top: 10px;
-    left: 53px;
+    left: 84px;
+}
+
+.footer .location::after {
+    content: "";
+    width: 55px;
+    height: 2px;
+    border-bottom: 2px solid black;
+    position: absolute;
+    top: 29px;
+    left: 1px;
 }

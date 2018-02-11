@@ -3,17 +3,21 @@
 {% load custom_filters %}
 
 {% block custom_css %}
-
+	
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="{%custom_static 'assets/font-awesome/css/font-awesome.min.css'%}">
 	<link rel="stylesheet" href="{% custom_static 'assets/css/details.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/message-us.css ' %}">
   	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/message-sent.css' %}">
     <link rel="stylesheet" href="{% custom_static 'assets/css/message-sent-wework.css' %}" type="text/css"/>
  	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/member-ship.css' %}">
  	<link rel="stylesheet" href="{% custom_static 'assets/css/enquiry-sent.css' %}" type="text/css' %}"/>
+	<link rel="stylesheet" href="{% custom_static 'assets/css/tour-booking-sent.css' %}" type="text/css' %}"/>
   	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/contact-wework.css' %}">
     <link rel="stylesheet" href="{% custom_static 'assets/css/add-cowork.css' %}" type="text/css' %}"/>
 	<link rel="stylesheet" href="{% custom_static 'assets/css/day-pass.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% custom_static 'assets/css/day-pass-sent.css' %}" type="text/css"/>
+	<link rel="stylesheet" href="{% custom_static 'assets/css/book-a-tour.css' %}" type="text/css"/>
 	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/bootstrap-datetimepicker.min.css' %}">
   
 {% endblock %}
@@ -24,6 +28,7 @@
 	<script src="{% custom_static 'assets/js/message-sent-wework.js' %}"></script>
 	<script src="{% custom_static 'assets/js/member-ship.js' %}"></script>
 	<script src="{% custom_static 'assets/js/enquiry-sent.js' %}"></script>
+	<script src="{% custom_static 'assets/js/tour-booked-sent.js' %}"></script>
 	<script src="{% custom_static 'assets/js/contact-wework.js' %}"></script>
 	<script src="{% custom_static 'assets/js/add-cowork.js' %}"></script>
 	<script type="text/javascript" src="{% custom_static 'assets/js/bootstrap-datetimepicker.js' %}" charset="UTF-8"></script>
@@ -95,7 +100,7 @@
 			<div class="visit-us">
 				<p>Visit {{data.name}}</p>
 				<div class="actions">
-					<a id="" class="btn-get-started">Book a Tour</a>
+					<a id="book-tour-popup" class="btn-get-started">Book a Tour</a>
 				</div>
 				<div class="day-pass">
 					<div class="actions">
@@ -109,8 +114,8 @@
 					<a id="member-ship" class="btn-get-started">Membership Enquiry</a>
 				</div>
 			</div>
+			<div class="report_cowork"><img src="{% custom_static 'assets/images/Flag.png' %}"/><p>Report this Listing<p></div>
 		</div>
-		<div class="report_cowork"><img src="{% custom_static 'assets/images/Flag.png' %}"/><p>Report this Listing<p></div>
 	</div>
 	<div class="row">
 		<div class ="col-lg-8 col-md-8 col-sm-6">
@@ -331,7 +336,9 @@
 {% include 'add-cowork-modal.html' %}
 
 {% include 'day-pass-modal.html' %}
+{% include 'book-a-tour.html' %}
 <script src="{% custom_static 'assets/js/day-pass.js' %}"></script>
+<script src="{% custom_static 'assets/js/book-a-tour.js' %}"></script>
 
 <input type="hidden" id="image_url" value="{% if data.banner_image %}/{{data.banner_image}}
 				 {% else %} {% custom_static 'assets/images/annie-spratt-294450.jpg' %} {% endif %}"/>
