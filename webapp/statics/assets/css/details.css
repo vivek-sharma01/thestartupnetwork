@@ -115,6 +115,7 @@
   border-radius: 2px;
   transition: 0.5s;
   text-align : center;
+  cursor : pointer;
 }
 
 .visit-us p {
@@ -303,7 +304,7 @@
 
 .overview-summary {
 	padding : 10px 0px;
-	height : 130px;
+	height : 100%;
 	line-height: 26px;
 }
 
@@ -507,12 +508,11 @@
 
 .report_cowork{
 	display: inline-flex;
-    padding-top: 20px;
-    padding-left: 145px;
-    width: 33.3%;
+    padding-top: 30px;
+    padding-left: 130px;
     margin: auto;
     align-items: center;
-	cursor : pointer;
+    cursor: pointer;
 }
 
 .report_cowork p{
@@ -657,10 +657,18 @@
 	opacity : 0.7;
 }
 
+.add-cowork-section{
+	padding : 0px;
+}
+
 .rate-card .card-body .card-title a{
 	font-size : 18px;
 	font-weight : 600;
 	color : #000000;
+}
+
+.card-body {
+    padding: 0px;
 }
 
 .rate-card .card-body .card-title p{
@@ -754,7 +762,7 @@
 .fixedRightContent{
 	position:fixed;
 	top:10px;
-	right: 25px;
+	right: 49px;
 	width:31%;
 }
 

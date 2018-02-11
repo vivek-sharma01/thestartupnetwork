@@ -1,0 +1,82 @@
+{% load custom_filters %}
+<div id="book-a-tour" class="modal">
+		<div class="modal-content">
+			<span class="book-a-tour-close">&#10005;</span
+				<div id="form">
+					<form action="#" name="registration">
+						<h3>Book a Tour</h3>
+						<table>
+							<tr>
+								<td class="label-1">Select Date</td>
+								<td class="label-2" >Select time Slot</td>
+							</tr>
+							<tr>
+								<td><div class="input-group date form_date "  style="width:165px !important; margin-left:38%;margin-top: 4px;" data-date-format="dd MM yyyy"  data-link-field="dtp_input1">
+									<input class="form-control name"  style="padding:7%;height:40px;" type="text" value ="DD/MM/YYYY" readonly/>
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						 </div></td>
+								<td><input type="text" id="time" class="time" placeholder="00 - 00 Hours" readonly><i class="fa fa-clock-o" aria-hidden="true"></i></td>
+							</tr>
+							<tr>
+								<td>
+									<div id="time-slots">
+										<label for="24 hour" class="hour">24 hour</label>
+										<div id="slots">
+											<table id="time">
+												<tr>
+													<td data-slot="9 - 10 AM" class="select-slot">9-10</td>
+													<td data-slot="10 - 11 AM" class="select-slot">10-11</td>
+													<td data-slot="11 - 12 AM" class="select-slot">11-12</td>
+												</tr>
+												<tr>
+													<td data-slot="12 - 13 PM" class="select-slot">12-13</td>
+													<td data-slot="13 - 14 PM" class="select-slot">13-14</td>
+													<td data-slot="14 - 15 PM" class="select-slot">14-15</td>
+												</tr>
+												<tr>
+													<td data-slot="15 - 16 PM" class="select-slot">15-16</td>
+													<td data-slot="16 - 17 PM" class="select-slot">16-17</td>
+													<td data-slot="17 - 18 PM" class="select-slot">17-18</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+						<br>
+						<div id="input">
+							<table id="form">
+								<tr>
+									<td><input type="text" placeholder="Name*" required></td>
+								</tr>
+								<tr>
+									<td><input type="email" placeholder="Email*" required></td>
+								</tr>
+								<tr>
+									<td><input type="text" id="code" minlength="10" maxlength="20" placeholder="Phone*" maxlength="12" onclick="phone();" required></td>
+								</tr>
+								<tr>
+									<td><textarea name="" id="" cols="30" rows="10" minlength="3" maxlength="100" placeholder="Message*" required></textarea></td>
+								</tr>
+								<tr>
+									<td><input type="submit" value="Submit"></td>
+								</tr>
+								<tr>
+									<td class="mandatory">*Mandatory Fields</td>
+								</tr>
+							</table>
+						</div>
+					</form>
+				</div>
+		</div>
+  </div>
+  
+  <div id="tour-booked" class="modal">
+		<div class="modal-content">
+			<span id="tour-booked-close" class="tour-booked-close">&#10005;</span>
+			<img class="image" src="{% custom_static 'assets/images/tick.png' %}"/>
+            <h1>WeWork Tour Booked!</h1>
+            <p>Booking details will be shared on your email id.</p>
+		</div>
+  </div>

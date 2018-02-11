@@ -74,6 +74,10 @@
 	height : 190px;
 }
 
+.h-listing{
+	padding-bottom : 40px;
+}
+
 .card{
 	border : none;
 }
@@ -112,9 +116,9 @@
 .day-Pass .btn {
     display: inline-block;
     /* padding: 6px 12px; */
-	margin-top: 3px;
-    margin-left: 46px;
-	font-size: 10px;
+    margin-top: 3px;
+    margin-left: 55px;
+    font-size: 10px;
     font-weight: 400;
     line-height: 1.42857143;
     text-align: center;
@@ -129,6 +133,11 @@
     user-select: none;
     background-image: none;
     height: 40px;
+    border-radius: 0px;
+}
+
+.price-rate{
+	width : 60%;
 }
 
 .more-filters img{
