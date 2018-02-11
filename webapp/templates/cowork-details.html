@@ -180,18 +180,20 @@
 
 
 						{% for amenity_list in value %}
+							{% for amenity in amenity_list %}
 						<div class="col-lg-4 col-md-4 col-sm-6 ">
 							<ul>
-							{% for amenity in amenity_list %}
+
 								{% with amenity.name as amenity_name %}
 								{% with 'assets/images/'|add:amenity_name|add:'.png' as amenity_image %}
 								<li><img src="{% custom_static amenity_image %}"/><span>{{amenity.name}}</span></li>
 								{% endwith %}
 								{% endwith %}
-							{% endfor %}
+
 
 							</ul>
 						</div>
+						{% endfor %}	
 					{% endfor %}
 
 
