@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from django.contrib.postgres.fields import ArrayField
 from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import slugify
@@ -110,7 +111,8 @@ class Cowork(ModelBase):
         """minimum price for a cowork"""
         if self.price_per_month:
             return self.price_per_month
-        memberships = Pricing.objects.filter(cowork_id=self.id).exclude(membership__name='CR') .values_list('price', flat=True)
+        memberships = Pricing.objects.filter(cowork_id=self.id).exclude(
+            Q(membership__name='CR')|Q(time_unit='day')|Q(time_unit='week')) .values_list('price', flat=True)
         return min(memberships) if memberships else None
 
     def get_location_name(self):
