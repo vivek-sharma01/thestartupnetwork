@@ -113,7 +113,7 @@ $(function () {
 
                 var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>'
                  + h + '</span>&nbsp;&nbsp;<a href="" class="overview-more">' + moretext +
-                  '</a><img src="/statics/assets/images/down-arrow.png"></span>';
+                  '</a><img id="content-toggle" src="/statics/assets/images/down-arrow.png"></span>';
 
                 $(this).html(html);
             }
@@ -124,11 +124,13 @@ $(function () {
             if($(this).hasClass("less")) {
                 $(this).removeClass("less");
                 $(this).html(moretext);
+				$(".morecontent img").attr("src","/statics/assets/images/down-arrow.png");
                 $(".morecontent img").show();
             } else {
                 $(this).addClass("less");
                 $(this).html(lesstext);
-                $(".morecontent img").hide();
+				$(".morecontent img").attr("src","/statics/assets/images/up-arrow.png");
+                $(".morecontent img").show();
             }
             $(this).parent().prev().toggle();
             $(this).prev().toggle();
@@ -175,8 +177,16 @@ $(function () {
 
 	$(".more-spaces").click(function (event) {
 	    $(".available-space").slice(3, 99).toggle();
+		$(".less-spaces").show();
+		$(".more-spaces").hide();
+		
 	});
-
+	
+	$(".less-spaces").click(function (event) {
+		$(".available-space").slice(3, 99).toggle();
+		$(".more-spaces").show();
+		$(".less-spaces").hide();
+	});
 
     var imageUrl = $('#image_url').val();
     $('#hero').css('background-image', 'url(' + imageUrl + ')');
