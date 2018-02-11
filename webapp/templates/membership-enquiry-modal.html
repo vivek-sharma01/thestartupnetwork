@@ -4,7 +4,7 @@
 		<span class="membership-close" id="membership-close">&#10005;</span>
 		<div id="membership-enquiry-form">
 			<form action="#" name="registration">
-				<h2 style="text-align:center">Membership Enquiry</h2>
+				<h2 style="text-align:center;padding-top: 15px;padding-left: 60px;">Membership Enquiry</h2>
 					<div id="input">
 						<table id="form">
 							<tr>
@@ -12,6 +12,28 @@
 							</tr>
 							<tr>
 								<td><input type="email" id="email" placeholder="Email*" required></td>
+							</tr>
+							<tr>
+								<td><select class="form-control" id="sel1" placeholder="Search">
+									<option value="" selected disabled style="display: none;">Membership Type</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><select class="form-control" id="sel1" style="width: 130px;height: 40px;">
+									<option value="" selected disabled style="display: none;">No of Persons</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+								</select></td>
+								<td><div class="input-group date form_date "  id="membership-calendar" style="width: 165px !important;margin-left: 38%;margin-top: 21px;margin-left: -199px;height: 40px;" data-date-format="dd MM yyyy"  data-link-field="dtp_input1">
+									<input class="form-control name"  style="padding:7%;width: 150px;" type="text" value ="DD/MM/YYYY" readonly/>
+									<span class="input-group-addon" id="test" style="display: inline-block;position: absolute;width: 50px;height:40px"><span class="glyphicon glyphicon-calendar" style="padding:9%;"></span></span>
+								</td>
 							</tr>
 							<tr>
 								<td><input type="text" id="phone" minlength="10" maxlength="20" placeholder="Phone" maxlength="12" onclick="phone();" required></td>
