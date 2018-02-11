@@ -53,6 +53,7 @@ class Cowork(ModelBase):
     location = models.ForeignKey('coworks.location', related_name='location_coworks', null=True, blank=True)
     website_url = models.CharField(max_length=500, null=True, blank=True)
     price_per_day = models.CharField(max_length=50, null=True, blank=True)
+    price_per_week = models.CharField(max_length=50, null=True, blank=True)
     price_per_month = models.CharField(max_length=50, null=True, blank=True)
     no_of_workstattion = models.CharField(max_length=50, null=True, blank=True)
     banner_image = models.ImageField(upload_to='banner_image/', null=True, blank=True)

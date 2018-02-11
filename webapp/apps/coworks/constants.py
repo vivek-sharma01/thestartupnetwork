@@ -23,7 +23,8 @@ MEMBERSHIPS_DICT = {
     'Private Office': 'PS',
     'Virtual Office/Mail box': 'VO',
     'Meeting Rooms for small durations': 'CR',
-    'Conference Rooms': 'CR'
+    'Conference Rooms': 'CR',
+    'Private Cabin': 'PS',
 }
 
 
