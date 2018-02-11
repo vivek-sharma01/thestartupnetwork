@@ -177,15 +177,15 @@
 
 				{% for key, value in data.amenities.items %}
 					<div class="row {{key|amenity_filter_class}}">
+						{% if value %}
 						<div class="col-lg-12 col-md-12 col-sm-6">
 							<h4 class="card-title">
 								<a href="#">{{key}}</a>
 							</h4>
 						</div>
-
+						{% endif %}
 						{% for amenity_list in value %}
 							{% for amenity in amenity_list %}
-								{% if amenity.name %}
 								<div class="col-lg-4 col-md-4 col-sm-6 ">
 									<ul>
 
@@ -196,7 +196,7 @@
 										{% endwith %}
 									</ul>
 								</div>
-								{% endif %}
+
 						{% endfor %}
 					{% endfor %}
 

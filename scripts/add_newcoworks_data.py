@@ -49,7 +49,7 @@ def add_data():
     row_list = data['Details _Single Format']
     row_list.pop(0)
     for row in row_list:
-        
+
         cowork_name = row[2]
         address = row[45]
         location_name = 'bengaluru' if row[47].strip() == 'Bangalore' else row[47].strip()

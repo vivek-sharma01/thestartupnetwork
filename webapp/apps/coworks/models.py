@@ -105,7 +105,6 @@ class Cowork(ModelBase):
                         'time_unit': data.get('time_unit') if data.get('time_unit') else 'month'
                     }
                     response[constants.MEMBERSHIPS_REVERSE_DICT[name]].append(obj)
-        print(response)
         return response
 
     def get_minimum_price(self):
@@ -135,10 +134,11 @@ class Cowork(ModelBase):
         for filter, group in groupby(amenities, key=self.extract_filter):
             if filter and constants.AMENITY_FILTER_REVERSE_MAPPING[filter]:
                 for data in list(group):
-                    obj = {
-                        'name': data.get('name'),
-                    }
-                    response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]].append(obj)
+                    if data.get('name'):
+                        obj = {
+                            'name': data.get('name'),
+                        }
+                        response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]].append(obj)
         for key, val in response.items():
             response[key] = [val[x:x+3] for x in range(0, len(val), 3)]
         
