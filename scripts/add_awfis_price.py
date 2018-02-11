@@ -45,7 +45,13 @@ def add_data():
     new_row_list = []
 
     for row in row_list:
-        cowork = models.Cowork.objects.get(name=row[0])
+        print(row[0])
+        print('\n\n')
+        
+        try:
+            cowork = models.Cowork.objects.get(name=row[0])
+        except:
+            continue
 
         membership = models.MembershipBenefits.objects.get(name='PS')
         pricing_data = {
