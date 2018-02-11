@@ -26,10 +26,31 @@ def send_mail_to_cowork(data, cowork):
         pass
 
     reason = constants.ENQUIRY_REASON[data.get('reason')].format(request_date)
-    mail_text = constants.MEMBERSHIP_ENQUIRY_MAIL_TEXT.format(cowork.name, reason, data['name'],
+    mail_text = constants.CONTACT_US_MAIL_TEXT.format(cowork.name, reason, data['name'],
                                                               data['phone'], data['email'])
 
     mail_subject = constants.MEMBERSHIP_ENQUIRY_MAIL_SUBJECT.format(reason)
+
+    tasks.send_mail(subject=mail_subject, html_body=mail_text, recipient='ashutosh9sharma@gmail.com')
+
+
+def send_membership_mail_to_cowork(data, cowork):
+    """"""
+    request_date = None
+    try:
+        request_date = parse(data['request_date']).date()
+    except:
+        pass
+
+    reason = constants.ENQUIRY_REASON[data.get('reason')].format(request_date)
+    membership_type = constants.MEMBERSHIPS_REVERSE_DICT[data['metadata']['membership_type']]
+    mail_text = constants.MEMBERSHIP_ENQUIRY_MAIL_TEXT.format(cowork.name, reason, data['name'],
+                                                              data['phone'], data['email'],
+                                                              membership_type,
+                                                              data['metadata']['no_of_person'])
+
+    mail_subject = constants.MEMBERSHIP_ENQUIRY_MAIL_SUBJECT.format(reason)
+    # contact_person_email = cowork.contact_person.all()[0].email
 
     tasks.send_mail(subject=mail_subject, html_body=mail_text, recipient='ashutosh9sharma@gmail.com')
 
@@ -43,11 +64,9 @@ def send_mail_to_customer(data, cowork):
         pass
 
     reason = constants.ENQUIRY_REASON[data.get('reason')].format(request_date)
-    # mail_text = constants.MEMBERSHIP_ENQUIRY_MAIL_TEXT.format(cowork.name, reason, data['name'],
-    #                                                           data['phone'], data['email'])
 
     mail_subject = constants.MEMBERSHIP_ENQUIRY_MAIL_SUBJECT.format(reason)
-    # import ipdb;ipdb.set_trace()
+
     contact_obj = cowork.contact_person.all()
     mail_data = {
         'cowork_name': cowork.name,

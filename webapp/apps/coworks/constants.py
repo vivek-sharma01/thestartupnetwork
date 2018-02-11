@@ -117,8 +117,27 @@ AMENITY_FILTER_REVERSE_MAPPING = {
 ENQUIRY_REASON = {
     'day pass': 'Day Pass Request for {}',
     'membership enquiry': 'Membership Request',
-    'message': 'Message'
+    'message': 'Message',
+    'book a tour': 'Book A Tour'
 }
+
+CONTACT_US_MAIL_TEXT = """
+Hi,<br><br>
+
+    Greeting from <a href="https://www.thestartupnetwork.in/">The Startup Network!</a><br><br>
+
+    <b>You have received a customer enquiry.</b><br><br>
+
+    Venue:- {}<br><br>
+
+    Enquiry Details<br><br>
+
+    Enquiry Type:- {}<br>
+    Customer Name:- {}<br>
+    Contact Number:- {}<br>
+    Email id:- {}<br><br>
+    In case of any query, reply to the same mail."""
+
 
 MEMBERSHIP_ENQUIRY_MAIL_TEXT = """
 Hi,<br><br>
@@ -135,8 +154,13 @@ Hi,<br><br>
     Customer Name:- {}<br>
     Contact Number:- {}<br>
     Email id:- {}<br><br>
-
+    Membership Type:- {}<br><br>
+    No of seats required:- {}<br><br>
     In case of any query, reply to the same mail."""
 
 MEMBERSHIP_ENQUIRY_MAIL_SUBJECT = "{} | Customer Enquiry | The Startup Network"
+
+CONTACT_US_MAIL_FUCTION_MAPPING = {
+    'membership enquiry': 'send_membership_mail_to_cowork'
+}
 

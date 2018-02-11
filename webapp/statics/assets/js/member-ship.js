@@ -55,7 +55,12 @@ var csrftoken = Cookies.get('csrftoken');
             'phone': $('#phone').val(),
             'message': $('#message').val(),
             'reason': 'membership enquiry',
-            'cowork_slug': $('#cowork_slug').val()
+            'cowork_slug': $('#cowork_slug').val(),
+            'request_date': $('#membership-request-date').val() + 'T00:00',
+            'metadata': {
+                'membership_type': $('#membership_type').val(),
+                'no_of_person': $('#no_of_person').val()
+            }
         }
 
         $.ajax({

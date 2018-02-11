@@ -11,8 +11,8 @@
 								<td class="label-2" >Select time Slot</td>
 							</tr>
 							<tr>
-								<td><div class="input-group date form_date "  style="width:165px !important; margin-left:38%;margin-top: 4px;" data-date-format="dd MM yyyy"  data-link-field="dtp_input1">
-									<input class="form-control name" id="book-a-tour-date" style="padding:7%;height:40px;" type="text" value ="DD/MM/YYYY" readonly/>
+								<td><div class="input-group date form_date "  style="width:165px !important; margin-left:38%;margin-top: 4px;" data-date-format="yyyy-mm-dd"  data-link-field="dtp_input1">
+									<input class="form-control name" id="book-a-tour-date" style="padding:7%;height:40px;" type="text" value ="YYYY-MM-DD" readonly/>
 									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 						 </div></td>
 								<td><input type="text" id="time" class="time" placeholder="00 - 00 Hours" readonly><i class="fa fa-clock-o" aria-hidden="true"></i></td>
@@ -22,7 +22,7 @@
 									<div id="time-slots">
 										<label for="24 hour" class="hour">24 hour</label>
 										<div id="slots">
-											<table id="time">
+											<table id="">
 												<tr>
 													<td data-slot="9 - 10 AM" class="select-slot">9-10</td>
 													<td data-slot="10 - 11 AM" class="select-slot">10-11</td>
@@ -48,16 +48,16 @@
 						<div id="input">
 							<table id="form">
 								<tr>
-									<td><input type="text" placeholder="Name*" required></td>
+									<td><input type="text" id="book-tour-name" placeholder="Name*" required></td>
 								</tr>
 								<tr>
-									<td><input type="email" placeholder="Email*" required></td>
+									<td><input type="email" id="book-tour-email" placeholder="Email*" required></td>
 								</tr>
 								<tr>
-									<td><input type="text" id="code" minlength="10" maxlength="20" placeholder="Phone*" maxlength="12" onclick="phone();" required></td>
+									<td><input type="text" id="book-tour-phone" minlength="10" maxlength="20" placeholder="Phone*" maxlength="12" onclick="phone();" required></td>
 								</tr>
 								<tr>
-									<td><textarea name="" id="" cols="30" rows="10" minlength="3" maxlength="100" placeholder="Message*" required></textarea></td>
+									<td><textarea name="" id="book-tour-message" cols="30" rows="10" minlength="3" maxlength="100" placeholder="Message*" required></textarea></td>
 								</tr>
 								<tr>
 									<td><input type="submit" value="Submit"></td>
@@ -76,7 +76,7 @@
 		<div class="modal-content">
 			<span id="tour-booked-close" class="tour-booked-close">&#10005;</span>
 			<img class="image" src="{% custom_static 'assets/images/tick.png' %}"/>
-            <h1>WeWork Tour Booked!</h1>
+            <h1>{{data.name}} Tour Booked!</h1>
             <p>Booking details will be shared on your email id.</p>
 		</div>
   </div>

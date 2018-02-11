@@ -62,13 +62,17 @@ var csrftoken = Cookies.get('csrftoken');
         $form = $(this);
 
         var data = {
-            'name': $('#name').val(),
-            'email': $('#email').val(),
-            'phone': $('#phone').val(),
-            'message': $('#message').val(),
-            'reason': 'membership enquiry',
+            'name': $('#book-tour-name').val(),
+            'email': $('#book-tour-email').val(),
+            'phone': $('#book-tour-phone').val(),
+            'message': $('#book-tour-message').val(),
+            'reason': 'book a tour',
 			'request_date':$('#book-a-tour-date').val() + 'T00:00',
-			'selected_slot' : selectedSlot
+			'cowork_slug': $('#cowork_slug').val(),
+			'metadata': {
+			    'timeslot': selectedSlot
+			}
+
         }
 
         $.ajax({

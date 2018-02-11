@@ -32,10 +32,11 @@ class MembershipBenefitSerializer(serializers.ModelSerializer):
     """Amenity list serializer"""
     name = serializers.CharField(source='get_name')
     suitable_for = serializers.ListField(source='get_suitable_for')
+    code = serializers.CharField(source='name')
 
     class Meta:
         model = models.MembershipBenefits
-        fields = ('name', 'description', 'suitable_for')
+        fields = ('name', 'description', 'suitable_for', 'code')
 
 
 class PricingSerializer(serializers.ModelSerializer):

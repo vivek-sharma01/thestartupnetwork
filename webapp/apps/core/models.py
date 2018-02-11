@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import JSONField
 
 from webapp.apps.coworks import models as cowork_model
 
@@ -21,6 +22,7 @@ class ContactUs(models.Model):
     cowork = models.ForeignKey(cowork_model.Cowork, related_name="contact_cowork", null=True, blank=True)
     reason = models.TextField(null=True, blank=True)
     request_date = models.DateTimeField(null=True, blank=True)
+    metadata = JSONField(null=True, blank=True)
 
     def __str__(self):
         return "phone: " + str(self.phone) + " email: " + str(self.email)

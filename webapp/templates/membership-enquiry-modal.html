@@ -14,24 +14,23 @@
 								<td><input type="email" id="email" placeholder="Email*" required></td>
 							</tr>
 							<tr>
-								<td><select class="form-control" id="sel1" placeholder="Search">
+								<td><select class="form-control" id="membership_type" placeholder="Search">
 									<option value="" selected disabled style="display: none;">Membership Type</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
+									{% for membership in space_types %}
+									<option value="{{membership.code}}">{{membership.name}}</option>
+									{% endfor %}
 								</select></td>
 							</tr>
 							<tr>
-								<td><select class="form-control" id="sel1" style="width: 130px;height: 40px;">
+								<td><select class="form-control" id="no_of_person" style="width: 130px;height: 40px;">
 									<option value="" selected disabled style="display: none;">No of Persons</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
+									{% for persons in 'xxxxxxxx' %}
+									<option value="{{forloop.counter}}">{{forloop.counter}}</option>
+
+									{% endfor %}
 								</select></td>
-								<td><div class="input-group date form_date "  id="membership-calendar" style="width: 165px !important;margin-left: 38%;margin-top: 21px;margin-left: -199px;height: 40px;" data-date-format="dd MM yyyy"  data-link-field="dtp_input1">
-									<input class="form-control name"  style="padding:7%;width: 150px;" type="text" value ="DD/MM/YYYY" readonly/>
+								<td><div class="input-group date form_date "  id="membership-calendar" style="width: 165px !important;margin-left: 38%;margin-top: 21px;margin-left: -199px;height: 40px;" data-date-format="yyyy-mm-dd"  data-link-field="dtp_input1">
+									<input class="form-control name" id="membership-request-date"  style="padding:7%;width: 150px;" type="text" value ="YYYY-MM-DD" readonly/>
 									<span class="input-group-addon" id="test" style="display: inline-block;position: absolute;width: 50px;height:40px"><span class="glyphicon glyphicon-calendar" style="padding:9%;"></span></span>
 								</td>
 							</tr>
