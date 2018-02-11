@@ -1,5 +1,7 @@
 $(function () {
 
+var selectedSlot;
+
 var bookTourModal = $('#book-a-tour');
 
 // Get the button that opens the modal
@@ -32,7 +34,7 @@ $(document).on('click',"#time",function(){
 });
 
 $(document).on('click',".select-slot",function(){
-	var selectedSlot = $(this).attr('data-slot');
+	selectedSlot = $(this).attr('data-slot');
 	$('#time').val(selectedSlot);
 	
 });
@@ -64,7 +66,9 @@ var csrftoken = Cookies.get('csrftoken');
             'email': $('#email').val(),
             'phone': $('#phone').val(),
             'message': $('#message').val(),
-            'reason': 'membership enquiry'
+            'reason': 'membership enquiry',
+			'request_date':$('#book-a-tour-date').val() + 'T00:00',
+			'selected_slot' : selectedSlot
         }
 
         $.ajax({
