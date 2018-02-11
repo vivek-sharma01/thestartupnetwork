@@ -18,9 +18,9 @@ from slugify import slugify
 def add_pricing(cowork, membership, pricing_data):
     """"""
     from webapp.apps.coworks import models, constants
-    if pricing_data['price'] != 'N.A.' and pricing_data['price'] != 'N.A':
+    if pricing_data['price'] != 'NA' and pricing_data['price'] != 'N.A':
         obj = models.Pricing.objects.create(**pricing_data)
-        print('pricing object created for cowork {} membership {} pricing data {}'.format(cowork, membership,
+        print('pricing object created for cowork {} membership {} pricing data {}'.format(cowork.name, membership.name,
                                                                                               pricing_data))
 
 
@@ -35,29 +35,29 @@ def add_data():
     BASE_PATH = os.path.dirname(os.path.realpath(__file__))
     from webapp.apps.coworks import models, constants
 
-    file_path = os.path.join(BASE_PATH, 'Awfis Details.xlsx')
+    file_path = os.path.join(BASE_PATH, 'Innov8-Data-new.xlsx')
     data = get_data(file_path)
 
     # row_list is data of first sheet
-    row_list = data['Price']
+    row_list = data['Price List']
     row_list.pop(0)
-
+    row_list.pop(0)
     new_row_list = []
 
     for row in row_list:
         print(row[0])
         print('\n\n')
-        
         try:
             cowork = models.Cowork.objects.get(name=row[0])
         except:
             continue
-
+        cowork.price_per_day = row[2]
+        cowork.price_per_week = row[3]
         membership = models.MembershipBenefits.objects.get(name='PS')
         pricing_data = {
             'cowork_id': cowork.id,
             'membership_id': membership.id,
-            'price': row[1],
+            'price': row[5],
             'time_unit': 'month',
             'time_value': '1',
             'seats': 1
@@ -65,26 +65,6 @@ def add_data():
         add_pricing(cowork, membership, pricing_data)
 
         membership = models.MembershipBenefits.objects.get(name='DD')
-        pricing_data = {
-            'cowork_id': cowork.id,
-            'membership_id': membership.id,
-            'price': row[2],
-            'time_unit': 'day',
-            'time_value': '1',
-            'seats': 1
-        }
-        add_pricing(cowork, membership, pricing_data)
-
-        pricing_data = {
-            'cowork_id': cowork.id,
-            'membership_id': membership.id,
-            'price': row[3],
-            'time_unit': 'week',
-            'time_value': '1',
-            'seats': 1
-        }
-        add_pricing(cowork, membership, pricing_data)
-
         pricing_data = {
             'cowork_id': cowork.id,
             'membership_id': membership.id,
@@ -99,27 +79,7 @@ def add_data():
         pricing_data = {
             'cowork_id': cowork.id,
             'membership_id': membership.id,
-            'price': row[5],
-            'time_unit': 'day',
-            'time_value': '1',
-            'seats': 1
-        }
-        add_pricing(cowork, membership, pricing_data)
-
-        pricing_data = {
-            'cowork_id': cowork.id,
-            'membership_id': membership.id,
-            'price': row[6],
-            'time_unit': 'week',
-            'time_value': '1',
-            'seats': 1
-        }
-        add_pricing(cowork, membership, pricing_data)
-
-        pricing_data = {
-            'cowork_id': cowork.id,
-            'membership_id': membership.id,
-            'price': row[7],
+            'price': row[1],
             'time_unit': 'month',
             'time_value': '1',
             'seats': 1
@@ -130,7 +90,7 @@ def add_data():
         pricing_data = {
             'cowork_id': cowork.id,
             'membership_id': membership.id,
-            'price': row[8],
+            'price': row[7],
             'time_unit': 'hour',
             'time_value': '1',
             'seats': 4
@@ -140,8 +100,19 @@ def add_data():
         pricing_data = {
             'cowork_id': cowork.id,
             'membership_id': membership.id,
-            'price': row[9],
-            'time_unit': 'day',
+            'price': row[8],
+            'time_unit': 'hour',
+            'time_value': '1',
+            'seats': 8
+        }
+        add_pricing(cowork, membership, pricing_data)
+
+        membership = models.MembershipBenefits.objects.get(name='VO')
+        pricing_data = {
+            'cowork_id': cowork.id,
+            'membership_id': membership.id,
+            'price': row[5],
+            'time_unit': 'month',
             'time_value': '1',
             'seats': 4
         }
@@ -150,42 +121,13 @@ def add_data():
         pricing_data = {
             'cowork_id': cowork.id,
             'membership_id': membership.id,
-            'price': row[10],
-            'time_unit': 'hour',
-            'time_value': '1',
-            'seats': 6
-        }
-        add_pricing(cowork, membership, pricing_data)
-
-        pricing_data = {
-            'cowork_id': cowork.id,
-            'membership_id': membership.id,
-            'price': row[11],
-            'time_unit': 'day',
-            'time_value': '1',
-            'seats': 6
-        }
-        add_pricing(cowork, membership, pricing_data)
-
-        pricing_data = {
-            'cowork_id': cowork.id,
-            'membership_id': membership.id,
-            'price': row[12],
-            'time_unit': 'hour',
+            'price': row[6],
+            'time_unit': 'month',
             'time_value': '1',
             'seats': 8
         }
         add_pricing(cowork, membership, pricing_data)
 
-        pricing_data = {
-            'cowork_id': cowork.id,
-            'membership_id': membership.id,
-            'price': row[8],
-            'time_unit': 'day',
-            'time_value': '1',
-            'seats': 8
-        }
-        add_pricing(cowork, membership, pricing_data)
 
 if __name__ == "__main__":
     SITE_ROOT = os.path.dirname(dirname(os.path.realpath(__file__)))

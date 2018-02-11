@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from django.contrib.postgres.fields import ArrayField
 from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import slugify
@@ -52,6 +53,7 @@ class Cowork(ModelBase):
     location = models.ForeignKey('coworks.location', related_name='location_coworks', null=True, blank=True)
     website_url = models.CharField(max_length=500, null=True, blank=True)
     price_per_day = models.CharField(max_length=50, null=True, blank=True)
+    price_per_week = models.CharField(max_length=50, null=True, blank=True)
     price_per_month = models.CharField(max_length=50, null=True, blank=True)
     no_of_workstattion = models.CharField(max_length=50, null=True, blank=True)
     banner_image = models.ImageField(upload_to='banner_image/', null=True, blank=True)
@@ -103,14 +105,14 @@ class Cowork(ModelBase):
                         'time_unit': data.get('time_unit') if data.get('time_unit') else 'month'
                     }
                     response[constants.MEMBERSHIPS_REVERSE_DICT[name]].append(obj)
-        print(response)
         return response
 
     def get_minimum_price(self):
         """minimum price for a cowork"""
         if self.price_per_month:
             return self.price_per_month
-        memberships = Pricing.objects.filter(cowork_id=self.id).exclude(membership__name='CR') .values_list('price', flat=True)
+        memberships = Pricing.objects.filter(cowork_id=self.id).exclude(
+            Q(membership__name='CR')|Q(time_unit='day')|Q(time_unit='week')) .values_list('price', flat=True)
         return min(memberships) if memberships else None
 
     def get_location_name(self):
@@ -132,10 +134,11 @@ class Cowork(ModelBase):
         for filter, group in groupby(amenities, key=self.extract_filter):
             if filter and constants.AMENITY_FILTER_REVERSE_MAPPING[filter]:
                 for data in list(group):
-                    obj = {
-                        'name': data.get('name'),
-                    }
-                    response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]].append(obj)
+                    if data.get('name'):
+                        obj = {
+                            'name': data.get('name'),
+                        }
+                        response[constants.AMENITY_FILTER_REVERSE_MAPPING[filter]].append(obj)
         for key, val in response.items():
             response[key] = [val[x:x+3] for x in range(0, len(val), 3)]
         
