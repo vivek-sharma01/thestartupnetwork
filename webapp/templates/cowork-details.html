@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="{% custom_static 'assets/css/day-pass.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% custom_static 'assets/css/day-pass-sent.css' %}" type="text/css"/>
 	<link rel="stylesheet" href="{% custom_static 'assets/css/book-a-tour.css' %}" type="text/css"/>
+	<link rel="stylesheet" href="{% custom_static 'assets/css/add-rating.css' %}" type="text/css"/>
 	<link rel="stylesheet" type="text/css" href="{% custom_static 'assets/css/bootstrap-datetimepicker.min.css' %}">
   
 {% endblock %}
@@ -29,6 +30,7 @@
 	<script src="{% custom_static 'assets/js/tour-booked-sent.js' %}"></script>
 	<script src="{% custom_static 'assets/js/contact-wework.js' %}"></script>
 	<script src="{% custom_static 'assets/js/add-cowork.js' %}"></script>
+	<script src="{% custom_static 'assets/js/add-rating.js' %}"></script>
 	<script type="text/javascript" src="{% custom_static 'assets/js/bootstrap-datetimepicker.js' %}" charset="UTF-8"></script>
 
 {% endblock %}
@@ -59,7 +61,7 @@
 				<div class="add-rating-container">
 					<div class="rating-container"></div>
 					<div class="review-value-details">186</div>
-					<div class="add-rating"><a>Add Your Rating</a></div>
+					<div class="add-rating" id="add-rating-popup"><a>Add Your Rating</a></div>
 				</div>
 			</div>
 			<div class="overview">
@@ -335,8 +337,11 @@
 
 {% include 'day-pass-modal.html' %}
 {% include 'book-a-tour.html' %}
+{% include 'add-rating.html' %}
+
 <script src="{% custom_static 'assets/js/day-pass.js' %}"></script>
 <script src="{% custom_static 'assets/js/book-a-tour.js' %}"></script>
+
 
 <input type="hidden" id="image_url" value="{% if data.banner_image %}/{{data.banner_image}}
 				 {% else %} {% custom_static 'assets/images/annie-spratt-294450.jpg' %} {% endif %}"/>
