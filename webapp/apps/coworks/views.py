@@ -48,7 +48,7 @@ class CoworkIndex(APIView):
         """"""
         space_types = models.MembershipBenefits.objects.all()
         serializer = serializers.MembershipBenefitSerializer(space_types, many=True)
-        most_popular_coworks = models.Cowork.objects.filter(name__icontains='awfis')#.values('name', 'location__name')
+        most_popular_coworks = models.Cowork.objects.filter(name__icontains='innov')#.values('name', 'location__name')
         most_popular_coworks_serializer = serializers.CoworksListSerializer(most_popular_coworks, many=True)
         space_types = sorted(serializer.data, key=utils.extract_membership_name)
         context = {

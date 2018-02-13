@@ -7,11 +7,11 @@ class CoworkManager(models.Manager):
 
     def get_coworks_list(self, **kwargs):
         """get coworks list"""
-        return self.filter(**kwargs).order_by('-created_at')
+        return self.filter(is_deleted=False, **kwargs).order_by('-created_at')
 
     def get_coworks_list_search(self, search_keyword, **kwargs):
         """get coworks list"""
-        return self.filter(Q(name__icontains=search_keyword) | Q(location__name__icontains=search_keyword))
+        return self.filter(Q(is_deleted=False), Q(name__icontains=search_keyword) | Q(location__name__icontains=search_keyword))
 
     def get_cowork_by_slug(self, slug):
         """get cowork by slug"""
