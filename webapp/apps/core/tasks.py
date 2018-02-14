@@ -4,8 +4,9 @@ import smtplib
 import email.utils
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from celery import shared_task
 
-
+@shared_task
 def send_mail(subject, html_body='', text_body='', sender='contact@thestartupnetwork.in', recipient=''):
     """
     Send Mail Generic Function

@@ -4,6 +4,7 @@ from . import models, serializers, constants
 from webapp.apps.core import tasks
 
 from dateutil.parser import parse
+import datetime
 
 
 def get_locations():
@@ -23,6 +24,7 @@ def send_mail_to_cowork(data, cowork):
     try:
         request_date = parse(data['request_date']).date()
     except:
+        request_date = datetime.datetime.today()
         pass
 
     reason = constants.ENQUIRY_REASON[data.get('reason')].format(request_date)
@@ -31,7 +33,12 @@ def send_mail_to_cowork(data, cowork):
 
     mail_subject = constants.MEMBERSHIP_ENQUIRY_MAIL_SUBJECT.format(reason)
 
-    tasks.send_mail(subject=mail_subject, html_body=mail_text, recipient='ashutosh9sharma@gmail.com')
+    try:
+        contact_person_email = cowork.contact_person.all()[0].email
+        tasks.send_mail.delay(subject=mail_subject, html_body=mail_text, recipient=contact_person_email)
+
+    except:
+        pass
 
 
 def send_membership_mail_to_cowork(data, cowork):
@@ -50,9 +57,11 @@ def send_membership_mail_to_cowork(data, cowork):
                                                               data['metadata']['no_of_person'])
 
     mail_subject = constants.MEMBERSHIP_ENQUIRY_MAIL_SUBJECT.format(reason)
-    # contact_person_email = cowork.contact_person.all()[0].email
-
-    tasks.send_mail(subject=mail_subject, html_body=mail_text, recipient='ashutosh9sharma@gmail.com')
+    try:
+        contact_person_email = cowork.contact_person.all()[0].email
+        tasks.send_mail(subject=mail_subject, html_body=mail_text, recipient=contact_person_email).delay()
+    except:
+        pass
 
 
 def send_mail_to_customer(data, cowork):
@@ -82,4 +91,5 @@ def send_mail_to_customer(data, cowork):
         mail_data.update(obj)
 
     html_content = render_to_string('membership-customer-email.html', mail_data)
-    tasks.send_mail(subject=mail_subject, html_body=html_content, recipient='ashutosh9sharma@gmail.com')
+    email = data['email']
+    tasks.send_mail(subject=mail_subject, html_body=html_content, recipient=email).delay()
