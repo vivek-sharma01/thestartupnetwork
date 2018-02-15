@@ -9,6 +9,39 @@ var addRatingBtn = $('#add-rating-popup');
 // Get the <span> element that closes the modal
 var span = $(".add-cowork-rating-close");
 
+var secretKey = "thestartupnetwork";
+var d = new Date();
+var timeStamp = d.getTime();
+
+var ratingKey = secretKey +"_"+timeStamp;
+
+var key = "6Le0DgMTAAAAANokdEEial"; 
+var iv  = "mHGFxENnZLbienLyANoi.e"; 
+
+key = CryptoJS.enc.Base64.parse(key);
+
+iv = CryptoJS.enc.Base64.parse(iv);
+
+var encrypted = CryptoJS.AES.encrypt(ratingKey, key, { iv: iv });
+
+var decrypted = CryptoJS.AES.decrypt(encrypted, key, { iv: iv });
+
+var plaintext = decrypted.toString(CryptoJS.enc.Utf8);
+	
+var cookieValue=getCookie("ratingKey");
+console.log("cookieValue.." + cookieValue);
+	
+if (cookieValue != "" && localStorage.getItem("ratingKey") != null) {
+	console.log("key exists");
+} 
+else{
+	  setCookie("ratingKey", encrypted, 30);
+	  localStorage.setItem("ratingKey", encrypted);
+}
+
+var localStorageValue = localStorage.getItem("ratingKey");
+console.log("localStorageValue..." + localStorageValue); 
+
 // When the user clicks the button, open the modal 
 addRatingBtn.click(function() {
     addRatingModal.show();
@@ -30,10 +63,9 @@ window.onclick = function(event) {
 $(document).on('click',".rating-selector",function(){
 	
 var rates = document.getElementsByName('rating');
-var rate_value;
 for(var i = 0; i < rates.length; i++){
     if(rates[i].checked){
-        rate_value = rates[i].value;
+        var rate_value = rates[i].value;
          document.getElementById("selected-rating-value").innerHTML = rate_value;
     }
 } 
@@ -44,25 +76,6 @@ $("#submit-rating").show();
 $("#submit-rating").css({"backgroundColor":"teal","color":"white"});
 });
 
-/* 
-function myFunction() {
-var rates = document.getElementsByName('rating');
-var rate_value;
-for(var i = 0; i < rates.length; i++){
-    if(rates[i].checked){
-        rate_value = rates[i].value;
-         document.getElementById("selected-rating-value").innerHTML = rate_value;
-    }
-} 
-
-document.getElementById("display-1").innerHTML = rate_value;
-document.getElementById("submit-rating").disabled = false;
-document.getElementById("submit-rating").style.display = "block";
-document.getElementById("submit-rating").style.backgroundColor = "teal";
-document.getElementById("submit-rating").style.color = "white";
-
-} */
-
 function selectRating() {
 	$("#submit-rating").show();
 }
@@ -71,3 +84,27 @@ function change() {
 	$("#display").show();
 	$("#rating-popup").hide();
 }
+
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
