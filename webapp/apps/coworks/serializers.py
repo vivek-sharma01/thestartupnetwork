@@ -110,4 +110,4 @@ class CoworkRatingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.CoworkRating
-        exclude = ('id', 'cowork')
+        exclude = ('cowork',)

@@ -1,15 +1,18 @@
 $(function () {
-
+		
+		var rating_value = $("#cowork_rating").val();
+		
         var that = this;
         var toolitup = $(".rating-container").jRate({
-            rating: 1,
+            rating: rating_value,
             startColor: "#008489",
             endColor: "#008489",
             strokeColor: "#008489",
             strokeWidth:"20px",
             precision: 1,
             width: 22,
-            height: 22
+            height: 22,
+			readOnly: true
         });
 
         var toolitup = $(".price-rate").jRate({
