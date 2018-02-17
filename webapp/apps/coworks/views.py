@@ -118,3 +118,19 @@ class CoworksDetails(APIView):
         # return Response(serializer.errors, status=status.HTTP_200_OK)
             return render(request, template_name=self.template_name, context=context)
         return render(request, template_name=self.template_name, context={})
+
+
+class CoworkRating(APIView):
+    """Ratings for a cowork"""
+
+    def post(self, request):
+        """"""
+        data = request.data
+        if 'cowork_slug' in request.data:
+            cowork = models.Cowork.objects.get_cowork_by_slug(request.data['cowork_slug'])
+            # data['cowork_id'] = cowork.id
+        serializer = serializers.CoworkRatingSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save(cowork_id=cowork.id)
+            return Response({'message': 'success'}, status=status.HTTP_201_CREATED)
+        return Response({'message': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)

@@ -87,12 +87,14 @@ class CoworksDetailSerializer(serializers.ModelSerializer):
     pricing = serializers.DictField(source='get_pricing')
     starting_price = serializers.CharField(source='get_minimum_price')
     city = serializers.CharField(source='get_location_name')
+    rating = serializers.FloatField(source='get_rating')
+    rate_count = serializers.IntegerField(source='get_rate_count')
 
     class Meta:
         model = models.Cowork
         fields = ('name', 'slug', 'description', 'address', 'starting_price', 'banner_image',
                   'city', 'amenities', 'contact_person', 'pricing', 'locality', 'parent_cowork',
-                  'reasons_to_choose')
+                  'reasons_to_choose', 'rating', 'rate_count')
 
 
 class SimilarCoworksDetailSerializer(serializers.ModelSerializer):
@@ -101,3 +103,11 @@ class SimilarCoworksDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Cowork
         fields = ('name', 'address', 'banner_image', 'url')
+
+
+class CoworkRatingSerializer(serializers.ModelSerializer):
+    """cowork ratings serializer"""
+
+    class Meta:
+        model = models.CoworkRating
+        exclude = ('id', 'cowork')

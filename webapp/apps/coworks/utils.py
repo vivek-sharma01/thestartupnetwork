@@ -71,11 +71,8 @@ def send_mail_to_customer(data, cowork):
         request_date = parse(data['request_date']).date()
     except:
         pass
-
     reason = constants.ENQUIRY_REASON[data.get('reason')].format(request_date)
-
     mail_subject = constants.MEMBERSHIP_ENQUIRY_MAIL_SUBJECT.format(reason)
-
     contact_obj = cowork.contact_person.all()
     mail_data = {
         'cowork_name': cowork.name,

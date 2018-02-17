@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Q
+from django.db.models import Avg
 from django.contrib.postgres.fields import ArrayField
 from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import slugify
@@ -144,6 +145,13 @@ class Cowork(ModelBase):
         
         return response
 
+    def get_rating(self):
+        """calculate ratings for cowork"""
+        return CoworkRating.objects.filter(cowork_id=self.id).aggregate(avg_rating=Avg('rating')).get('avg_rating')
+
+    def get_rate_count(self):
+        """calculate ratings for cowork"""
+        return CoworkRating.objects.filter(cowork_id=self.id).count()
 
 class MembershipBenefits(models.Model):
     """Membership benefits for cowork"""
@@ -229,3 +237,13 @@ class Location(models.Model):
     def name_capitalize(self):
         """"""
         return " ".join(list(map(lambda x: x.capitalize(), self.name.split())))
+
+
+class CoworkRating(models.Model):
+    """Cowork ratings model"""
+    cowork = models.ForeignKey(Cowork, related_name="rating_cowork", null=True, blank=True)
+    rating = models.FloatField(default=0)
+    user_id = models.CharField(max_length=100, primary_key=True)
+
+    def __str__(self):
+        return self.user_id or ''

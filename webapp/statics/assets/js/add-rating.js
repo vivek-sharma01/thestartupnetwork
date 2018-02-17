@@ -1,6 +1,6 @@
 $(function () {
 // Get the modal
-
+var rate_value;
 var addRatingModal = $('#add-cowork-modal');
 
 // Get the button that opens the modal
@@ -58,16 +58,51 @@ window.onclick = function(event) {
         addRatingModal.hide();
     }
 }
+
+
+$('#submit-rating').click(function(e) {
+
+        e.preventDefault();
+        $form = $(this);
+
+        var data = {
+            'rating': $("#selected-rating-value").text(),
+            'user_id': localStorageValue,
+            'cowork_slug': $('#cowork_slug').val()
+        }
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: '/coworks/rating/',
+            headers: {
+                'X-CSRFToken': csrftoken,
+                'Content-Type': 'application/json'
+                },
+            data: JSON.stringify(data),
+            success: function(response) {
+                addRatingModal.hide();
+            },
+            error: function (response) {
+                addRatingModal.hide();
+            },
+            dataType: 'json',
+            contentType: 'json'
+        });
+
 });
+
+
+
 
 $(document).on('click',".rating-selector",function(){
 	
 var rates = document.getElementsByName('rating');
 for(var i = 0; i < rates.length; i++){
     if(rates[i].checked){
-        var rate_value = rates[i].value;
+        rate_value = rates[i].value;
          document.getElementById("selected-rating-value").innerHTML = rate_value;
     }
+    console.log(rate_value);
 } 
 
 $("#display-1").innerHTML = rate_value;
@@ -108,3 +143,8 @@ function getCookie(cname) {
     return "";
 }
 
+
+
+
+
+});

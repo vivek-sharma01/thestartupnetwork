@@ -61,7 +61,7 @@
 				</div>
 				<div class="add-rating-container">
 					<div class="rating-container"></div>
-					<div class="review-value-details">186</div>
+					<div class="review-value-details">{{data.rate_count}}</div>
 					<div class="add-rating" id="add-rating-popup"><a>Add Your Rating</a></div>
 				</div>
 			</div>
@@ -347,4 +347,5 @@
 <input type="hidden" id="image_url" value="{% if data.banner_image %}/{{data.banner_image}}
 				 {% else %} {% custom_static 'assets/images/annie-spratt-294450.jpg' %} {% endif %}"/>
 <input type="hidden" value="{{data.slug}}" id="cowork_slug"/>
+<input type="hidden" value="{{data.rating}}" id="cowork_rating"/>
  {% endblock %}
